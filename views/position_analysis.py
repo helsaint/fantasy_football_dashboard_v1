@@ -42,7 +42,10 @@ def show(df):
                 right_on='player_id',
                 how='left'
             )
-            print(df_manager_team_detailed.position_y.unique())
+
+            position_map = {1: ('GK',2), 2: ('DEF',5), 3: ('MID', 5), 4: ('FWD', 3)}
+
+
             pos_key = "GK_NAME_1"
             x, y, w, h = POSITION_COORDINATES[pos_key]
             font_family = TEXT_FONT["font_family"]
@@ -105,6 +108,38 @@ def show(df):
                 draw.text((x, y), f"Pts: {text}", fill=TEXT_FONT["font_color_values"], font=font)
                 # Player Photo
                 pos_key = f"MID_{i+1}"
+                x, y, w, h = POSITION_COORDINATES[pos_key]
+                text = df_manager_team_detailed[df_manager_team_detailed['position_y']==position]['photo'].values[i]
+                text = text.replace('.jpg','').replace('.png','')
+                try:
+                    photo_url = f"https://resources.premierleague.com/premierleague/photos/players/110x140/p{text}.png"
+                    player_image = Image.open(requests.get(photo_url, stream=True).raw).resize((w, h))
+                    pitch_image.paste(player_image, (x, y))
+                except Exception as e:
+                    print(f"Error loading image for player {text}: {e}")
+
+            for i in range(3):
+                position = 4
+                font_family = TEXT_FONT["font_family"]
+                font_size = TEXT_FONT["font_size_names"]
+                font = ImageFont.truetype(font_family, font_size)
+                # Player Name
+                text = df_manager_team_detailed[df_manager_team_detailed['position_y']==position]['player_name'].values[i]
+                pos_key = f"FWD_NAME_{i+1}"
+                x, y, w, h = POSITION_COORDINATES[pos_key]
+                draw.text((x, y), text, fill=TEXT_FONT["font_color_names"], font=font)
+                # Player Value
+                pos_key = f"FWD_VALUE_{i+1}"
+                x, y, w, h = POSITION_COORDINATES[pos_key]
+                text = df_manager_team_detailed[df_manager_team_detailed['position_y']==position]['now_cost'].values[i]
+                draw.text((x, y), f"£{text/10}m", fill=TEXT_FONT["font_color_values"], font=font)
+                # Player GW Points
+                pos_key = f"FWD_POINTS_{i+1}"
+                x, y, w, h = POSITION_COORDINATES[pos_key]
+                text = df_manager_team_detailed[df_manager_team_detailed['position_y']==position]['total_points'].values[i]
+                draw.text((x, y), f"Pts: {text}", fill=TEXT_FONT["font_color_values"], font=font)
+                # Player Photo
+                pos_key = f"FWD_{i+1}"
                 x, y, w, h = POSITION_COORDINATES[pos_key]
                 text = df_manager_team_detailed[df_manager_team_detailed['position_y']==position]['photo'].values[i]
                 text = text.replace('.jpg','').replace('.png','')

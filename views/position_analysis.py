@@ -35,6 +35,11 @@ def show(df):
             manager_data = fetch_manager_data(manager_id, gw)
             df_manager_team = pd.DataFrame(manager_data['picks']) if manager_data else pd.DataFrame()
             df_fpl_features = load_player_data()
+            gw_latest = df_fpl_features['gw'].max()
+            gw_data_available = 0 if df_fpl_features.loc[df_fpl_features['gw'] == gw, 'now_cost'].sum() == 0 else 1
+            if gw_data_available == 0:
+                st.warning(f"Data for GW{gw} is not available yet. Displaying data for GW{gw_latest-1} instead.")
+                gw = gw_latest-1
             df_manager_team_detailed = pd.merge(
                 df_manager_team,
                 df_fpl_features[df_fpl_features['gw'] == gw],
@@ -51,6 +56,7 @@ def show(df):
             font_family = TEXT_FONT["font_family"]
             font_size = TEXT_FONT["font_size_names"]
             font = ImageFont.truetype(font_family, font_size)
+            print(df_manager_team_detailed['now_cost'], gw_data_available)
             text = df_manager_team_detailed[df_manager_team_detailed['position_y']==1]['player_name'].values[0]
             draw.text((x, y), text, fill="white", font=font)
 

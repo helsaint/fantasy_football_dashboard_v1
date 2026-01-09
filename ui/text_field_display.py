@@ -20,7 +20,7 @@ def text_display(pitch_image, pos_key, position,
     pos_key_name = f"{pos_key}_NAME_{i+1}"
     x, y, w, h = POSITION_COORDINATES[pos_key_name]
     draw.text((x, y), text, fill=TEXT_FONT["font_color_names"], font=font_name)
-    print(draw)
+    
     # Player Value
     pos_key_value = f"{pos_key}_VALUE_{i+1}"
     x, y, w, h = POSITION_COORDINATES[pos_key_value]

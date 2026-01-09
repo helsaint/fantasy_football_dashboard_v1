@@ -12,6 +12,7 @@ from utils.load_fpl_features import load_player_data
 from config.position_config import POSITION_COORDINATES
 from config.text import TEXT_FONT
 from ui.fpl_search import fpl_search_inputs
+from ui.text_field_display import text_display
 
 def show(df):
     """Display a simple football pitch image"""
@@ -51,108 +52,41 @@ def show(df):
             position_map = {1: ('GK',2), 2: ('DEF',5), 3: ('MID', 5), 4: ('FWD', 3)}
 
 
-            pos_key = "GK_NAME_1"
-            x, y, w, h = POSITION_COORDINATES[pos_key]
             font_family = TEXT_FONT["font_family"]
-            font_size = TEXT_FONT["font_size_names"]
-            font = ImageFont.truetype(font_family, font_size)
-            print(df_manager_team_detailed['now_cost'], gw_data_available)
-            text = df_manager_team_detailed[df_manager_team_detailed['position_y']==1]['player_name'].values[0]
-            draw.text((x, y), text, fill="white", font=font)
+            font_size_name = TEXT_FONT["font_size_names"]
+            font_size_value = TEXT_FONT["font_size_values"]
+            font_name = ImageFont.truetype(font_family, font_size_name)
+            font_value = ImageFont.truetype(font_family, font_size_value)
+            font_size_team_value = TEXT_FONT["font_size_team_value"]
+            font_team_value = ImageFont.truetype(font_family, font_size_team_value)
 
+            # Goalkeeper
+            text_display(pitch_image, "GK", 1, df_manager_team_detailed, draw, 
+                         font_name, font_value, 0)
+
+            # Team Value
+            pos_key = "TEAM_VALUE"
+            x, y, w, h = POSITION_COORDINATES[pos_key]
+            team_value = df_manager_team_detailed['now_cost'].sum()
+            draw.text((x, y), f"£{team_value/10}m", fill=TEXT_FONT["font_color_values"], font=font_team_value)
+
+            # Defenders
             for i in range(5):
                 position = 2
-                font_family = TEXT_FONT["font_family"]
-                font_size = TEXT_FONT["font_size_names"]
-                font = ImageFont.truetype(font_family, font_size)
-                # Player Name
-                text = df_manager_team_detailed[df_manager_team_detailed['position_y']==position]['player_name'].values[i]
-                pos_key = f"DEF_NAME_{i+1}"
-                x, y, w, h = POSITION_COORDINATES[pos_key]
-                draw.text((x, y), text, fill=TEXT_FONT["font_color_names"], font=font)
-                # Player Value
-                pos_key = f"DEF_VALUE_{i+1}"
-                x, y, w, h = POSITION_COORDINATES[pos_key]
-                text = df_manager_team_detailed[df_manager_team_detailed['position_y']==position]['now_cost'].values[i]
-                draw.text((x, y), f"£{text/10}m", fill=TEXT_FONT["font_color_values"], font=font)
-                # Player GW Points
-                pos_key = f"DEF_POINTS_{i+1}"
-                x, y, w, h = POSITION_COORDINATES[pos_key]
-                text = df_manager_team_detailed[df_manager_team_detailed['position_y']==position]['total_points'].values[i]
-                draw.text((x, y), f"Pts: {text}", fill=TEXT_FONT["font_color_values"], font=font)
-                # Player Photo
-                pos_key = f"DEF_{i+1}"
-                x, y, w, h = POSITION_COORDINATES[pos_key]
-                text = df_manager_team_detailed[df_manager_team_detailed['position_y']==position]['photo'].values[i]
-                text = text.replace('.jpg','').replace('.png','')
-                try:
-                    photo_url = f"https://resources.premierleague.com/premierleague/photos/players/110x140/p{text}.png"
-                    player_image = Image.open(requests.get(photo_url, stream=True).raw).resize((w, h))
-                    pitch_image.paste(player_image, (x, y))
-                except Exception as e:
-                    print(f"Error loading image for player {text}: {e}")
-
+                text_display(pitch_image, "DEF", position, df_manager_team_detailed, draw, 
+                             font_name, font_value, i)
+            
+            # Midfielders
             for i in range(5):
                 position = 3
-                font_family = TEXT_FONT["font_family"]
-                font_size = TEXT_FONT["font_size_names"]
-                font = ImageFont.truetype(font_family, font_size)
-                # Player Name
-                text = df_manager_team_detailed[df_manager_team_detailed['position_y']==position]['player_name'].values[i]
-                pos_key = f"MID_NAME_{i+1}"
-                x, y, w, h = POSITION_COORDINATES[pos_key]
-                draw.text((x, y), text, fill=TEXT_FONT["font_color_names"], font=font)
-                # Player Value
-                pos_key = f"MID_VALUE_{i+1}"
-                x, y, w, h = POSITION_COORDINATES[pos_key]
-                text = df_manager_team_detailed[df_manager_team_detailed['position_y']==position]['now_cost'].values[i]
-                draw.text((x, y), f"£{text/10}m", fill=TEXT_FONT["font_color_values"], font=font)
-                # Player GW Points
-                pos_key = f"MID_POINTS_{i+1}"
-                x, y, w, h = POSITION_COORDINATES[pos_key]
-                text = df_manager_team_detailed[df_manager_team_detailed['position_y']==position]['total_points'].values[i]
-                draw.text((x, y), f"Pts: {text}", fill=TEXT_FONT["font_color_values"], font=font)
-                # Player Photo
-                pos_key = f"MID_{i+1}"
-                x, y, w, h = POSITION_COORDINATES[pos_key]
-                text = df_manager_team_detailed[df_manager_team_detailed['position_y']==position]['photo'].values[i]
-                text = text.replace('.jpg','').replace('.png','')
-                try:
-                    photo_url = f"https://resources.premierleague.com/premierleague/photos/players/110x140/p{text}.png"
-                    player_image = Image.open(requests.get(photo_url, stream=True).raw).resize((w, h))
-                    pitch_image.paste(player_image, (x, y))
-                except Exception as e:
-                    print(f"Error loading image for player {text}: {e}")
-
+                text_display(pitch_image, "MID", position, df_manager_team_detailed, draw, 
+                             font_name, font_value, i)
+            
+            # Forwards
             for i in range(3):
                 position = 4
-                font_family = TEXT_FONT["font_family"]
-                font_size = TEXT_FONT["font_size_names"]
-                font = ImageFont.truetype(font_family, font_size)
-                # Player Name
-                text = df_manager_team_detailed[df_manager_team_detailed['position_y']==position]['player_name'].values[i]
-                pos_key = f"FWD_NAME_{i+1}"
-                x, y, w, h = POSITION_COORDINATES[pos_key]
-                draw.text((x, y), text, fill=TEXT_FONT["font_color_names"], font=font)
-                # Player Value
-                pos_key = f"FWD_VALUE_{i+1}"
-                x, y, w, h = POSITION_COORDINATES[pos_key]
-                text = df_manager_team_detailed[df_manager_team_detailed['position_y']==position]['now_cost'].values[i]
-                draw.text((x, y), f"£{text/10}m", fill=TEXT_FONT["font_color_values"], font=font)
-                # Player GW Points
-                pos_key = f"FWD_POINTS_{i+1}"
-                x, y, w, h = POSITION_COORDINATES[pos_key]
-                text = df_manager_team_detailed[df_manager_team_detailed['position_y']==position]['total_points'].values[i]
-                draw.text((x, y), f"Pts: {text}", fill=TEXT_FONT["font_color_values"], font=font)
-                # Player Photo
-                pos_key = f"FWD_{i+1}"
-                x, y, w, h = POSITION_COORDINATES[pos_key]
-                text = df_manager_team_detailed[df_manager_team_detailed['position_y']==position]['photo'].values[i]
-                text = text.replace('.jpg','').replace('.png','')
-                try:
-                    photo_url = f"https://resources.premierleague.com/premierleague/photos/players/110x140/p{text}.png"
-                    player_image = Image.open(requests.get(photo_url, stream=True).raw).resize((w, h))
-                    pitch_image.paste(player_image, (x, y))
-                except Exception as e:
-                    print(f"Error loading image for player {text}: {e}")
+                text_display(pitch_image, "FWD", position, df_manager_team_detailed, draw, 
+                             font_name, font_value, i)
+            
+
             st.image(pitch_image, caption="My beautiful team", width="stretch")

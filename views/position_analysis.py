@@ -75,7 +75,14 @@ def show(df):
             pos_key = "TEAM_VALUE"
             x, y, w, h = POSITION_COORDINATES[pos_key]
             team_value = df_manager_team_detailed['now_cost'].sum()
-            draw.text((x, y), f"£{team_value/10}m", fill=TEXT_FONT["font_color_values"], font=font_team_value)
+            text = f"£{team_value/10}m"
+            text_bbox = draw.textbbox((0, 0), text, font=font_team_value)
+            text_width = text_bbox[2] - text_bbox[0]
+            text_height = text_bbox[3] - text_bbox[1]
+            draw_x = x + (w - text_width) / 2
+            draw_y = y + (h - text_height) / 2
+            draw.text((draw_x, draw_y), text, font=font_team_value, 
+                      fill=TEXT_FONT["font_color_values"])
 
             # Defenders
             for i in range(5):

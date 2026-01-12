@@ -19,7 +19,13 @@ def text_display(pitch_image, pos_key, position,
     text = df[df['position_y']==position]['player_name'].values[i]
     pos_key_name = f"{pos_key}_NAME_{i+1}"
     x, y, w, h = POSITION_COORDINATES[pos_key_name]
-    draw.text((x, y), text, fill=TEXT_FONT["font_color_names"], font=font_name)
+    text_bbox = draw.textbbox((0, 0), text, font=font_name)
+    text_width = text_bbox[2] - text_bbox[0]
+    text_height = text_bbox[3] - text_bbox[1]
+    draw_x = x + (w - text_width) / 2
+    draw_y = y + (h - text_height) / 2
+    draw.text((draw_x, draw_y), text, font=font_name, 
+              fill=TEXT_FONT["font_color_names"])
     
     # Player Value
     pos_key_value = f"{pos_key}_VALUE_{i+1}"

@@ -12,7 +12,7 @@ from utils.load_fpl_features import load_player_data
 from config.position_config import POSITION_COORDINATES
 from config.text import TEXT_FONT
 from ui.fpl_search import fpl_search_inputs
-from ui.text_field_display import text_display
+from ui.text_field_display import player_text_display, text_heading_display
 
 def show(df):
     """Display a simple football pitch image"""
@@ -64,61 +64,40 @@ def show(df):
 
             # Team Value
             pos_key = "TEAM_VALUE"
-            x, y, w, h = POSITION_COORDINATES[pos_key]
             team_value = df_manager_team_detailed['now_cost'].sum()
             text = f"£{team_value/10}m"
-            text_bbox = draw.textbbox((0, 0), text, font=font_team_value)
-            text_width = text_bbox[2] - text_bbox[0]
-            text_height = text_bbox[3] - text_bbox[1]
-            draw_x = x + (w - text_width) / 2
-            draw_y = y + (h - text_height) / 2
-            draw.text((draw_x, draw_y), text, font=font_team_value, 
-                      fill=TEXT_FONT["font_color_values"])
+            text_heading_display(pos_key, text, draw, font_team_value)
             
             # GW
             pos_key = "GW"
-            x, y, w, h = POSITION_COORDINATES[pos_key]
             text = f"{gw}"
-            text_bbox = draw.textbbox((0, 0), text, font=font_team_value)
-            text_width = text_bbox[2] - text_bbox[0]
-            text_height = text_bbox[3] - text_bbox[1]
-            draw_x = x + (w - text_width) / 2
-            draw_y = y + (h - text_height) / 2
-            draw.text((draw_x, draw_y), text, font=font_team_value, 
-                      fill=TEXT_FONT["font_color_values"])
-            
+            text_heading_display(pos_key, text, draw, font_team_value)
+
             # Bank
             pos_key = "BANK"
-            x, y, w, h = POSITION_COORDINATES[pos_key]
             text = f"{dict_manager_history['bank']/10}m"
-            text_bbox = draw.textbbox((0, 0), text, font=font_team_value)
-            text_width = text_bbox[2] - text_bbox[0]
-            text_height = text_bbox[3] - text_bbox[1]
-            draw_x = x + (w - text_width) / 2
-            draw_y = y + (h - text_height) / 2
-            draw.text((draw_x, draw_y), text, font=font_team_value, 
-                      fill=TEXT_FONT["font_color_values"])
-            
+            text_heading_display(pos_key, text, draw, font_team_value)
+
             # Goalkeeper
-            text_display(pitch_image, "GK", 1, df_manager_team_detailed, draw, 
+            player_text_display(pitch_image, "GK", 1, df_manager_team_detailed, draw, 
                          font_name, font_value, 0)
 
             # Defenders
             for i in range(5):
                 position = 2
-                text_display(pitch_image, "DEF", position, df_manager_team_detailed, draw, 
+                player_text_display(pitch_image, "DEF", position, df_manager_team_detailed, draw, 
                              font_name, font_value, i)
             
             # Midfielders
             for i in range(5):
                 position = 3
-                text_display(pitch_image, "MID", position, df_manager_team_detailed, draw, 
+                player_text_display(pitch_image, "MID", position, df_manager_team_detailed, draw, 
                              font_name, font_value, i)
             
             # Forwards
             for i in range(3):
                 position = 4
-                text_display(pitch_image, "FWD", position, df_manager_team_detailed, draw, 
+                player_text_display(pitch_image, "FWD", position, df_manager_team_detailed, draw, 
                              font_name, font_value, i)
             
            

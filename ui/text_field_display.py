@@ -3,7 +3,7 @@ from config.position_config import POSITION_COORDINATES
 from PIL import Image, ImageDraw,ImageFont
 import requests
 
-def text_display(pitch_image, pos_key, position,
+def player_text_display(pitch_image, pos_key, position,
                  df, draw, font_name,
                  font_value, index):
     pitch_image = pitch_image
@@ -48,3 +48,16 @@ def text_display(pitch_image, pos_key, position,
         pitch_image.paste(player_image, (x, y))
     except Exception as e:
         print(f"Error loading image for player {text}: {e}")
+
+def text_heading_display(pos_key, text, draw, font_team_value):
+    pos_key = pos_key
+    text = text
+    draw = draw
+    x, y, w, h = POSITION_COORDINATES[pos_key]
+    text_bbox = draw.textbbox((0, 0), text, font=font_team_value)
+    text_width = text_bbox[2] - text_bbox[0]
+    text_height = text_bbox[3] - text_bbox[1]
+    draw_x = x + (w - text_width) / 2
+    draw_y = y + (h - text_height) / 2
+    draw.text((draw_x, draw_y), text, font=font_team_value, 
+              fill=TEXT_FONT["font_color_values"])

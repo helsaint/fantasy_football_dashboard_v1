@@ -9,7 +9,7 @@ import requests
 
 # Import view modules
 from views import manager_analysis, value_analysis, performance_trends, player_overview
-from views import position_analysis
+from views import manager_analysis
 
 # ========== PAGE CONFIGURATION ==========
 st.set_page_config(
@@ -100,8 +100,7 @@ view = st.sidebar.radio(
         "📊 Player Overview", 
         "📈 Performance Trends", 
         "💰 Value Analysis",
-        "👤 Manager Team Analysis",
-        "📋 Position Distribution Analysis"
+        "👤 Manager Analysis",
     ],
     index=0
 )
@@ -178,11 +177,8 @@ elif view == "💰 Value Analysis":
 
 # View 4: Manager Team Analysis
 # ========== MANAGER TEAM ANALYZER VIEW WITH AUTO-DETECT ==========
-elif view == "👤 Manager Team Analysis":
+elif view == "👤 Manager Analysis":
     manager_analysis.show(df)
-
-elif view == "📋 Position Distribution Analysis":
-    position_analysis.show(df)
 
 # ========== FOOTER ==========
 st.markdown("---")

@@ -35,6 +35,8 @@ def show(df):
         with st.spinner(f"Fetching manager {manager_id}'s team for GW{gw}..."):
             manager_data = fetch_manager_data(manager_id, gw)
             df_manager_team = pd.DataFrame(manager_data['picks']) if manager_data else pd.DataFrame()
+            dict_manager_history = manager_data['entry_history']
+            
             df_fpl_features = load_player_data()
             gw_latest = df_fpl_features['gw'].max()
             gw_data_available = 0 if df_fpl_features.loc[df_fpl_features['gw'] == gw, 'now_cost'].sum() == 0 else 1
@@ -60,17 +62,6 @@ def show(df):
             font_size_team_value = TEXT_FONT["font_size_team_value"]
             font_team_value = ImageFont.truetype(font_family, font_size_team_value)
 
-            '''
-            pos_key = "GK_NAME_1"
-            x, y, w, h = POSITION_COORDINATES[pos_key]
-            print(df_manager_team_detailed['now_cost'], gw_data_available)
-            text = df_manager_team_detailed[df_manager_team_detailed['position_y']==1]['player_name'].values[0]
-            draw.text((x, y), text, fill="white", font=font_name)
-            '''
-            # Goalkeeper
-            text_display(pitch_image, "GK", 1, df_manager_team_detailed, draw, 
-                         font_name, font_value, 0)
-
             # Team Value
             pos_key = "TEAM_VALUE"
             x, y, w, h = POSITION_COORDINATES[pos_key]
@@ -83,6 +74,34 @@ def show(df):
             draw_y = y + (h - text_height) / 2
             draw.text((draw_x, draw_y), text, font=font_team_value, 
                       fill=TEXT_FONT["font_color_values"])
+            
+            # GW
+            pos_key = "GW"
+            x, y, w, h = POSITION_COORDINATES[pos_key]
+            text = f"{gw}"
+            text_bbox = draw.textbbox((0, 0), text, font=font_team_value)
+            text_width = text_bbox[2] - text_bbox[0]
+            text_height = text_bbox[3] - text_bbox[1]
+            draw_x = x + (w - text_width) / 2
+            draw_y = y + (h - text_height) / 2
+            draw.text((draw_x, draw_y), text, font=font_team_value, 
+                      fill=TEXT_FONT["font_color_values"])
+            
+            # Bank
+            pos_key = "BANK"
+            x, y, w, h = POSITION_COORDINATES[pos_key]
+            text = f"{dict_manager_history['bank']/10}m"
+            text_bbox = draw.textbbox((0, 0), text, font=font_team_value)
+            text_width = text_bbox[2] - text_bbox[0]
+            text_height = text_bbox[3] - text_bbox[1]
+            draw_x = x + (w - text_width) / 2
+            draw_y = y + (h - text_height) / 2
+            draw.text((draw_x, draw_y), text, font=font_team_value, 
+                      fill=TEXT_FONT["font_color_values"])
+            
+            # Goalkeeper
+            text_display(pitch_image, "GK", 1, df_manager_team_detailed, draw, 
+                         font_name, font_value, 0)
 
             # Defenders
             for i in range(5):

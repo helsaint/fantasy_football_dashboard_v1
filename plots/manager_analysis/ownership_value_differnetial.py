@@ -31,19 +31,10 @@ def ownership_value_differential(df):
             text=data['text'],
             mode='markers',
         ))
-    '''
-    fig = go.Figure(data=[go.Scatter(
-    x=x, y=y,
-    mode='markers',
-    marker_size=marker_size,
-    text=hovertext,
-    )
-    ])
-    '''
 
     fig.update_layout(
         title="Ownership vs Total Points Differential",
-        xaxis_title="Ownership Percentage (raw)",
+        xaxis_title="Ownership numbers (raw)",
         yaxis_title="Total Points",
         hovermode='closest'
     )

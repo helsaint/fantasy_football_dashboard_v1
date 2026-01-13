@@ -120,3 +120,14 @@ def show(df):
             st.subheader("Ownership Value Differential Analysis")
             fig_ovd = ownership_value_differential(df_manager_team_detailed)
             st.plotly_chart(fig_ovd, width='stretch')
+            st.write("The plot shows the relationship between player ownership" \
+            "and total points scored. The size of the markers represents the player's cost."
+            " This analysis helps identify players who are potentially undervalued or overvalued"
+            " based on their ownership and performance. Overvalued players will be found" \
+            " in the lower right quadrant, while undervalued players will be in the upper " \
+            "left quadrant. The top right quadrant indicates popular high performers," \
+                " while having players here means that you are keeping up with popular picks," \
+                " but you aren't seperating yourself from the crowd. For that you" \
+                " need to be looking for undervalued players in the upper left quadrant." )
+            
+            st.subheader("Budget Allocation Breakdown")

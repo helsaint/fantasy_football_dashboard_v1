@@ -22,7 +22,6 @@ def ownership_value_differential(df):
                               for position in positions}
     fig = go.Figure()
     for position, data in position_data.items():
-        print(data['player_name'])
         fig.add_trace(go.Scatter(
             x = data['selected'],
             y = data['total_points_total'],

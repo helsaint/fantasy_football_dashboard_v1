@@ -13,6 +13,7 @@ from config.position_config import POSITION_COORDINATES
 from config.text import TEXT_FONT
 from ui.fpl_search import fpl_search_inputs
 from ui.text_field_display import player_text_display, text_heading_display
+from plots.manager_analysis.ownership_value_differnetial import ownership_value_differential
 
 def show(df):
     """Display a simple football pitch image"""
@@ -51,9 +52,22 @@ def show(df):
                 how='left'
             )
 
+            df_temp = pd.pivot_table(
+                data=df_fpl_features[df_fpl_features['player_name'].isin(
+                    list(df_manager_team_detailed['player_name']))],
+                    index='player_name',
+                    values='total_points',
+                    aggfunc='sum').reset_index()
+            df_manager_team_detailed = pd.merge(
+                df_manager_team_detailed,
+                df_temp,
+                on='player_name',
+                how='left',
+                suffixes=('', '_total'))
+            
             position_map = {1: ('GK',2), 2: ('DEF',5), 3: ('MID', 5), 4: ('FWD', 3)}
-
-
+            df_manager_team_detailed['position'] = df_manager_team_detailed['position_y'].map(lambda x: position_map[x][0])
+            
             font_family = TEXT_FONT["font_family"]
             font_size_name = TEXT_FONT["font_size_names"]
             font_size_value = TEXT_FONT["font_size_values"]
@@ -102,3 +116,7 @@ def show(df):
             
            
             st.image(pitch_image, caption="My beautiful team", width="stretch")
+
+            st.subheader("Ownership Value Differential Analysis")
+            fig_ovd = ownership_value_differential(df_manager_team_detailed)
+            st.plotly_chart(fig_ovd, width='stretch')

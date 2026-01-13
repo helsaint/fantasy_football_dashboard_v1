@@ -6,7 +6,7 @@ def ownership_value_differential(df):
     y = df['total_points_total']
     marker_size = df['now_cost']/5
     player_name = df['player_name']
-    player_postion = df['position_y']
+    
     hovertext = []
 
     for i in range(len(df)):

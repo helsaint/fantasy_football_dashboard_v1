@@ -1,9 +1,5 @@
 import streamlit as st
 import pandas as pd
-from datetime import datetime
-import plotly.graph_objects as go
-import plotly.express as px
-import requests
 from pathlib import Path
 from PIL import Image, ImageDraw,ImageFont
 from utils.load_player_data import fetch_fpl_bootstrap
@@ -14,6 +10,7 @@ from config.text import TEXT_FONT
 from ui.fpl_search import fpl_search_inputs
 from ui.text_field_display import player_text_display, text_heading_display
 from plots.manager_analysis.ownership_value_differnetial import ownership_value_differential
+from plots.manager_analysis.budget_allocation_treemap import budget_allocation_treemap_v2
 
 def show(df):
     """Display a simple football pitch image"""
@@ -66,8 +63,10 @@ def show(df):
                 suffixes=('', '_total'))
             
             position_map = {1: ('GK',2), 2: ('DEF',5), 3: ('MID', 5), 4: ('FWD', 3)}
+            multiplier_map = {0: 'BENCH', 1: 'STARTER', 2: 'CAPTAIN'}
             df_manager_team_detailed['position'] = df_manager_team_detailed['position_y'].map(lambda x: position_map[x][0])
-            
+            df_manager_team_detailed['multiplier_label'] = df_manager_team_detailed['multiplier'].map(multiplier_map)
+
             font_family = TEXT_FONT["font_family"]
             font_size_name = TEXT_FONT["font_size_names"]
             font_size_value = TEXT_FONT["font_size_values"]
@@ -126,8 +125,38 @@ def show(df):
             " based on their ownership and performance. Overvalued players will be found" \
             " in the lower right quadrant, while undervalued players will be in the upper " \
             "left quadrant. The top right quadrant indicates popular high performers," \
-                " while having players here means that you are keeping up with popular picks," \
-                " but you aren't seperating yourself from the crowd. For that you" \
-                " need to be looking for undervalued players in the upper left quadrant." )
+            " while having players here means that you are keeping up with popular picks," \
+            " but you aren't seperating yourself from the crowd. For that you" \
+            " need to be looking for undervalued players in the upper left quadrant." )
             
             st.subheader("Budget Allocation Breakdown")
+            temp_columns = ['player_name', 'position', 'now_cost', 
+                            'total_points_total', 'selected',
+                            'multiplier_label']
+            df_temp = df_manager_team_detailed[temp_columns].copy()
+            df_temp['now_cost'] = df_temp['now_cost']/10  # convert to millions
+            fig_budget_allocation = budget_allocation_treemap_v2(df_temp, 
+                                                                path=['multiplier_label','position', 'player_name'],
+                                                                values='now_cost',
+                                                                title='Budget Allocation Treemap')
+            st.plotly_chart(fig_budget_allocation, width='stretch')
+            '''
+            df_temp = pd.pivot_table(df_fpl_features[[
+                'player_name','position',
+                'total_points']],
+                index=['player_name', 'position'], values='total_points', 
+                aggfunc='sum').sort_values(by='total_points', 
+                                           ascending=False).reset_index()
+            df_temp = df_temp.groupby('position').head(10)
+            df_temp = pd.merge(df_temp, df_fpl_features.loc[
+                df_fpl_features['gw']==gw, ['player_name','now_cost', 
+                                            'selected']],
+                on='player_name', how='left')
+            df_temp.rename(columns={
+                'total_points':'total_points_total',
+                'position':'position_y',
+                }, inplace=True)
+            df_temp['position'] = df_temp['position_y'].map(lambda x: position_map[x][0])
+            fig_ovd_total = ownership_value_differential(df_temp)
+            st.plotly_chart(fig_ovd_total, width='stretch')
+            '''

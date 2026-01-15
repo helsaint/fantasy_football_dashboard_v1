@@ -13,19 +13,33 @@ def budget_allocation_treemap_v2(df, path=[], values="", color_columns=[], title
     
     df_all_trees = build_hierarchical_dataframe(df, path[::-1], values, color_columns)
     
+    custom_data = list(zip(list(df['total_points_total']), 
+                           list(df['selected']),
+                           list((df['now_cost']/df['now_cost'].sum())*100)
+                           ))
     fig = go.Figure()
     average_score = df_all_trees['color'].mean() 
     fig.add_trace(go.Treemap(
     labels=df_all_trees['id'],
     parents=df_all_trees['parent'],
     values=df_all_trees['value'],
+    customdata=custom_data,
     branchvalues='total',
     marker=dict(
         colors=df_all_trees['color'],
         colorscale='RdBu',
+        showscale=True,
+        colorbar=dict(title="Pts/Million"),
         cmid=average_score),
-    hovertemplate='<b>%{label} </b> <br> Cost: $%{value}M<br> Success rate: %{color:.2f}',
-    name=''
+    hovertemplate="""
+    <b>%{label} </b> <br>
+    Cost: $%{value}M<br>
+    Points/Million: %{color:.2f} <br>
+    Total Points: %{customdata[0]} <br>
+    Selected by: %{customdata[1]} players <br>
+    Percentage of Budget: %{customdata[2]:.2f}%
+    """,
+    name=title
     ))
 
     return fig

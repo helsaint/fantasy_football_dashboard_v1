@@ -143,3 +143,11 @@ def show(df):
                                                                 title='Budget Allocation Treemap')
             
             st.plotly_chart(fig_budget_allocation, width='stretch')
+            st.write("""The treemap shows how the manager has allocated their budget across
+                     different positions. A very good team will have a lot of players in the 
+                     'STARTER' category with a bluish hue. This indicates that the
+                     manager has invested in high-performing players who contribute
+                     significantly to the team's total points. If you have players
+                     with deep red hues consider transferring them. Players in the 
+                     'BENCH' category should ideally have a reddish hue as they
+                     are not expected to contribute significantly to the team's points.""")

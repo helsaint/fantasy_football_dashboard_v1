@@ -12,8 +12,6 @@ def budget_allocation_treemap_v2(df, path=[], values="", color_columns=[], title
         return None
     
     df_all_trees = build_hierarchical_dataframe(df, path[::-1], values, color_columns)
-    print(df)
-    print(df_all_trees)
     
     fig = go.Figure()
     average_score = df_all_trees['color'].mean() 

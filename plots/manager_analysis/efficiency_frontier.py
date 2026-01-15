@@ -1,5 +1,9 @@
 import pandas as pd
-import plotly.graph_objects as go
+import plotly.express as px
 
 def ownership_value_differential(df):
-    pass
+    fig = px.scatter(
+        df, x='now_cost', y='ppm', size='selected', color='position',
+    )
+
+    return fig

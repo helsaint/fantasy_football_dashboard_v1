@@ -146,14 +146,28 @@ def show(df):
                                                                 title='Budget Allocation Treemap')
             
             st.plotly_chart(fig_budget_allocation, width='stretch')
-            st.write("""The treemap shows how the manager has allocated their budget across
+            st.write("""
+                     The treemap shows how the manager has allocated their budget across
                      different positions. A very good team will have a lot of players in the 
                      'STARTER' category with a bluish hue. This indicates that the
                      manager has invested in high-performing players who contribute
                      significantly to the team's total points. If you have players
                      with deep red hues consider transferring them. Players in the 
                      'BENCH' category should ideally have a reddish hue as they
-                     are not expected to contribute significantly to the team's points.""")
+                     are not expected to contribute significantly to the team's points.
+                     
+                     With regards to dark red players. If this is a premium
+                     player in the 'CAPTAINCY' category, it might be justifiable.
+                     
+                     Finally for starters with deep red hues, consider the following two triggers:
+                     Trigger 1: The "Ceiling" check. If there is another player in that price bracket 
+                     who has a higher raw points total, the red color is a valid warning sign. 
+                     He is underperforming his price peers.
+                     Trigger 2: The "Structure" check. If a premium player is red and you have holes elsewhere 
+                     in your team (like a 4.0m defender who doesn't play), 
+                     transferring the premium player down to a "Blue" value mid 
+                     (like a £6.5m - £7.5m option) to fix your bench is a smart move.
+                     """)
             
             st.markdown("---")
             st.subheader("Efficiency Frontier Analysis")

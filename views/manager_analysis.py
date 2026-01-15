@@ -116,6 +116,8 @@ def show(df):
            
             st.image(pitch_image, caption="My beautiful team", width="stretch")
 
+            st.markdown("---")
+
             st.subheader("Ownership Value Differential Analysis")
             fig_ovd = ownership_value_differential(df_manager_team_detailed)
             st.plotly_chart(fig_ovd, width='stretch')
@@ -129,6 +131,7 @@ def show(df):
             " but you aren't seperating yourself from the crowd. For that you" \
             " need to be looking for undervalued players in the upper left quadrant." )
             
+            st.markdown("---")
             st.subheader("Budget Allocation Breakdown")
             temp_columns = ['player_name', 'position', 'now_cost', 
                             'total_points_total', 'selected',
@@ -151,3 +154,6 @@ def show(df):
                      with deep red hues consider transferring them. Players in the 
                      'BENCH' category should ideally have a reddish hue as they
                      are not expected to contribute significantly to the team's points.""")
+            
+            st.markdown("---")
+            st.subheader("Manager Team Data")

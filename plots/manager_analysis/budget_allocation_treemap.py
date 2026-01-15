@@ -12,18 +12,16 @@ def budget_allocation_treemap_v2(df, path=[], values="", color_columns=[], title
         return None
     
     df_all_trees = build_hierarchical_dataframe(df, path[::-1], values, color_columns)
+    print(df)
+    print(df_all_trees)
     
-    custom_data = list(zip(list(df['total_points_total']), 
-                           list(df['selected']),
-                           list((df['now_cost']/df['now_cost'].sum())*100)
-                           ))
     fig = go.Figure()
     average_score = df_all_trees['color'].mean() 
     fig.add_trace(go.Treemap(
     labels=df_all_trees['id'],
     parents=df_all_trees['parent'],
     values=df_all_trees['value'],
-    customdata=custom_data,
+    customdata=df_all_trees[['total_points_total','selected','percent_budget']],
     branchvalues='total',
     marker=dict(
         colors=df_all_trees['color'],
@@ -53,7 +51,9 @@ def build_hierarchical_dataframe(df, levels, value_column, color_columns=None):
     """
     df_list = []
     for i, level in enumerate(levels):
-        df_tree = pd.DataFrame(columns=['id', 'parent', 'value', 'color'])
+        df_tree = pd.DataFrame(columns=['id', 'parent', 'value', 'color', 
+                                        'total_points_total','selected',
+                                        'now_cost'])
         dfg = df.groupby(levels[i:]).sum()
         dfg = dfg.reset_index()
         df_tree['id'] = dfg[level].copy()
@@ -62,11 +62,15 @@ def build_hierarchical_dataframe(df, levels, value_column, color_columns=None):
         else:
             df_tree['parent'] = 'total'
         df_tree['value'] = dfg[value_column]
+        df_tree['total_points_total'] = dfg['total_points_total']
+        df_tree['selected'] = dfg['selected']
+        df_tree['percent_budget'] = dfg['now_cost']/df['now_cost'].sum()*100
         df_tree['color'] = dfg[color_columns[0]] / dfg[color_columns[1]]
         df_list.append(df_tree)
     total = pd.Series(dict(id='total', parent='',
                               value=df[value_column].sum(),
-                              color=df[color_columns[0]].sum() / df[color_columns[1]].sum()), name=0)
+                              color=df[color_columns[0]].sum() / df[color_columns[1]].sum(),
+                              selected=df['selected'].sum()), name=0)
     df_list.append(total)
     df_all_trees = pd.concat(df_list, ignore_index=True)
     return df_all_trees

@@ -135,28 +135,11 @@ def show(df):
                             'multiplier_label']
             df_temp = df_manager_team_detailed[temp_columns].copy()
             df_temp['now_cost'] = df_temp['now_cost']/10  # convert to millions
+            df_temp['position_label'] = df_temp['position'] + "_" + df_temp['multiplier_label']
             fig_budget_allocation = budget_allocation_treemap_v2(df_temp, 
-                                                                path=['multiplier_label','position', 'player_name'],
+                                                                path=['multiplier_label', 'position_label', 'player_name'],
                                                                 values='now_cost',
+                                                                color_columns=['total_points_total', 'now_cost'],
                                                                 title='Budget Allocation Treemap')
+            
             st.plotly_chart(fig_budget_allocation, width='stretch')
-            '''
-            df_temp = pd.pivot_table(df_fpl_features[[
-                'player_name','position',
-                'total_points']],
-                index=['player_name', 'position'], values='total_points', 
-                aggfunc='sum').sort_values(by='total_points', 
-                                           ascending=False).reset_index()
-            df_temp = df_temp.groupby('position').head(10)
-            df_temp = pd.merge(df_temp, df_fpl_features.loc[
-                df_fpl_features['gw']==gw, ['player_name','now_cost', 
-                                            'selected']],
-                on='player_name', how='left')
-            df_temp.rename(columns={
-                'total_points':'total_points_total',
-                'position':'position_y',
-                }, inplace=True)
-            df_temp['position'] = df_temp['position_y'].map(lambda x: position_map[x][0])
-            fig_ovd_total = ownership_value_differential(df_temp)
-            st.plotly_chart(fig_ovd_total, width='stretch')
-            '''

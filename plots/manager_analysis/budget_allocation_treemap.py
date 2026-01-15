@@ -1,40 +1,59 @@
 import plotly.express as px
 import pandas as pd
+import plotly.graph_objects as go
 
-def budget_allocation_treemap():
-    vendors = ["A", "B", "C", "D", None, "E", "F", "G", "H", None]
-    sectors = ["Tech", "Tech", "Finance", "Finance", "Other",
-               "Tech", "Tech", "Finance", "Finance", "Other"]
-    regions = ["North", "North", "North", "North", "North",
-               "South", "South", "South", "South", "South"]
-    sales = [1, 3, 2, 4, 1, 2, 2, 1, 4, 1]
-    df = pd.DataFrame(
-        dict(vendors=vendors, sectors=sectors, regions=regions, sales=sales)
-        )
-    df["all"] = "all" # in order to have a single root node
-    print(df)
-    fig = px.treemap(df, path=['all', 'regions', 'sectors', 'vendors'], values='sales')
-    fig.update_traces(root_color="lightgrey")
-    fig.update_layout(margin = dict(t=50, l=25, r=25, b=25))
-
-    return fig
-
-def budget_allocation_treemap_v2(df, path=[], values="", title="default title"):
+def budget_allocation_treemap_v2(df, path=[], values="", color_columns=[], title="default title"):
     df = df
     values = values if values else None
     path = path if path else None
+    color_columns = color_columns if color_columns else None
     title = title
-    if not (path and values):
+    if not (path or values or color_columns):
         return None
     
-    fig = px.treemap(
-        df,
-        path=path,
-        values=values,
-        title=title,
-        labels={values: 'Cunxi (£M)'},
-    )
-    fig.update_traces(root_color="lightgrey")
-    fig.update_layout(margin = dict(t=50, l=25, r=25, b=25))
+    df_all_trees = build_hierarchical_dataframe(df, path[::-1], values, color_columns)
+    
+    fig = go.Figure()
+    average_score = df_all_trees['color'].mean() 
+    fig.add_trace(go.Treemap(
+    labels=df_all_trees['id'],
+    parents=df_all_trees['parent'],
+    values=df_all_trees['value'],
+    branchvalues='total',
+    marker=dict(
+        colors=df_all_trees['color'],
+        colorscale='RdBu',
+        cmid=average_score),
+    hovertemplate='<b>%{label} </b> <br> Cost: $%{value}M<br> Success rate: %{color:.2f}',
+    name=''
+    ))
 
     return fig
+
+def build_hierarchical_dataframe(df, levels, value_column, color_columns=None):
+    """
+    Build a hierarchy of levels for Sunburst or Treemap charts.
+
+    Levels are given starting from the bottom to the top of the hierarchy,
+    ie the last level corresponds to the root.
+    """
+    df_list = []
+    for i, level in enumerate(levels):
+        df_tree = pd.DataFrame(columns=['id', 'parent', 'value', 'color'])
+        dfg = df.groupby(levels[i:]).sum()
+        dfg = dfg.reset_index()
+        df_tree['id'] = dfg[level].copy()
+        if i < len(levels) - 1:
+            df_tree['parent'] = dfg[levels[i+1]].copy()
+        else:
+            df_tree['parent'] = 'total'
+        df_tree['value'] = dfg[value_column]
+        df_tree['color'] = dfg[color_columns[0]] / dfg[color_columns[1]]
+        df_list.append(df_tree)
+    total = pd.Series(dict(id='total', parent='',
+                              value=df[value_column].sum(),
+                              color=df[color_columns[0]].sum() / df[color_columns[1]].sum()), name=0)
+    df_list.append(total)
+    df_all_trees = pd.concat(df_list, ignore_index=True)
+    return df_all_trees
+

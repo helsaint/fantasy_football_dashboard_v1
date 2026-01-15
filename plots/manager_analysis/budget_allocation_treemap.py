@@ -36,7 +36,7 @@ def budget_allocation_treemap_v2(df, path=[], values="", color_columns=[], title
     Cost: $%{value}M<br>
     Points/Million: %{color:.2f} <br>
     Total Points: %{customdata[0]} <br>
-    Selected by: %{customdata[1]} players <br>
+    Selected by: %{customdata[1]:.2s} players <br>
     Percentage of Budget: %{customdata[2]:.2f}%
     """,
     name=title

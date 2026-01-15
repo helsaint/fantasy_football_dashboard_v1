@@ -52,13 +52,13 @@ def show(df):
             df_temp = pd.pivot_table(
                 data=df_fpl_features[df_fpl_features['player_name'].isin(
                     list(df_manager_team_detailed['player_name']))],
-                    index='player_name',
+                    index='player_id',
                     values='total_points',
                     aggfunc='sum').reset_index()
             df_manager_team_detailed = pd.merge(
                 df_manager_team_detailed,
                 df_temp,
-                on='player_name',
+                on='player_id',
                 how='left',
                 suffixes=('', '_total'))
             
@@ -156,4 +156,21 @@ def show(df):
                      are not expected to contribute significantly to the team's points.""")
             
             st.markdown("---")
-            st.subheader("Manager Team Data")
+            st.subheader("Efficiency Frontier Analysis")
+            df_temp_ef = pd.pivot_table(
+                data=df_fpl_features[['player_id', 'total_points']],
+                index='player_id',
+                values='total_points',
+                aggfunc='sum').reset_index().sort_values(by='total_points', 
+                                                         ascending=False
+            )
+            print(df_temp_ef.shape)
+            df_temp_ef = pd.merge(
+                df_temp_ef,
+                df_fpl_features.loc[df_fpl_features['gw'] == gw, 
+                                    ['player_id','player_name', 'now_cost', 
+                                     'position', 'selected']],
+                                    on='player_id', how='left')
+            print(df_temp_ef.shape)
+            print(df_temp_ef.head())
+            st.write("Efficiency Frontier analysis coming soon...")

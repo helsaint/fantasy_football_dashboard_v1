@@ -11,6 +11,7 @@ from ui.fpl_search import fpl_search_inputs
 from ui.text_field_display import player_text_display, text_heading_display
 from plots.manager_analysis.ownership_value_differnetial import ownership_value_differential
 from plots.manager_analysis.budget_allocation_treemap import budget_allocation_treemap_v2
+from plots.manager_analysis.efficiency_frontier import efficiency_frontier
 
 def show(df):
     """Display a simple football pitch image"""
@@ -177,14 +178,40 @@ def show(df):
                 values='total_points',
                 aggfunc='sum').reset_index().sort_values(by='total_points', 
                                                          ascending=False
-            )
-            print(df_temp_ef.shape)
+            ).head(100)
+            
             df_temp_ef = pd.merge(
                 df_temp_ef,
                 df_fpl_features.loc[df_fpl_features['gw'] == gw, 
                                     ['player_id','player_name', 'now_cost', 
                                      'position', 'selected']],
                                     on='player_id', how='left')
-            print(df_temp_ef.shape)
-            print(df_temp_ef.head())
-            st.write("Efficiency Frontier analysis coming soon...")
+            
+            
+            df_temp_ef['ppm'] = df_temp_ef['total_points'] / gw
+            df_temp_ef['position_label'] = df_temp_ef['position'].map(
+                {1: 'GK', 2: 'DEF', 3: 'MID', 4: 'FWD'})
+            df_temp_mg = df_manager_team_detailed[['player_id',
+                                                   'player_name',
+                                                   'total_points_total',
+                                                   'position', 
+                                                   'now_cost', 
+                                                   'selected']].copy()
+            df_temp_mg['ppm'] = df_temp_mg['total_points_total'] / gw
+            fig_ef = efficiency_frontier(df_temp_ef, df_temp_mg)
+            st.plotly_chart(fig_ef, width='stretch')
+            st.write("""
+                        The efficiency frontier plot illustrates the relationship between
+                        player cost and points per million (PPM). The trendline indicates
+                        the average efficiency across all players. Players positioned above
+                        the trendline are considered more efficient, providing better value
+                        for their cost, while those below the line are less efficient.
+                     
+                        When analyzing your team, look for your players that are below
+                        the trendline. These players are underperforming relative to their cost
+                        and may be candidates for transfer. You are paying a premium without
+                        getting any use.
+                     
+                        Look for players who are way below the trendline and transfer them 
+                        for players who are above.
+                     """)

@@ -35,7 +35,7 @@ def ownership_value_differential(df):
         title="Ownership vs Total Points Differential",
         xaxis_title="Ownership numbers (raw)",
         yaxis_title="Total Points",
-        hovermode='closest'
+        hovermode='closest',
     )
 
     return fig

@@ -215,3 +215,5 @@ def show(df):
                         Look for players who are way below the trendline and transfer them 
                         for players who are above.
                      """)
+            
+            st.markdown("---")

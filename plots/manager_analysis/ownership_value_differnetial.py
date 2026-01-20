@@ -3,7 +3,7 @@ import plotly.graph_objects as go
 
 def ownership_value_differential(df):
     x = df['selected']
-    y = df['total_points_total']
+    y = df['rolling_points_total']
     marker_size = df['now_cost']/5
     player_name = df['player_name']
     
@@ -17,14 +17,14 @@ def ownership_value_differential(df):
             f"Cost: £{marker_size[i]*5/10}M"
         )
     df['text'] = hovertext
-    positions = df['position'].unique()
-    position_data = {position:df[df['position']==position]
+    positions = df['position_label'].unique()
+    position_data = {position:df[df['position_label']==position]
                               for position in positions}
     fig = go.Figure()
     for position, data in position_data.items():
         fig.add_trace(go.Scatter(
             x = data['selected'],
-            y = data['total_points_total'],
+            y = data['rolling_points_total'],
             name=position,
             marker_size = data['now_cost']/5,
             text=data['text'],

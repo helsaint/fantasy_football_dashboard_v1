@@ -6,18 +6,10 @@ import plotly.graph_objects as go
 def efficiency_frontier(df, df_manager=None):
     df = df
     df_manager = df_manager
-    '''
-    fig = px.scatter(
-        df, x='now_cost', y='ppm', size='selected', color='position_label',
-        color_discrete_map={'GK': 'blue', 'DEF': 'lightblue', 
-                            'MID': 'pink', 'FWD': 'red'},
-        title='Efficiency Frontier: Points per Million vs Cost',
-        hover_data={'player_name': True, 'now_cost': '{:.2f}', 'ppm': ':.2f', 
-                    'total_points': True, 'selected': '{:,.2s}'},
-    )
-    '''
+    
     hovertext = []
     for i in range(len(df)):
+        
         hovertext.append(
             f"Player: {df.loc[i,'player_name']}<br>" +
             f"Selected by: {round(int(df.loc[i,'selected']/1000000),1)}M players<br>" +
@@ -67,13 +59,13 @@ def efficiency_frontier(df, df_manager=None):
     df_manager['text'] = hovertext_mng
     for position in positions:
         fig.add_trace(go.Scatter(
-            x = df_manager.loc[df_manager['position']==position, 'now_cost'],
-            y = df_manager.loc[df_manager['position']==position, 'ppm'],
+            x = df_manager.loc[df_manager['position_label']==position, 'now_cost'],
+            y = df_manager.loc[df_manager['position_label']==position, 'ppm'],
             name=position,
-            marker_size = df_manager.loc[df_manager['position']==position, 
-                                         'total_points_total']/10,
+            marker_size = df_manager.loc[df_manager['position_label']==position, 
+                                         'rolling_points_total']/10,
             mode='markers',
-            text=df_manager.loc[df_manager['position']==position, 'text'],
+            text=df_manager.loc[df_manager['position_label']==position, 'text'],
             marker=dict(symbol='star')
         ))
 

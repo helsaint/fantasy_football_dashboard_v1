@@ -12,6 +12,7 @@ from ui.text_field_display import player_text_display, text_heading_display
 from plots.manager_analysis.ownership_value_differnetial import ownership_value_differential
 from plots.manager_analysis.budget_allocation_treemap import budget_allocation_treemap_v2
 from plots.manager_analysis.efficiency_frontier import efficiency_frontier
+from utils.scatter_plot import scatter_plot
 
 def show(df):
     """Display a simple football pitch image"""
@@ -37,6 +38,17 @@ def show(df):
             dict_manager_history = manager_data['entry_history']
             
             df_fpl_features = load_player_data()
+            df_fpl_features = df_fpl_features.sort_values(
+                by=['player_id', 'gw', 'selected'], 
+                ascending=[True, True, True], 
+                na_position='last'
+                )
+            df_fpl_features = df_fpl_features.drop_duplicates(
+                subset=['player_id', 'gw'], 
+                keep='first'
+                )
+            df_fpl_features['rolling_minutes_played'] = df_fpl_features.groupby(
+                'player_id')['minutes'].cumsum()
             gw_latest = df_fpl_features['gw'].max()
             gw_data_available = 0 if df_fpl_features.loc[df_fpl_features['gw'] == gw, 'now_cost'].sum() == 0 else 1
             if gw_data_available == 0:
@@ -49,24 +61,13 @@ def show(df):
                 right_on='player_id',
                 how='left'
             )
-
-            df_temp = pd.pivot_table(
-                data=df_fpl_features[df_fpl_features['player_name'].isin(
-                    list(df_manager_team_detailed['player_name']))],
-                    index='player_id',
-                    values='total_points',
-                    aggfunc='sum').reset_index()
-            df_manager_team_detailed = pd.merge(
-                df_manager_team_detailed,
-                df_temp,
-                on='player_id',
-                how='left',
-                suffixes=('', '_total'))
             
-            position_map = {1: ('GK',2), 2: ('DEF',5), 3: ('MID', 5), 4: ('FWD', 3)}
+            
+            position_map = {1: 'GK', 2: 'DEF', 3: 'MID', 4: 'FWD'}
             multiplier_map = {0: 'BENCH', 1: 'STARTER', 2: 'CAPTAIN'}
-            df_manager_team_detailed['position'] = df_manager_team_detailed['position_y'].map(lambda x: position_map[x][0])
+            df_manager_team_detailed['position_label'] = df_manager_team_detailed['position_y'].map(position_map)
             df_manager_team_detailed['multiplier_label'] = df_manager_team_detailed['multiplier'].map(multiplier_map)
+            df_fpl_features['position_label'] = df_fpl_features['position'].map(position_map)
 
             font_family = TEXT_FONT["font_family"]
             font_size_name = TEXT_FONT["font_size_names"]
@@ -134,16 +135,16 @@ def show(df):
             
             st.markdown("---")
             st.subheader("Budget Allocation Breakdown")
-            temp_columns = ['player_name', 'position', 'now_cost', 
-                            'total_points_total', 'selected',
+            temp_columns = ['player_name', 'position_label', 'now_cost', 
+                            'rolling_points_total', 'selected',
                             'multiplier_label']
             df_temp = df_manager_team_detailed[temp_columns].copy()
             df_temp['now_cost'] = df_temp['now_cost']/10  # convert to millions
-            df_temp['position_label'] = df_temp['position'] + "_" + df_temp['multiplier_label']
+            df_temp['position_label_1'] = df_temp['position_label'] + "_" + df_temp['multiplier_label']
             fig_budget_allocation = budget_allocation_treemap_v2(df_temp, 
-                                                                path=['multiplier_label', 'position_label', 'player_name'],
+                                                                path=['multiplier_label', 'position_label_1', 'player_name'],
                                                                 values='now_cost',
-                                                                color_columns=['total_points_total', 'now_cost'],
+                                                                color_columns=['rolling_points_total', 'now_cost'],
                                                                 title='Budget Allocation Treemap')
             
             st.plotly_chart(fig_budget_allocation, width='stretch')
@@ -187,17 +188,16 @@ def show(df):
                                      'position', 'selected']],
                                     on='player_id', how='left')
             
-            
             df_temp_ef['ppm'] = df_temp_ef['total_points'] / gw
             df_temp_ef['position_label'] = df_temp_ef['position'].map(
                 {1: 'GK', 2: 'DEF', 3: 'MID', 4: 'FWD'})
             df_temp_mg = df_manager_team_detailed[['player_id',
                                                    'player_name',
-                                                   'total_points_total',
-                                                   'position', 
+                                                   'rolling_points_total',
+                                                   'position_label', 
                                                    'now_cost', 
                                                    'selected']].copy()
-            df_temp_mg['ppm'] = df_temp_mg['total_points_total'] / gw
+            df_temp_mg['ppm'] = df_temp_mg['rolling_points_total'] / gw
             fig_ef = efficiency_frontier(df_temp_ef, df_temp_mg)
             st.plotly_chart(fig_ef, width='stretch')
             st.write("""
@@ -217,3 +217,49 @@ def show(df):
                      """)
             
             st.markdown("---")
+            st.subheader("CBIT Defense Analysis")
+            df_temp_cbit = df_fpl_features.loc[(df_fpl_features['gw'] == gw) &
+                                               (df_fpl_features[
+                                                   'rolling_minutes_played'] >= 45*gw), 
+                                    ['player_id','player_name', 'now_cost', 
+                                     'position_label', 'selected', 
+                                     'rolling_points_total',
+                                     'rolling_defensive_points',
+                                     'rolling_minutes_played',
+                                     'total_points',
+                                     'team_name']]
+            df_temp_cbit['per_cbit'] = 100*(df_temp_cbit['rolling_defensive_points']/(2*gw))
+            df_manager_team_detailed['per_cbit'] = 100*(
+                df_manager_team_detailed['rolling_defensive_points']/(2*gw))
+            fig_cbit = scatter_plot(df_temp_cbit[df_temp_cbit['position_label'] != 'GK'], 
+                                    hover_template_dict={"selected": ("Selected By: ",
+                                                                      lambda x: f"{round(x/1e6,1)}M"),
+                                                         "total_points": ("Total Points: ", None),
+                                                         "per_cbit": ("CBIT %: ", 
+                                                                      lambda x: round(x, 1)),
+                                                         "player_name": ("Player: ", None),
+                                                         "now_cost": ("Cost: ", 
+                                                                      lambda x: f"£{x/10}M"),
+                                                         "team_name": ("Team: ", None)},
+                                                         x_column="now_cost",
+                                                         y_column="per_cbit",
+                                                         category_column="position_label",
+                                                         marker_column="rolling_minutes_played",
+                                                         trendline_bool=True, 
+                                                         df2=df_manager_team_detailed,
+                                                         x_title="Player Cost (£M)",
+                                                         y_title="Defensive Points Contribution per CBIT (%)")
+            st.plotly_chart(fig_cbit, width='stretch')
+            st.write("""
+The CBIT (Clearances, Blocks, Interceptions, Tackles) Defense Aanalysis plot visualizes the
+                     relationship between player cost and their defensive contributions
+                     as a percentage of games where CBIT actions resulted in the 2+ points
+                     bonus. Since the system does not rewards goalkeepers for CBIT actions
+                     these are excluded from the plot.
+
+                     To maximize your team's points haul we want to identify players that
+                     provide strong defensive contributions relative to their cost. Players
+                     positioned above the trendline are delivering better defensive value.
+                     Players in the tope left quadrant (low cost/high % CBIT games) are
+                     ideal as they provide strong defensive contributions at a lower cost.
+""")

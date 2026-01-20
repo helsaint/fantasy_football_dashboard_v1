@@ -19,7 +19,7 @@ def budget_allocation_treemap_v2(df, path=[], values="", color_columns=[], title
     labels=df_all_trees['id'],
     parents=df_all_trees['parent'],
     values=df_all_trees['value'],
-    customdata=df_all_trees[['total_points_total','selected','percent_budget']],
+    customdata=df_all_trees[['rolling_points_total','selected','percent_budget']],
     branchvalues='total',
     marker=dict(
         colors=df_all_trees['color'],
@@ -50,7 +50,7 @@ def build_hierarchical_dataframe(df, levels, value_column, color_columns=None):
     df_list = []
     for i, level in enumerate(levels):
         df_tree = pd.DataFrame(columns=['id', 'parent', 'value', 'color', 
-                                        'total_points_total','selected',
+                                        'rolling_points_total','selected',
                                         'now_cost'])
         dfg = df.groupby(levels[i:]).sum()
         dfg = dfg.reset_index()
@@ -60,7 +60,7 @@ def build_hierarchical_dataframe(df, levels, value_column, color_columns=None):
         else:
             df_tree['parent'] = 'total'
         df_tree['value'] = dfg[value_column]
-        df_tree['total_points_total'] = dfg['total_points_total']
+        df_tree['rolling_points_total'] = dfg['rolling_points_total']
         df_tree['selected'] = dfg['selected']
         df_tree['percent_budget'] = dfg['now_cost']/df['now_cost'].sum()*100
         df_tree['color'] = dfg[color_columns[0]] / dfg[color_columns[1]]

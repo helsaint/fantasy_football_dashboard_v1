@@ -14,30 +14,44 @@ from plots.manager_analysis.budget_allocation_treemap import budget_allocation_t
 from plots.manager_analysis.efficiency_frontier import efficiency_frontier
 from utils.scatter_plot import scatter_plot
 
+@st.fragment
 def show(df):
     """Display a simple football pitch image"""
     
     st.header("⚽ Football Pitch")
     st.markdown("This is a basic football pitch display.")
+
+    # Initializing session state for fetched data
+    if 'fetched_manager_data' not in st.session_state:
+        st.session_state.fetched_manager_data = None
+    if 'fetched_fpl_data' not in st.session_state:
+        st.session_state.fetched_fpl_data = None
+    if 'fetched_histrory_data' not in st.session_state:
+        st.session_state.fetched_history_data = None
+
+    st.write("### Current Session State:")
+    st.write(st.session_state)
     
     # Simple pitch image display
     #pitch_url = "images/fpl_pitch.png"
     pitch_url = Path(__file__).parent.parent / "images" / "fpl_pitch.png"
     pitch_image = Image.open(pitch_url)
     draw = ImageDraw.Draw(pitch_image)
-    #st.image(pitch_image, caption="My beautiful team", width="stretch")
     
     st.markdown("---")
     st.write("Next step: Add player positioning to this pitch.")
     manager_id, gw = fpl_search_inputs()
-    
+
     if manager_id and st.button("🔍 Fetch & Analyze Team", type="primary"):
         with st.spinner(f"Fetching manager {manager_id}'s team for GW{gw}..."):
+
             manager_data = fetch_manager_data(manager_id, gw)
+            st.session_state.fetched_manager_data = manager_data
             df_manager_team = pd.DataFrame(manager_data['picks']) if manager_data else pd.DataFrame()
             dict_manager_history = manager_data['entry_history']
             
             df_fpl_features = load_player_data()
+            
             df_fpl_features = df_fpl_features.sort_values(
                 by=['player_id', 'gw', 'selected'], 
                 ascending=[True, True, True], 
@@ -69,61 +83,75 @@ def show(df):
             df_manager_team_detailed['multiplier_label'] = df_manager_team_detailed['multiplier'].map(multiplier_map)
             df_fpl_features['position_label'] = df_fpl_features['position'].map(position_map)
 
-            font_family = TEXT_FONT["font_family"]
-            font_size_name = TEXT_FONT["font_size_names"]
-            font_size_value = TEXT_FONT["font_size_values"]
-            font_name = ImageFont.truetype(font_family, font_size_name)
-            font_value = ImageFont.truetype(font_family, font_size_value)
-            font_size_team_value = TEXT_FONT["font_size_team_value"]
-            font_team_value = ImageFont.truetype(font_family, font_size_team_value)
+            # Set session states
+            st.session_state.fetched_fpl_data = df_fpl_features.copy()
+            st.session_state.fetched_manager_data = df_manager_team_detailed.copy()
+            st.session_state.fetched_histrory_data = dict_manager_history.copy()
 
-            # Team Value
-            pos_key = "TEAM_VALUE"
-            team_value = df_manager_team_detailed['now_cost'].sum()
-            text = f"£{team_value/10}m"
-            text_heading_display(pos_key, text, draw, font_team_value)
+    st.markdown("---")
+    st.subheader("My Beautiful Team")
+    if st.session_state.fetched_manager_data is not None:
+        font_family = TEXT_FONT["font_family"]
+        font_size_name = TEXT_FONT["font_size_names"]
+        font_size_value = TEXT_FONT["font_size_values"]
+        font_name = ImageFont.truetype(font_family, font_size_name)
+        font_value = ImageFont.truetype(font_family, font_size_value)
+        font_size_team_value = TEXT_FONT["font_size_team_value"]
+        font_team_value = ImageFont.truetype(font_family, font_size_team_value)
+
+        # Team Value
+        pos_key = "TEAM_VALUE"
+        team_value = st.session_state.fetched_manager_data['now_cost'].sum()
+        text = f"£{team_value/10}M"
+        text_heading_display(pos_key, text, draw, font_team_value)
             
-            # GW
-            pos_key = "GW"
-            text = f"{gw}"
-            text_heading_display(pos_key, text, draw, font_team_value)
+        # GW
+        pos_key = "GW"
+        text = f"{gw}"
+        text_heading_display(pos_key, text, draw, font_team_value)
 
-            # Bank
-            pos_key = "BANK"
-            text = f"{dict_manager_history['bank']/10}m"
-            text_heading_display(pos_key, text, draw, font_team_value)
+        # Bank
+        pos_key = "BANK"
+        text = f"{st.session_state.fetched_histrory_data['bank']/10}M"
+        text_heading_display(pos_key, text, draw, font_team_value)
 
-            # Goalkeeper
-            player_text_display(pitch_image, "GK", 1, df_manager_team_detailed, draw, 
-                         font_name, font_value, 0)
+        # Goalkeeper
+        player_text_display(pitch_image, "GK", 1, st.session_state.fetched_manager_data, draw, 
+                            font_name, font_value, 0)
 
-            # Defenders
-            for i in range(5):
-                position = 2
-                player_text_display(pitch_image, "DEF", position, df_manager_team_detailed, draw, 
-                             font_name, font_value, i)
+        # Defenders
+        for i in range(5):
+            position = 2
+            player_text_display(pitch_image, "DEF", position, 
+                                st.session_state.fetched_manager_data, draw, 
+                                font_name, font_value, i)
             
-            # Midfielders
-            for i in range(5):
-                position = 3
-                player_text_display(pitch_image, "MID", position, df_manager_team_detailed, draw, 
-                             font_name, font_value, i)
+        # Midfielders
+        for i in range(5):
+            position = 3
+            player_text_display(pitch_image, "MID", position, 
+                                st.session_state.fetched_manager_data, draw, 
+                                font_name, font_value, i)
             
-            # Forwards
-            for i in range(3):
-                position = 4
-                player_text_display(pitch_image, "FWD", position, df_manager_team_detailed, draw, 
-                             font_name, font_value, i)
+        # Forwards
+        for i in range(3):
+            position = 4
+            player_text_display(pitch_image, "FWD", position, 
+                                st.session_state.fetched_manager_data, draw, 
+                                font_name, font_value, i)
             
            
-            st.image(pitch_image, caption="My beautiful team", width="stretch")
-
-            st.markdown("---")
-
-            st.subheader("Ownership Value Differential Analysis")
-            fig_ovd = ownership_value_differential(df_manager_team_detailed)
-            st.plotly_chart(fig_ovd, width='stretch')
-            st.write("The plot shows the relationship between player ownership" \
+        st.image(pitch_image, caption="My beautiful team", width="stretch")
+    else:
+        st.warning("No manager data fetched yet. Please fetch a manager's team to analyze.")
+        
+    st.markdown("---")        
+    st.subheader("Ownership Value Differential Analysis")
+    if st.session_state.fetched_manager_data is not None:
+        fig_ovd = ownership_value_differential(
+            st.session_state.fetched_manager_data)
+        st.plotly_chart(fig_ovd, width='stretch', key="ownership_value_differential_plot")
+        st.write("The plot shows the relationship between player ownership" \
             "and total points scored. The size of the markers represents the player's cost."
             " This analysis helps identify players who are potentially undervalued or overvalued"
             " based on their ownership and performance. Overvalued players will be found" \
@@ -132,23 +160,35 @@ def show(df):
             " while having players here means that you are keeping up with popular picks," \
             " but you aren't seperating yourself from the crowd. For that you" \
             " need to be looking for undervalued players in the upper left quadrant." )
-            
-            st.markdown("---")
-            st.subheader("Budget Allocation Breakdown")
-            temp_columns = ['player_name', 'position_label', 'now_cost', 
-                            'rolling_points_total', 'selected',
-                            'multiplier_label']
-            df_temp = df_manager_team_detailed[temp_columns].copy()
-            df_temp['now_cost'] = df_temp['now_cost']/10  # convert to millions
-            df_temp['position_label_1'] = df_temp['position_label'] + "_" + df_temp['multiplier_label']
-            fig_budget_allocation = budget_allocation_treemap_v2(df_temp, 
-                                                                path=['multiplier_label', 'position_label_1', 'player_name'],
-                                                                values='now_cost',
-                                                                color_columns=['rolling_points_total', 'now_cost'],
-                                                                title='Budget Allocation Treemap')
-            
-            st.plotly_chart(fig_budget_allocation, width='stretch')
-            st.write("""
+    else:
+        st.warning("No manager data fetched yet. Please fetch a manager's team to analyze.")
+    
+    st.markdown("---")
+    st.subheader("Budget Allocation Breakdown")
+    if st.session_state.fetched_manager_data is not None:
+        temp_columns = ['player_name', 'position_label', 'now_cost', 
+                        'rolling_points_total', 'selected',
+                        'multiplier_label']
+        df_temp = st.session_state.fetched_manager_data[temp_columns].copy()
+        df_temp['now_cost'] = df_temp['now_cost']/10  # convert to millions
+        df_temp['position_label_1'] = df_temp['position_label'] + "_" + df_temp['multiplier_label']
+        fig_budget_allocation = budget_allocation_treemap_v2(
+            df_temp, 
+            path=[
+                'multiplier_label',
+                'position_label_1',
+                'player_name'
+                ],
+                values='now_cost',
+                color_columns=[
+                    'rolling_points_total',
+                    'now_cost'
+                    ],
+                    title='Budget Allocation Treemap')
+        st.plotly_chart(fig_budget_allocation, width='stretch', 
+                        key='budget_allocation_treemap_plot')
+        
+        st.write("""
                      The treemap shows how the manager has allocated their budget across
                      different positions. A very good team will have a lot of players in the 
                      'STARTER' category with a bluish hue. This indicates that the
@@ -170,37 +210,47 @@ def show(df):
                      transferring the premium player down to a "Blue" value mid 
                      (like a £6.5m - £7.5m option) to fix your bench is a smart move.
                      """)
-            
-            st.markdown("---")
-            st.subheader("Efficiency Frontier Analysis")
-            df_temp_ef = pd.pivot_table(
-                data=df_fpl_features[['player_id', 'total_points']],
-                index='player_id',
-                values='total_points',
-                aggfunc='sum').reset_index().sort_values(by='total_points', 
-                                                         ascending=False
-            ).head(100)
-            
-            df_temp_ef = pd.merge(
-                df_temp_ef,
-                df_fpl_features.loc[df_fpl_features['gw'] == gw, 
-                                    ['player_id','player_name', 'now_cost', 
-                                     'position', 'selected']],
-                                    on='player_id', how='left')
-            
-            df_temp_ef['ppm'] = df_temp_ef['total_points'] / gw
-            df_temp_ef['position_label'] = df_temp_ef['position'].map(
-                {1: 'GK', 2: 'DEF', 3: 'MID', 4: 'FWD'})
-            df_temp_mg = df_manager_team_detailed[['player_id',
-                                                   'player_name',
-                                                   'rolling_points_total',
-                                                   'position_label', 
-                                                   'now_cost', 
-                                                   'selected']].copy()
-            df_temp_mg['ppm'] = df_temp_mg['rolling_points_total'] / gw
-            fig_ef = efficiency_frontier(df_temp_ef, df_temp_mg)
-            st.plotly_chart(fig_ef, width='stretch')
-            st.write("""
+    else:
+        st.warning("No manager data fetched yet. Please fetch a manager's team to analyze.")
+
+    st.markdown("---")
+    st.subheader("Efficiency Frontier Analysis")
+    if st.session_state.fetched_fpl_data is not None:
+        df_temp_ef = pd.pivot_table(
+            data=st.session_state.fetched_fpl_data[['player_id', 'total_points']],
+            index='player_id',
+            values='total_points',
+            aggfunc='sum').reset_index().sort_values(by='total_points', 
+                                                     ascending=False
+                                                     ).head(100).copy()
+        
+        df_temp_ef = pd.merge(
+            df_temp_ef,
+            st.session_state.fetched_fpl_data.loc[
+                st.session_state.fetched_fpl_data['gw'] == gw, 
+                ['player_id','player_name', 'now_cost',
+                 'position', 'selected']],
+                 on='player_id', how='left')
+        
+        df_temp_ef['ppm'] = df_temp_ef['total_points'] / gw
+
+        df_temp_ef['position_label'] = df_temp_ef[
+            'position'
+            ].map(
+                {
+                    1: 'GK', 2: 'DEF', 3: 'MID', 4: 'FWD'
+                    }
+                    )
+        
+        df_temp_mg = st.session_state.fetched_manager_data[
+            [
+                'player_id','player_name','rolling_points_total',
+                'position_label', 'now_cost', 'selected'
+                ]].copy()
+        df_temp_mg['ppm'] = df_temp_mg['rolling_points_total'] / gw
+        fig_ef = efficiency_frontier(df_temp_ef, df_temp_mg)
+        st.plotly_chart(fig_ef, width='stretch',key="efficiency_frontier_plot")
+        st.write("""
                         The efficiency frontier plot illustrates the relationship between
                         player cost and points per million (PPM). The trendline indicates
                         the average efficiency across all players. Players positioned above
@@ -215,51 +265,99 @@ def show(df):
                         Look for players who are way below the trendline and transfer them 
                         for players who are above.
                      """)
-            
-            st.markdown("---")
-            st.subheader("CBIT Defense Analysis")
-            df_temp_cbit = df_fpl_features.loc[(df_fpl_features['gw'] == gw) &
-                                               (df_fpl_features[
-                                                   'rolling_minutes_played'] >= 45*gw), 
-                                    ['player_id','player_name', 'now_cost', 
-                                     'position_label', 'selected', 
-                                     'rolling_points_total',
-                                     'rolling_defensive_points',
-                                     'rolling_minutes_played',
-                                     'total_points',
-                                     'team_name']]
-            df_temp_cbit['per_cbit'] = 100*(df_temp_cbit['rolling_defensive_points']/(2*gw))
-            df_manager_team_detailed['per_cbit'] = 100*(
-                df_manager_team_detailed['rolling_defensive_points']/(2*gw))
-            fig_cbit = scatter_plot(df_temp_cbit[df_temp_cbit['position_label'] != 'GK'], 
-                                    hover_template_dict={"selected": ("Selected By: ",
-                                                                      lambda x: f"{round(x/1e6,1)}M"),
-                                                         "total_points": ("Total Points: ", None),
-                                                         "per_cbit": ("CBIT %: ", 
-                                                                      lambda x: round(x, 1)),
-                                                         "player_name": ("Player: ", None),
-                                                         "now_cost": ("Cost: ", 
-                                                                      lambda x: f"£{x/10}M"),
-                                                         "team_name": ("Team: ", None)},
-                                                         x_column="now_cost",
-                                                         y_column="per_cbit",
-                                                         category_column="position_label",
-                                                         marker_column="rolling_minutes_played",
-                                                         trendline_bool=True, 
-                                                         df2=df_manager_team_detailed,
-                                                         x_title="Player Cost (£M)",
-                                                         y_title="Defensive Points Contribution per CBIT (%)")
-            st.plotly_chart(fig_cbit, width='stretch')
-            st.write("""
+    else:
+        st.warning("No FPL data fetched yet. Please fetch a manager's team to analyze.")
+    
+    st.markdown("---")
+    st.subheader("CBIT Defense Analysis")
+    if st.session_state.fetched_fpl_data is not None:
+
+        selected_positions = st.multiselect(
+            "Choose positions to display:",
+            options=['DEF', 'MID', 'FWD'],
+            default=['DEF', 'MID', 'FWD']
+        )
+
+        filtered_fpl_cbit_data = st.session_state.fetched_fpl_data[
+            st.session_state.fetched_fpl_data['position_label'].isin(selected_positions)
+        ]
+
+        df_temp_cbit = filtered_fpl_cbit_data.loc[(filtered_fpl_cbit_data['gw'] == gw) &
+                                                (
+                                                    filtered_fpl_cbit_data[
+                                                        'rolling_minutes_played'
+                                                        ] >= 45*gw
+                                                        ),
+                                                        ['player_id','player_name', 
+                                                         'now_cost', 'position_label', 
+                                                         'selected', 'rolling_points_total',
+                                                         'rolling_defensive_points',
+                                                         'rolling_minutes_played',
+                                                         'total_points',
+                                                         'team_name']]
+        df_temp_cbit['per_cbit'] = 100*(df_temp_cbit['rolling_defensive_points']/(2*gw))
+        filtered_mng_cbit_data = st.session_state.fetched_manager_data[
+            st.session_state.fetched_manager_data['position_label'].isin(selected_positions)
+        ]
+        filtered_mng_cbit_data['per_cbit'] = 100*(
+            filtered_mng_cbit_data['rolling_defensive_points']/(2*gw))
+        
+        df_temp_cbit.reset_index(drop=True, inplace=True)
+        filtered_mng_cbit_data.reset_index(drop=True, inplace=True)
+        
+        fig_cbit_1 = scatter_plot(df_temp_cbit, 
+                                hover_template_dict={"selected": 
+                                                     (
+                                                         "Selected By: ",
+                                                         lambda x: f"{round(x/1e6,1)}M"),
+                                                         "rolling_points_total": (
+                                                             "Total Points: ", None
+                                                             ),
+                                                         "per_cbit": (
+                                                             "CBIT %: ", 
+                                                                      lambda x: round(x, 1)
+                                                                      ),
+                                                         "player_name": (
+                                                             "Player: ", None
+                                                             ),
+                                                         "now_cost": (
+                                                             "Cost: ", 
+                                                                      lambda x: f"£{x/10}M"
+                                                                      ),
+                                                         "team_name": (
+                                                             "Team: ", None
+                                                             )},
+                                                             x_column="now_cost",
+                                                             y_column="per_cbit",
+                                                             category_column="position_label",
+                                                             marker_column="rolling_points_total",
+                                                             trendline_bool=True, 
+                                                             df2=filtered_mng_cbit_data,
+                                                             x_title="Player Cost (£M)",
+                                                             y_title="Defensive Points Contribution per CBIT (%)")
+        st.plotly_chart(fig_cbit_1, width='stretch', key="cbit_defense_plot")
+        st.write("""
 The CBIT (Clearances, Blocks, Interceptions, Tackles) Defense Aanalysis plot visualizes the
                      relationship between player cost and their defensive contributions
                      as a percentage of games where CBIT actions resulted in the 2+ points
                      bonus. Since the system does not rewards goalkeepers for CBIT actions
                      these are excluded from the plot.
 
-                     To maximize your team's points haul we want to identify players that
+To maximize your team's points haul we want to identify players that
                      provide strong defensive contributions relative to their cost. Players
                      positioned above the trendline are delivering better defensive value.
                      Players in the tope left quadrant (low cost/high % CBIT games) are
                      ideal as they provide strong defensive contributions at a lower cost.
+
+The data points representing your team are highlighted with the star
+                     symbol. Evaluate your players' positions relative to the trendline. 
+                     The size of the markers indicates the total points scored 
+                     by each player, providing additional context on their overall performance.
 """)
+    else:
+        st.warning("No FPL data fetched yet. Please fetch a manager's team to analyze.")
+
+    st.markdown("---")
+    st.subheader("Fixture Adjusted Performance Analysis")
+    
+        

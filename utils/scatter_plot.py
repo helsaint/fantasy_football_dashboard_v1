@@ -2,6 +2,8 @@ import plotly.express as px
 import numpy as np
 import plotly.graph_objects as go
 import pandas as pd
+import streamlit as st
+
 
 def scatter_plot(main_df, **kwargs):
     df2 = kwargs.get("df2", None)
@@ -90,7 +92,6 @@ def create_hover_text(hover_template_dict: dict, df: pd.DataFrame):
     for i in range(len(df)):
         text = ""
         for key, (label, func) in hover_template_dict.items():
-
             temp_text = df.loc[i, key]
             if func:
                 temp_text = func(temp_text)
@@ -109,8 +110,8 @@ def create_fig(df: pd.DataFrame, categories: list,
                symbol: str ='circle'):
 
     for cat in categories:
-        min_size=2 
-        max_size=15
+        min_size=5 
+        max_size=20
         # 1. Filter and clean data (handling the negative size issue from earlier)
         sub_df = df[df[category_str] == cat].copy()
         # 2. Extract raw sizes and handle potential NaNs or negatives

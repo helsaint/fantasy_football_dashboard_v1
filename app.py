@@ -9,7 +9,7 @@ import requests
 
 # Import view modules
 from views import manager_analysis, value_analysis, performance_trends, player_overview
-from views import manager_analysis
+from views import test_view
 
 # ========== PAGE CONFIGURATION ==========
 st.set_page_config(
@@ -101,6 +101,7 @@ view = st.sidebar.radio(
         "📈 Performance Trends", 
         "💰 Value Analysis",
         "👤 Manager Analysis",
+        "🧪 Test View",
     ],
     index=0
 )
@@ -179,7 +180,9 @@ elif view == "💰 Value Analysis":
 # ========== MANAGER TEAM ANALYZER VIEW WITH AUTO-DETECT ==========
 elif view == "👤 Manager Analysis":
     manager_analysis.show(df)
-
+# ========== TEST VIEW ==========
+elif view == "🧪 Test View":
+    test_view.show(filtered_df)
 # ========== FOOTER ==========
 st.markdown("---")
 st.caption(f"Fantasy Football Dashboard • Data updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")

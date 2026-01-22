@@ -28,6 +28,8 @@ def show(df):
         st.session_state.fetched_fpl_data = None
     if 'fetched_histrory_data' not in st.session_state:
         st.session_state.fetched_history_data = None
+    if 'pitch_image' not in st.session_state:
+        st.session_state.pitch_image = None
 
     st.write("### Current Session State:")
     st.write(st.session_state)
@@ -90,7 +92,16 @@ def show(df):
 
     st.markdown("---")
     st.subheader("My Beautiful Team")
-    if st.session_state.fetched_manager_data is not None:
+    ''' Display the manager's team on the pitch image 
+     with player photos and stats.
+     if the pitch image hasn't alredy been created in this session.
+     If it has, just display the saved image.
+     '''
+    if (
+        st.session_state.fetched_manager_data is not None
+        ) and (
+            st.session_state.fetched_histrory_data is not None
+            ) and (st.session_state.pitch_image is None):
         font_family = TEXT_FONT["font_family"]
         font_size_name = TEXT_FONT["font_size_names"]
         font_size_value = TEXT_FONT["font_size_values"]
@@ -139,9 +150,14 @@ def show(df):
             player_text_display(pitch_image, "FWD", position, 
                                 st.session_state.fetched_manager_data, draw, 
                                 font_name, font_value, i)
-            
-           
+        
+        # Save pitch image to session state
+        st.session_state.pitch_image = pitch_image.copy()
+
         st.image(pitch_image, caption="My beautiful team", width="stretch")
+    elif st.session_state.pitch_image is not None:
+        # Display saved pitch image from session state
+        st.image(st.session_state.pitch_image, caption="My beautiful team", width="stretch")
     else:
         st.warning("No manager data fetched yet. Please fetch a manager's team to analyze.")
         
@@ -298,10 +314,11 @@ def show(df):
         df_temp_cbit['per_cbit'] = 100*(df_temp_cbit['rolling_defensive_points']/(2*gw))
         filtered_mng_cbit_data = st.session_state.fetched_manager_data[
             st.session_state.fetched_manager_data['position_label'].isin(selected_positions)
-        ]
-        filtered_mng_cbit_data['per_cbit'] = 100*(
-            filtered_mng_cbit_data['rolling_defensive_points']/(2*gw))
-        
+        ].copy()
+        filtered_mng_cbit_data.reset_index(drop=True, inplace=True)
+        temp = 100*(filtered_mng_cbit_data['rolling_defensive_points']/(2*gw))
+        filtered_mng_cbit_data.loc[:,'per_cbit'] = temp
+
         df_temp_cbit.reset_index(drop=True, inplace=True)
         filtered_mng_cbit_data.reset_index(drop=True, inplace=True)
         
@@ -327,13 +344,13 @@ def show(df):
                                                          "team_name": (
                                                              "Team: ", None
                                                              )},
-                                                             x_column="now_cost",
+                                                             x_column="rolling_points_total",
                                                              y_column="per_cbit",
                                                              category_column="position_label",
                                                              marker_column="rolling_points_total",
                                                              trendline_bool=True, 
                                                              df2=filtered_mng_cbit_data,
-                                                             x_title="Player Cost (£M)",
+                                                             x_title="Total Points Gained",
                                                              y_title="Defensive Points Contribution per CBIT (%)")
         st.plotly_chart(fig_cbit_1, width='stretch', key="cbit_defense_plot")
         st.write("""

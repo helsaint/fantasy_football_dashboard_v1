@@ -2,6 +2,8 @@ from config.text import TEXT_FONT
 from config.position_config import POSITION_COORDINATES
 from PIL import Image, ImageDraw,ImageFont
 import requests
+import streamlit as st
+
 
 def player_text_display(pitch_image, pos_key, position,
                  df, draw, font_name,
@@ -48,6 +50,7 @@ def player_text_display(pitch_image, pos_key, position,
         pitch_image.paste(player_image, (x, y))
     except Exception as e:
         print(f"Error loading image for player {text}: {e}")
+
 
 def text_heading_display(pos_key, text, draw, font_team_value):
     pos_key = pos_key

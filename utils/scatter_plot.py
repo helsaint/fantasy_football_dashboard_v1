@@ -46,7 +46,7 @@ def scatter_plot(main_df, **kwargs):
         hovertext_2 = []
         if hover_template_dict:
             hovertext_2 = create_hover_text(hover_template_dict, df2)
-            df2['text'] = hovertext_2
+            df2.loc[:,'text'] = hovertext_2
         else:
             df2['text'] = "Missing"
         

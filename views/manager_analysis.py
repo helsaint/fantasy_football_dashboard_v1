@@ -50,6 +50,7 @@ def show(df):
 
     if manager_id and st.button("🔍 Fetch & Analyze Team", type="primary"):
         with st.spinner(f"Fetching manager {manager_id}'s team for GW{gw}..."):
+            # Reset session state data
             st.session_state.fetched_manager_data = None
             st.session_state.fetched_fpl_data = None
             st.session_state.fetched_histrory_data = None

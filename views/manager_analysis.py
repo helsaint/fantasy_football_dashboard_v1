@@ -12,6 +12,7 @@ from ui.text_field_display import player_text_display, text_heading_display
 from plots.manager_analysis.ownership_value_differnetial import ownership_value_differential
 from plots.manager_analysis.budget_allocation_treemap import budget_allocation_treemap_v2
 from plots.manager_analysis.efficiency_frontier import efficiency_frontier
+from plots.manager_analysis.fixture_adjusted_performance import create_fixture_adjusted_chart
 from utils.scatter_plot import scatter_plot
 
 @st.fragment
@@ -31,9 +32,12 @@ def show(df):
     if 'pitch_image' not in st.session_state:
         st.session_state.pitch_image = None
 
+    '''
+    # Debug: Display session state
     st.write("### Current Session State:")
     st.write(st.session_state)
-    
+    '''
+
     # Simple pitch image display
     #pitch_url = "images/fpl_pitch.png"
     pitch_url = Path(__file__).parent.parent / "images" / "fpl_pitch.png"
@@ -46,6 +50,10 @@ def show(df):
 
     if manager_id and st.button("🔍 Fetch & Analyze Team", type="primary"):
         with st.spinner(f"Fetching manager {manager_id}'s team for GW{gw}..."):
+            st.session_state.fetched_manager_data = None
+            st.session_state.fetched_fpl_data = None
+            st.session_state.fetched_histrory_data = None
+            st.session_state.pitch_image = None
 
             manager_data = fetch_manager_data(manager_id, gw)
             st.session_state.fetched_manager_data = manager_data
@@ -376,5 +384,31 @@ The data points representing your team are highlighted with the star
 
     st.markdown("---")
     st.subheader("Fixture Adjusted Performance Analysis")
+    if (
+        st.session_state.fetched_manager_data is not None
+        ) and (
+            st.session_state.fetched_fpl_data is not None
+            ):
+        players_names = st.session_state.fetched_manager_data['player_name'].tolist()
+        player_id_name_map = dict()
+        for _, row in st.session_state.fetched_manager_data.iterrows():
+            player_id_name_map[row['player_name']] = row['player_id']
+
+        print(player_id_name_map)
+        # Create player selection
+        selected_player = st.selectbox(
+            "Select Player:",
+            options=players_names,
+            index=0 if players_names else None,
+            help="Choose a player from your team to view their fixture difficulty"
+            )
+
+        fig_fac = create_fixture_adjusted_chart(
+            manager_df=st.session_state.fetched_fpl_data,
+            player_id=player_id_name_map[selected_player],
+            player_name=selected_player)
+        st.plotly_chart(fig_fac, width='stretch', key="fixture_adjusted_performance_plot")
+    else:
+        st.warning("No manager data fetched yet. Please fetch a manager's team to analyze.")
     
         

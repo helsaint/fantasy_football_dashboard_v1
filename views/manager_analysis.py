@@ -76,11 +76,13 @@ def show(df):
                 )
             df_fpl_features['rolling_minutes_played'] = df_fpl_features.groupby(
                 'player_id')['minutes'].cumsum()
-            gw_latest = df_fpl_features['gw'].max()
-            gw_data_available = 0 if df_fpl_features.loc[df_fpl_features['gw'] == gw, 'now_cost'].sum() == 0 else 1
-            if gw_data_available == 0:
-                st.warning(f"Data for GW{gw} is not available yet. Displaying data for GW{gw_latest-1} instead.")
-                gw = gw_latest-1
+            
+            # Get the most recent GW with data if current GW has no data
+            while not(0 if df_fpl_features.loc[df_fpl_features['gw'] == gw, 'now_cost'].sum() == 0 else 1):
+                print(gw, "BEFORE")
+                gw -= 1
+                print(gw, "AFTER")
+            
             df_manager_team_detailed = pd.merge(
                 df_manager_team,
                 df_fpl_features[df_fpl_features['gw'] == gw],

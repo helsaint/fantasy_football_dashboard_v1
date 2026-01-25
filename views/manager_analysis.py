@@ -31,12 +31,14 @@ def show(df):
         st.session_state.fetched_history_data = None
     if 'pitch_image' not in st.session_state:
         st.session_state.pitch_image = None
+    if 'gw' not in st.session_state:
+        st.session_state.gw = None
 
-    '''
+    
     # Debug: Display session state
     st.write("### Current Session State:")
     st.write(st.session_state)
-    '''
+    
 
     # Simple pitch image display
     #pitch_url = "images/fpl_pitch.png"
@@ -47,7 +49,7 @@ def show(df):
     st.markdown("---")
     st.write("Next step: Add player positioning to this pitch.")
     manager_id, gw = fpl_search_inputs()
-
+    
     if manager_id and st.button("🔍 Fetch & Analyze Team", type="primary"):
         with st.spinner(f"Fetching manager {manager_id}'s team for GW{gw}..."):
             # Reset session state data
@@ -98,6 +100,7 @@ def show(df):
             st.session_state.fetched_fpl_data = df_fpl_features.copy()
             st.session_state.fetched_manager_data = df_manager_team_detailed.copy()
             st.session_state.fetched_histrory_data = dict_manager_history.copy()
+            st.session_state.gw = gw
 
     st.markdown("---")
     st.subheader("My Beautiful Team")
@@ -241,6 +244,7 @@ def show(df):
     st.markdown("---")
     st.subheader("Efficiency Frontier Analysis")
     if st.session_state.fetched_fpl_data is not None:
+        gw = st.session_state.gw
         df_temp_ef = pd.pivot_table(
             data=st.session_state.fetched_fpl_data[['player_id', 'total_points']],
             index='player_id',
@@ -248,13 +252,13 @@ def show(df):
             aggfunc='sum').reset_index().sort_values(by='total_points', 
                                                      ascending=False
                                                      ).head(100).copy()
-        
+
         df_temp_ef = pd.merge(
             df_temp_ef,
             st.session_state.fetched_fpl_data.loc[
                 st.session_state.fetched_fpl_data['gw'] == gw, 
                 ['player_id','player_name', 'now_cost',
-                 'position', 'selected']],
+                 'position', 'selected','gw']],
                  on='player_id', how='left')
         
         df_temp_ef['ppm'] = df_temp_ef['total_points'] / gw
@@ -296,7 +300,7 @@ def show(df):
     st.markdown("---")
     st.subheader("CBIT Defense Analysis")
     if st.session_state.fetched_fpl_data is not None:
-
+        gw = st.session_state.gw
         selected_positions = st.multiselect(
             "Choose positions to display:",
             options=['DEF', 'MID', 'FWD'],
@@ -395,7 +399,6 @@ The data points representing your team are highlighted with the star
         for _, row in st.session_state.fetched_manager_data.iterrows():
             player_id_name_map[row['player_name']] = row['player_id']
 
-        print(player_id_name_map)
         # Create player selection
         selected_player = st.selectbox(
             "Select Player:",
@@ -409,6 +412,13 @@ The data points representing your team are highlighted with the star
             player_id=player_id_name_map[selected_player],
             player_name=selected_player)
         st.plotly_chart(fig_fac, width='stretch', key="fixture_adjusted_performance_plot")
+
+        st.write("""
+The Fixture Adjusted Performance Analysis plot visualizes a selected player's
+                     expected performance against the difficulty of their fixtures over time.
+                        The expected performance metric combines both offensive and defensive
+
+                 """)
     else:
         st.warning("No manager data fetched yet. Please fetch a manager's team to analyze.")
     

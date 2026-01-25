@@ -9,7 +9,6 @@ def efficiency_frontier(df, df_manager=None):
     
     hovertext = []
     for i in range(len(df)):
-        
         hovertext.append(
             f"Player: {df.loc[i,'player_name']}<br>" +
             f"Selected by: {round(int(df.loc[i,'selected']/1000000),1)}M players<br>" +

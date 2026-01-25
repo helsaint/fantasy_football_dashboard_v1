@@ -36,9 +36,21 @@ def create_fixture_adjusted_chart(**kwargs):
         (player_df['expected_goal_involvements'] * 0.8) + (player_df['def_score'] * 0.2),    # MID: Heavy attack, light defense
         player_df['expected_goal_involvements']                                       # FWD: Only attack
         ]
+    
+    values = [5*i for i in values]  # Scale to 0-5
+
+    expected_points = [
+        np.exp(-player_df['expected_goals_conceded'])*4 - player_df['expected_goals_conceded']/2,
+        player_df['expected_goals']*6 + player_df['expected_assists']*3 + np.exp(-player_df['expected_goals_conceded'])*4 - player_df['expected_goals_conceded']/2,
+        player_df['expected_goals'] * 5 + player_df['expected_assists'] * 3,
+        player_df['expected_goals'] * 4 + player_df['expected_assists'] * 3,
+    ]
 
     player_df['expected_performance'] = np.select(conditions, values)
+    player_df['expected_points'] = np.select(conditions, expected_points)
     
+    print(player_df[['position_label', 'expected_performance', 'expected_points',
+                     'total_points','player_name', 'gw']])
     x = player_df['gw']
     y_1 = player_df['opp_dificulty_rating']
     y_2 = player_df['expected_performance']

@@ -417,8 +417,21 @@ The data points representing your team are highlighted with the star
 
         st.write("""
 The Fixture Adjusted Performance Analysis plot visualizes a selected player's
-                     expected performance against the difficulty of their fixtures over time.
-                        The expected performance metric combines both offensive and defensive
+                 expected performance against the difficulty of their fixtures over time.
+                 The expected performance metric combines both offensive and defensive
+                 contributions, adjusted for the player's position. The adjusted total points
+                 provides a normalized view of the player's scoring relative to their maximum
+                 points and should not be confused with raw total points.
+
+                 Ideally you want to see your selected player have high expected performance
+                 and high adjusted total points, or in other words we need to see the two
+                 lines move in tandem. If the expected performance is high but the adjusted
+                 total points is low, it indicates that the player is underperforming
+                 relative to expectations, possibly due to tough fixtures or other factors.
+                 Conversely, if the expected performance is low but the adjusted total points
+                 is high, it suggests that the player is exceeding expectations. Remember
+                 that players always regress to the mean so consistently high expected performance
+                 is a good indicator of future success.
 
                  """)
     else:

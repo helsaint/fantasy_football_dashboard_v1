@@ -41,8 +41,8 @@ def create_fixture_adjusted_chart(**kwargs):
 
     expected_points = [
         np.exp(-player_df['expected_goals_conceded'])*4 - player_df['expected_goals_conceded']/2,
-        player_df['expected_goals']*6 + player_df['expected_assists']*3 + np.exp(-player_df['expected_goals_conceded'])*4 - player_df['expected_goals_conceded']/2,
-        player_df['expected_goals'] * 5 + player_df['expected_assists'] * 3,
+        player_df['expected_goals']*6 + player_df['expected_assists']*3 + np.exp(-player_df['expected_goals_conceded'])*4 - np.floor(player_df['expected_goals_conceded'])/2,
+        player_df['expected_goals'] * 5 + player_df['expected_assists'] * 3 + np.exp(-player_df['expected_goals_conceded'])*1,
         player_df['expected_goals'] * 4 + player_df['expected_assists'] * 3,
     ]
 
@@ -50,11 +50,13 @@ def create_fixture_adjusted_chart(**kwargs):
     player_df['expected_points'] = np.select(conditions, expected_points)
     
     print(player_df[['position_label', 'expected_performance', 'expected_points',
-                     'total_points','player_name', 'gw']])
+                     'total_points','player_name', 'gw', 'expected_assists',]])
     x = player_df['gw']
     y_1 = player_df['opp_dificulty_rating']
     y_2 = player_df['expected_performance']
     y_3 = 5*(player_df['total_points']/player_df['total_points'].max())
+    
+    y_2_1 = 5*((player_df['expected_points'])/(player_df['expected_points'].max()))
 
     colors = ['green' if val == 1 
               else 'lightgreen' if val == 2 
@@ -83,7 +85,7 @@ def create_fixture_adjusted_chart(**kwargs):
 
     fig.add_trace(go.Scatter(
         x=x,
-        y=y_2,
+        y=y_2_1,
         mode='lines+markers',
         yaxis='y1',
         name='Expected Performance',

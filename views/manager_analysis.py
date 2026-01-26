@@ -36,8 +36,10 @@ def show(df):
 
     
     # Debug: Display session state
-    st.write("### Current Session State:")
-    st.write(st.session_state)
+    #st.write("### Current Session State:")
+    #st.write(st.session_state)
+    #theme_base = st.config.get_option("theme.base")
+    #print(theme_base)
     
 
     # Simple pitch image display
@@ -422,8 +424,8 @@ The Fixture Adjusted Performance Analysis plot visualizes a selected player's
                  contributions, adjusted for the player's position. The adjusted total points
                  provides a normalized view of the player's scoring relative to their maximum
                  points and should not be confused with raw total points.
-
-                 Ideally you want to see your selected player have high expected performance
+                 
+Ideally you want to see your selected player have high expected performance
                  and high adjusted total points, or in other words we need to see the two
                  lines move in tandem. If the expected performance is high but the adjusted
                  total points is low, it indicates that the player is underperforming
@@ -436,5 +438,96 @@ The Fixture Adjusted Performance Analysis plot visualizes a selected player's
                  """)
     else:
         st.warning("No manager data fetched yet. Please fetch a manager's team to analyze.")
+
+    st.markdown("---")
+    st.subheader("Ownership & Differential Analysis")
+
+    if (
+        st.session_state.fetched_fpl_data is not None
+        ) and (
+            st.session_state.fetched_manager_data is not None
+            ):
+        gw = st.session_state.gw
+        selected_positions = st.multiselect(
+            "Choose positions to display:",
+            options=['GK', 'DEF', 'MID', 'FWD'],
+            default=['GK', 'DEF', 'MID', 'FWD']
+        )
+
+        filtered_fpl_oda_data = st.session_state.fetched_fpl_data[
+            st.session_state.fetched_fpl_data['position_label'].isin(selected_positions)
+        ]
+
+        df_fpl_features_oda = filtered_fpl_oda_data[
+            (filtered_fpl_oda_data['gw'] == gw)
+            & (filtered_fpl_oda_data['rolling_minutes_played'] >= 45*gw)
+        ].copy()
+        df_manager_team_oda = st.session_state.fetched_manager_data.copy()
+        fig_oda = scatter_plot(
+            main_df=df_fpl_features_oda,
+            hover_template_dict={
+                "selected": (
+                    "Selected By: ",
+                    lambda x: f"{round(x/1e6,1)}M"
+                    ),
+                "rolling_points_total": (
+                    "Total Points: ", None
+                    ),
+                "player_name": (
+                    "Player: ", None
+                    ),
+                "now_cost": (
+                    "Cost: ", 
+                             lambda x: f"£{x/10}M"
+                             ),
+                "team_name": (
+                    "Team: ", None
+                    )
+                },
+                x_column="rolling_points_total",
+                y_column="selected",
+                category_column="position_label",
+                marker_column="selected",
+                trendline_bool=False,
+                df2=df_manager_team_oda,
+                x_title="Total Points Gained",
+                y_title="Number of Players Selected by Managers"
+                )
+        fig_oda.add_hline(
+            y=df_fpl_features_oda['selected'].median(),
+            line_dash="dot",
+            line_color="green",
+            annotation_text="Median Ownership",
+            annotation_position="bottom right"
+        )
+        fig_oda.add_vline(
+            x=df_fpl_features_oda['rolling_points_total'].median(),
+            line_dash="dot",
+            line_color="green",
+            annotation_text="Median Points",
+            annotation_position="top left"
+        )
+        st.plotly_chart(fig_oda, width='stretch', key="ownership_differential_analysis_plot")
+
+        st.write("""
+The Oewnership & Differential Analysis plot visualizes the relationship between
+total points scored and the number of managers selecting each player. We have restricted
+the analysis to players who have at least played half of the available minutes so far
+this season to ensure meaningful comparisons.
+
+Players located in the upper right quadrant are popular high performers. 
+Not owning these players can lead to missed opportunities for points and 
+degradation in overall rank. Players in the upper left quadrant are popular
+players whose performance is below the median point. Consider replacing them
+with players above the median points line.
+
+Players in the bottom right quadrant are undervalued. These assets get a lot of points
+but aren't selected by many managers. These are your differentials try getting a few.
+Finally players in the bottom left quadrant are low ownership low point players.
+These may be your bench fillers, you should generally avoid them unless you have a budgeting
+issue, however even then it is probably better to find a player closer to the median point
+line.
+                 """)
+
     
         

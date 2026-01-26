@@ -528,6 +528,11 @@ These may be your bench fillers, you should generally avoid them unless you have
 issue, however even then it is probably better to find a player closer to the median point
 line.
                  """)
+    else:
+        st.warning("No FPL data fetched yet. Please fetch a manager's team to analyze.")
+
+    st.markdown("---")
+    st.subheader("End of Analysis")
 
     
         

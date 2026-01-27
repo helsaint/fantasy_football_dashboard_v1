@@ -49,8 +49,6 @@ def create_fixture_adjusted_chart(**kwargs):
     player_df['expected_performance'] = np.select(conditions, values)
     player_df['expected_points'] = np.select(conditions, expected_points)
     
-    print(player_df[['position_label', 'expected_performance', 'expected_points',
-                     'total_points','player_name', 'gw', 'expected_assists',]])
     x = player_df['gw']
     y_1 = player_df['opp_dificulty_rating']
     y_2 = player_df['expected_performance']

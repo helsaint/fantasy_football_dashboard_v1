@@ -98,10 +98,10 @@ view = st.sidebar.radio(
     "Select Dashboard View:",
     [
         "📊 Player Overview", 
-        "📈 Performance Trends", 
-        "💰 Value Analysis",
+        #"📈 Performance Trends", 
+        #"💰 Value Analysis",
         "👤 Manager Analysis",
-        "🧪 Test View",
+        #"🧪 Test View",
     ],
     index=0
 )

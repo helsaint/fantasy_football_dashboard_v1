@@ -81,9 +81,7 @@ def show(df):
             
             # Get the most recent GW with data if current GW has no data
             while not(0 if df_fpl_features.loc[df_fpl_features['gw'] == gw, 'now_cost'].sum() == 0 else 1):
-                print(gw, "BEFORE")
                 gw -= 1
-                print(gw, "AFTER")
             
             df_manager_team_detailed = pd.merge(
                 df_manager_team,

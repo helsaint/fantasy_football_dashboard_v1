@@ -49,7 +49,8 @@ def player_text_display(pitch_image, pos_key, position,
         player_image = Image.open(requests.get(photo_url, stream=True).raw).resize((w, h))
         pitch_image.paste(player_image, (x, y))
     except Exception as e:
-        print(f"Error loading image for player {text}: {e}")
+        pass
+        #print(f"Error loading image for player {text}: {e}")
 
 
 def text_heading_display(pos_key, text, draw, font_team_value):

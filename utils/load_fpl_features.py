@@ -11,7 +11,6 @@ def load_player_data():
         data_path = Path(__file__).parent.parent / "data" / "fpl_features.csv"
         
         df = pd.read_csv(data_path)
-        print(data_path)
         # Basic data validation
         required_cols = ['player_name', 'gw', 'goals_scored', 'assists', 
                         'total_points', 'clean_sheets', 'now_cost',

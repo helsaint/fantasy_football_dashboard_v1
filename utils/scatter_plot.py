@@ -69,8 +69,11 @@ def fig_title_from_columns(x_title: str, y_title: str, fig: go.Figure):
     return fig
 
 def fig_create_trendline(x_str, y_str, fig: go.Figure, df: pd.DataFrame):
-    x_1 = df[x_str]
-    y_1 = df[y_str]
+    df_1 = df.copy()
+    df_1 = df_1.sort_values(by=x_str, ascending=True)
+    df_1.dropna(inplace=True)
+    x_1 = df_1[x_str]
+    y_1 = df_1[y_str]
     m, b = np.polyfit(x_1, y_1, 1) # 1 means linear (degree 1)
 
     # 3. Create the trendline coordinates

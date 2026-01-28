@@ -168,7 +168,7 @@ def show(filtered_df):
             )
         )
 
-        fig_context_1 = scatter_plot(
+        fig_context_1, r2 = scatter_plot(
             main_df=player_data,
             hover_template_dict={
                 'total_points': ("Points: ", None),
@@ -177,6 +177,7 @@ def show(filtered_df):
                     "Selected By: ",
                     lambda x: f"{round(x/1e6,1)}M"
                     ),
+                'gw': ("GW: ", None),
             },
             x_column = 'opp_strength_defence',
             y_column = 'expected_goal_involvements',
@@ -188,3 +189,17 @@ def show(filtered_df):
         )
 
         st.plotly_chart(fig_context_1,width='stretch', key='context_chart')
+        st.write(" Here we measure player consistency against opponent difficulty." \
+        " This chart is also attacker oriented and will not be useful for goalkeeper" \
+        " analysis or defenders who you don't expect to be much attack oriented." \
+        " Finally a player may be overperfoming their xGI, having a purple season/patch," \
+        " take this into consideration.")
+        st.write("- The Flat Track Bully: The player thrives against weak opposition" \
+        " while finding opportunities difficult to come by against tougher teams." \
+        " Consider difficulty of the fixture and rotate this player as needed.")
+        st.write("- The Big Game Player: This player does well as the opponent gets" \
+        " tougher. This is a set and forget asset. However, ensure that the expected" \
+        " goal involvements are high and not something between 0-0.5. As the trend may" \
+        " be upward but the underlying expectations are pretty poor.")
+        st.write("- High Volatility: Be careful with this. The trendline may be steep" \
+        " but the player is very inconsistent. Look at the $R^2$ value.")

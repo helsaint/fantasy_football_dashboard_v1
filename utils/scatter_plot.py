@@ -18,6 +18,8 @@ def scatter_plot(main_df, **kwargs):
     y_title = kwargs.get("y_title", y_str)
     main_df = main_df.reset_index()
 
+    r2 = 0
+
     opacity_float= 1.0
     if df2 is not None:
         opacity_float= 0.5
@@ -38,7 +40,7 @@ def scatter_plot(main_df, **kwargs):
                      symbol='circle')
     
     if trendline_bool:
-        fig = fig_create_trendline(x_str, y_str, fig, main_df)
+        fig, r2 = fig_create_trendline(x_str, y_str, fig, main_df)
     
     fig = fig_title_from_columns(x_title, y_title, fig)
 
@@ -57,7 +59,7 @@ def scatter_plot(main_df, **kwargs):
                          fig=fig, opacity=1.0,
                          symbol='star')
 
-    return fig
+    return fig, r2
 
 def fig_title_from_columns(x_title: str, y_title: str, fig: go.Figure):
     fig.update_layout(
@@ -72,6 +74,7 @@ def fig_create_trendline(x_str, y_str, fig: go.Figure, df: pd.DataFrame):
     df_1 = df.copy()
     df_1 = df_1.sort_values(by=x_str, ascending=True)
     df_1.dropna(inplace=True)
+    
     x_1 = df_1[x_str]
     y_1 = df_1[y_str]
     m, b = np.polyfit(x_1, y_1, 1) # 1 means linear (degree 1)
@@ -88,7 +91,21 @@ def fig_create_trendline(x_str, y_str, fig: go.Figure, df: pd.DataFrame):
         name='Trendline (OLS)',
         line=dict(color='white', dash='dash')
         ))
-    return fig
+    
+    # 5. Get R^2
+    df_1['predicted_y'] = (m * x_1) + b
+    # Measures the gap between reality and our model
+    df_1['residual_sq'] = (y_1 - df_1['predicted_y'])**2
+    ss_res = df_1['residual_sq'].sum()
+    # Measures how much the data fluctuates from its own average
+    y_mean = y_1.mean()
+    df_1['variance_sq'] = (y_1 - y_mean)**2
+    ss_tot = df_1['variance_sq'].sum()
+
+    # 6. The Final R^2 Score
+    r_squared = np.round(100*(1 - (ss_res / ss_tot)),3)
+    
+    return fig, r_squared
 
 def create_hover_text(hover_template_dict: dict, df: pd.DataFrame):
     hovertext = []

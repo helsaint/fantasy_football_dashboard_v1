@@ -337,7 +337,7 @@ def show(df):
         df_temp_cbit.reset_index(drop=True, inplace=True)
         filtered_mng_cbit_data.reset_index(drop=True, inplace=True)
         
-        fig_cbit_1 = scatter_plot(df_temp_cbit, 
+        fig_cbit_1,_ = scatter_plot(df_temp_cbit, 
                                 hover_template_dict={"selected": 
                                                      (
                                                          "Selected By: ",
@@ -461,7 +461,7 @@ Ideally you want to see your selected player have high expected performance
             & (filtered_fpl_oda_data['rolling_minutes_played'] >= 45*gw)
         ].copy()
         df_manager_team_oda = st.session_state.fetched_manager_data.copy()
-        fig_oda = scatter_plot(
+        fig_oda, _ = scatter_plot(
             main_df=df_fpl_features_oda,
             hover_template_dict={
                 "selected": (

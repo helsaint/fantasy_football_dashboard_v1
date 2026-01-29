@@ -187,6 +187,7 @@ def show(filtered_df):
             x_title="Opponent Defensive Strength",
             y_title="Expected Goal Involvements"
         )
+        st.caption(f"**$R^2$** = **{r2}%**")
 
         st.plotly_chart(fig_context_1,width='stretch', key='context_chart')
         st.write(" Here we measure player consistency against opponent difficulty." \
@@ -203,3 +204,17 @@ def show(filtered_df):
         " be upward but the underlying expectations are pretty poor.")
         st.write("- High Volatility: Be careful with this. The trendline may be steep" \
         " but the player is very inconsistent. Look at the $R^2$ value.")
+        st.write("- $R^2$ Value: Here we represent the R^2 value as percentage." \
+        " Strictly speaking this value tells us if the trendline is useful in decision" \
+        " making. A high $R^2$ value means that the trendline is a good indicator while" \
+        " a low $R^2$ value indicates that the trendline/opposition strength is a" \
+        " secondary indicator of performance indicator.")
+        dict_R_2 = {
+            "$R^2$": ["70\% - 100\%", "40\% - 70\%", "10\% - 40\%", "<10\%"],
+            "Strength": ["High", "Moderate", "Low", "Negligible"],
+            "Description": ["This would mean a player is almost perfectly predictable "
+            "based on the opponent's strength", "This is a reliable trend you can use "
+            "to plan transfers weeks in advance.", "It shows a trend exists, but luck "
+            "plays a big role.", "The metric has almost no impact on the outcome."]
+            }
+        st.table(dict_R_2)

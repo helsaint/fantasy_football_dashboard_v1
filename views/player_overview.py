@@ -210,7 +210,7 @@ def show(filtered_df):
         " a low $R^2$ value indicates that the trendline/opposition strength is a" \
         " secondary indicator of performance indicator.")
         dict_R_2 = {
-            "$R^2$": ["70\% - 100\%", "40\% - 70\%", "10\% - 40\%", "<10\%"],
+            "$R^2$": [f"70% - 100%", f"40% - 70%", f"10% - 40%", f"<10%"],
             "Strength": ["High", "Moderate", "Low", "Negligible"],
             "Description": ["This would mean a player is almost perfectly predictable "
             "based on the opponent's strength", "This is a reliable trend you can use "

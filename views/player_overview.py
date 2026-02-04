@@ -6,6 +6,7 @@ import plotly.graph_objects as go
 import plotly.express as px
 from utils.load_fpl_features import load_player_data
 from utils.scatter_plot import scatter_plot
+from utils.scaling import percentile_scaling
 
 def show(filtered_df):
     st.header("Player Performance Overview")
@@ -17,7 +18,8 @@ def show(filtered_df):
 
     df_fpl_features = load_player_data()
     if st.session_state.fetched_fpl_data_overview is None:
-        st.session_state.fetched_fpl_data_overview = df_fpl_features
+        st.session_state.fetched_fpl_data_overview = df_fpl_features.copy()
+
 
     st.subheader("HTB Target Database")
     # 1. Create a dictionary to map ID -> Display Label
@@ -218,3 +220,63 @@ def show(filtered_df):
             "plays a big role.", "The metric has almost no impact on the outcome."]
             }
         st.table(dict_R_2)
+
+        st.markdown("---")
+        st.subheader("Defensive & Efficiency Radar")
+        metrics = [
+            'bps_per90',
+            'points_per90', 
+            'expected_goal_involvements', # Use the season avg version
+            'defensive_contribution',     # You may need to avg your 'form' columns
+            'ict_index'
+        ]
+
+        df_fpl_features_scaled = percentile_scaling(
+            st.session_state.fetched_fpl_data_overview[
+                st.session_state.fetched_fpl_data_overview[
+                    'rolling_minutes_total'
+                    ] > 400],
+            metrics).copy()
+    
+        df_fpl_features_scaled_player = df_fpl_features_scaled[
+            df_fpl_features_scaled['player_id'] == selected_id
+            ].copy()
+        
+        season_avg = df_fpl_features_scaled_player[
+            metrics
+            ].mean().tolist()
+        recent_form = df_fpl_features_scaled_player.sort_values(
+            'gw'
+            ).dropna().tail(5)[metrics].mean().tolist()
+
+        metrics_closed = metrics + [metrics[0]]
+        season_avg += [season_avg[0]]
+        recent_form += [recent_form[0]]
+
+        fig_der = go.Figure()
+        fig_der.add_trace(go.Scatterpolar(
+            r=season_avg,
+            theta=metrics_closed,
+            fill='toself',
+            name='Season Average',
+            line_color='rgba(150, 150, 150, 0.5)',
+            fillcolor='rgba(150, 150, 150, 0.2)'
+            ))
+        
+        # Add Recent Form Trace
+        fig_der.add_trace(go.Scatterpolar(
+            r=recent_form,
+            theta=metrics_closed,
+            fill='toself',
+            name='Last 5 GWs (Form)',
+            line_color='deepskyblue',
+            fillcolor='rgba(0, 191, 255, 0.3)'
+        ))
+
+        fig_der.update_layout(
+        polar=dict(radialaxis=dict(visible=True, range=[0, 1])),
+        showlegend=True,
+        title=f"Player DNA: Season vs. Recent Form"
+        )
+
+        st.plotly_chart(fig_der, width='stretch', key='fig_der')

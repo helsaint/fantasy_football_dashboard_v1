@@ -7,6 +7,7 @@ import plotly.express as px
 from utils.load_fpl_features import load_player_data
 from utils.scatter_plot import scatter_plot
 from utils.scaling import percentile_scaling
+from utils.player_points_prediction import points_prediction
 
 def show(filtered_df):
     st.header("Player Performance Overview")
@@ -222,7 +223,7 @@ def show(filtered_df):
         st.table(dict_R_2)
 
         st.markdown("---")
-        st.subheader("Defensive & Efficiency Radar")
+        st.subheader("Efficiency Radar")
         metrics = [
             'bps_per90',
             'points_per90', 
@@ -280,3 +281,7 @@ def show(filtered_df):
         )
 
         st.plotly_chart(fig_der, width='stretch', key='fig_der')
+
+        st.markdown("---")
+        st.subheader("Player Expected Points Next GW")
+        points_prediction(st.session_state.filtered_player_data.copy())

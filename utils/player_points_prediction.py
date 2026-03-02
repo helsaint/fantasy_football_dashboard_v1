@@ -10,5 +10,5 @@ def points_prediction(df: pd.DataFrame):
     opp_xgc = df['opp_xGC_roll_5']
     league_avg_xgc = df['opp_xGC_roll_5'].sum()/20
     attack_adj = opp_xgc/league_avg_xgc
-    print(df[['player_name', 'opponent_team_name']])
-    print(attack_adj)
+    adj_xG = xg_p90*attack_adj
+    adj_xA = xa_p90*attack_adj

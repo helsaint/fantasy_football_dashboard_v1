@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 from datetime import datetime
 import plotly.graph_objects as go
-import plotly.express as px
 from utils.load_fpl_features import load_player_data
 from utils.scatter_plot import scatter_plot
 from utils.scaling import percentile_scaling

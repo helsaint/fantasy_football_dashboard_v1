@@ -3,10 +3,10 @@ import pandas as pd
 import numpy as np
 from datetime import datetime
 import plotly.graph_objects as go
-from utils.load_fpl_features import load_player_data
+from utils.load_fpl_features import load_player_data, load_fpl_points_prediction
 from utils.scatter_plot import scatter_plot
 from utils.scaling import percentile_scaling
-from utils.player_points_prediction import points_prediction
+
 
 def show(filtered_df):
     st.header("Player Performance Overview")
@@ -15,10 +15,19 @@ def show(filtered_df):
         st.session_state.fetched_fpl_data_overview = None
     if 'filtered_player_data' not in st.session_state:
         st.session_state.filtered_player_data = None
+    if 'fetched_fpl_points_prediction' not in st.session_state:
+        st.session_state.fetched_fpl_points_prediction = None
+    if 'filtered_predicted_points' not in st.session_state:
+        st.session_state.filtered_predicted_points = None
 
     df_fpl_features = load_player_data()
     if st.session_state.fetched_fpl_data_overview is None:
         st.session_state.fetched_fpl_data_overview = df_fpl_features.copy()
+
+    df_fpl_points_prediction = load_fpl_points_prediction()
+    
+    if st.session_state.fetched_fpl_points_prediction is None:
+        st.session_state.fetched_fpl_points_prediction = df_fpl_points_prediction.copy()
 
 
     st.subheader("HTB Target Database")
@@ -35,7 +44,7 @@ def show(filtered_df):
         options=player_options.keys(), # This stores the player_id
         format_func=lambda x: player_options[x], # This shows "Name (Team)"
         index=None,
-        placeholder="Type a name (e.g., 'Slayer')..."
+        placeholder="Type a name (e.g., 'Virgil')..."
         )
     # 3. Action based on selection
     if selected_id:
@@ -43,7 +52,13 @@ def show(filtered_df):
         player_data = st.session_state.fetched_fpl_data_overview[
             st.session_state.fetched_fpl_data_overview['player_id'] == selected_id].reset_index(
                 drop=True)
+        predicted_data = st.session_state.fetched_fpl_points_prediction[
+            st.session_state.fetched_fpl_points_prediction[
+                'player_id'] == selected_id].reset_index(
+                drop=True)
         st.session_state.filtered_player_data = player_data
+        
+        st.session_state.filtered_predicted_points = predicted_data
 
         st.divider()
         col1, col2 = st.columns(2)
@@ -283,4 +298,4 @@ def show(filtered_df):
 
         st.markdown("---")
         st.subheader("Player Expected Points Next GW")
-        points_prediction(st.session_state.filtered_player_data.copy())
+        st.dataframe(st.session_state.filtered_predicted_points)

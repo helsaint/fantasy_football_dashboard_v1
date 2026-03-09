@@ -44,6 +44,18 @@ def load_player_data():
         st.warning("⚠️ CSV file not found. Using sample data for demonstration.")
         return create_sample_data()
     
+def load_fpl_points_prediction():
+    """Load and preprocess the player performance data"""
+    try:
+        # Try to load from the data folder
+        data_path = Path(__file__).parent.parent / "data" / "fpl_points_predict.csv"
+        
+        df = pd.read_csv(data_path)
+        return df
+    except:
+        st.warning("⚠️ CSV file not found. Using sample data for demonstration.")
+
+    
 def create_sample_data():
     """Create sample data if CSV file is missing"""
     players = ['Haaland', 'Salah', 'Kane', 'De Bruyne', 'Son', 'Rashford', 

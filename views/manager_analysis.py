@@ -4,7 +4,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw,ImageFont
 from utils.load_player_data import fetch_fpl_bootstrap
 from utils.load_manager_data import fetch_manager_data
-from utils.load_fpl_features import load_player_data
+from utils.load_fpl_features import load_player_data, load_fpl_points_prediction
 from config.position_config import POSITION_COORDINATES
 from config.text import TEXT_FONT
 from ui.fpl_search import fpl_search_inputs
@@ -14,6 +14,7 @@ from plots.manager_analysis.budget_allocation_treemap import budget_allocation_t
 from plots.manager_analysis.efficiency_frontier import efficiency_frontier
 from plots.manager_analysis.fixture_adjusted_performance import create_fixture_adjusted_chart
 from utils.scatter_plot import scatter_plot
+import plotly.graph_objects as go
 
 @st.fragment
 def show(df):
@@ -33,6 +34,8 @@ def show(df):
         st.session_state.pitch_image = None
     if 'gw' not in st.session_state:
         st.session_state.gw = None
+    if 'predicted_points' not in st.session_state:
+        st.session_state.predicted_points = None
 
     
     # Debug: Display session state
@@ -59,6 +62,7 @@ def show(df):
             st.session_state.fetched_fpl_data = None
             st.session_state.fetched_histrory_data = None
             st.session_state.pitch_image = None
+            st.session_state.predicted_points = None
 
             manager_data = fetch_manager_data(manager_id, gw)
             st.session_state.fetched_manager_data = manager_data
@@ -66,6 +70,7 @@ def show(df):
             dict_manager_history = manager_data['entry_history']
             
             df_fpl_features = load_player_data()
+            df_fpl_predicted_points = load_fpl_points_prediction()
             
             df_fpl_features = df_fpl_features.sort_values(
                 by=['player_id', 'gw', 'selected'], 
@@ -90,7 +95,17 @@ def show(df):
                 right_on='player_id',
                 how='left'
             )
+
             
+            df_manager_team_detailed = pd.merge(
+                df_manager_team_detailed,
+                df_fpl_predicted_points[[
+                    'player_id', 'predicted_points',
+                    ]],
+                left_on='player_id',
+                right_on='player_id',
+                how='left'
+            )
             
             position_map = {1: 'GK', 2: 'DEF', 3: 'MID', 4: 'FWD'}
             multiplier_map = {0: 'BENCH', 1: 'STARTER', 2: 'CAPTAIN'}
@@ -526,8 +541,42 @@ These may be your bench fillers, you should generally avoid them unless you have
 issue, however even then it is probably better to find a player closer to the median point
 line.
                  """)
+        st.markdown("---")
+        st.subheader(f"Player's predicted points for Gameweek: {gw+1}")
+        fig_pred = go.Figure()
+        temp_df = st.session_state.fetched_manager_data[['player_name',
+                                            'predicted_points',
+                                            'opponent_team_name',
+                                            'position_label']].sort_values(
+                                                by='predicted_points',
+                                                ascending=True
+                                            ).copy()
+        customdata = temp_df[['opponent_team_name',
+                              'position_label']].values.tolist()
+        fig_pred.add_trace(go.Bar(
+            y=temp_df['player_name'],
+            x=temp_df['predicted_points'],
+            orientation='h',
+            marker_color='lightblue',
+            text=temp_df['predicted_points'],
+            customdata=customdata,
+            textposition='outside',
+            hovertemplate='<b>Opponent:%{customdata[0]}</b><br>'+
+            '<b>Position:%{customdata[1]}</b><br>'
+            ))
+        fig_pred.update_layout(title='Predicted points ' \
+        'for your team in next gw', yaxis_title='Predicted Points')
+
+        st.plotly_chart(fig_pred, width='stretch', key="pred_chart")
     else:
         st.warning("No FPL data fetched yet. Please fetch a manager's team to analyze.")
+
+    st.write("""
+This is the estimate of the points for the upcoming GW. We take into consideration the
+             strength of the opposition as well as the form of both the specific player
+             as well as the player's team.
+             """)
+
 
     st.markdown("---")
     st.subheader("End of Analysis")

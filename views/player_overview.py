@@ -25,7 +25,6 @@ def show(filtered_df):
         st.session_state.fetched_fpl_data_overview = df_fpl_features.copy()
 
     df_fpl_points_prediction = load_fpl_points_prediction()
-    
     if st.session_state.fetched_fpl_points_prediction is None:
         st.session_state.fetched_fpl_points_prediction = df_fpl_points_prediction.copy()
 

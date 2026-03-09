@@ -575,6 +575,9 @@ line.
 This is the estimate of the points for the upcoming GW. We take into consideration the
              strength of the opposition as well as the form of both the specific player
              as well as the player's team.
+
+             We are not taking into consideration injury issues so this data assumes players
+             are all fit.
              """)
 
 

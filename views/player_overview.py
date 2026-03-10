@@ -3,12 +3,12 @@ import pandas as pd
 import numpy as np
 from datetime import datetime
 import plotly.graph_objects as go
-from utils.load_fpl_features import load_player_data, load_fpl_points_prediction
+from utils.load_fpl_features import load_fpl_points_prediction
 from utils.scatter_plot import scatter_plot
 from utils.scaling import percentile_scaling
 
-
-def show(filtered_df):
+def show(df):
+    
     st.header("Player Performance Overview")
 
     if 'fetched_fpl_data_overview' not in st.session_state:
@@ -20,7 +20,7 @@ def show(filtered_df):
     if 'filtered_predicted_points' not in st.session_state:
         st.session_state.filtered_predicted_points = None
 
-    df_fpl_features = load_player_data()
+    df_fpl_features = df
     if st.session_state.fetched_fpl_data_overview is None:
         st.session_state.fetched_fpl_data_overview = df_fpl_features.copy()
 
@@ -29,7 +29,7 @@ def show(filtered_df):
         st.session_state.fetched_fpl_points_prediction = df_fpl_points_prediction.copy()
 
 
-    st.subheader("HTB Target Database")
+    st.subheader("FPL Target Database")
     # 1. Create a dictionary to map ID -> Display Label
     # This makes lookups instant and clean
     player_options = st.session_state.fetched_fpl_data_overview.set_index('player_id').apply(

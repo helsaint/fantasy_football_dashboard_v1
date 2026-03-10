@@ -16,8 +16,10 @@ from plots.manager_analysis.fixture_adjusted_performance import create_fixture_a
 from utils.scatter_plot import scatter_plot
 import plotly.graph_objects as go
 
+
 @st.fragment
 def show(df):
+    
     """Display a simple football pitch image"""
     
     st.header("⚽ Football Pitch")
@@ -69,7 +71,7 @@ def show(df):
             df_manager_team = pd.DataFrame(manager_data['picks']) if manager_data else pd.DataFrame()
             dict_manager_history = manager_data['entry_history']
             
-            df_fpl_features = load_player_data()
+            df_fpl_features = df
             df_fpl_predicted_points = load_fpl_points_prediction()
             
             df_fpl_features = df_fpl_features.sort_values(
@@ -583,6 +585,6 @@ This is the estimate of the points for the upcoming GW. We take into considerati
 
     st.markdown("---")
     st.subheader("End of Analysis")
-
+    
     
         

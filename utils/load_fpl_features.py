@@ -3,7 +3,7 @@ from pathlib import Path
 import pandas as pd
 import numpy as np
 # ========== DATA LOADING WITH CACHING ==========
-@st.cache_data
+@st.cache_data(ttl=3600)
 def load_player_data():
     """Load and preprocess the player performance data"""
     try:
@@ -43,7 +43,8 @@ def load_player_data():
     except FileNotFoundError:
         st.warning("⚠️ CSV file not found. Using sample data for demonstration.")
         return create_sample_data()
-    
+
+@st.cache_data(ttl=3600)
 def load_fpl_points_prediction():
     """Load and preprocess the player performance data"""
     try:

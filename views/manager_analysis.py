@@ -2,9 +2,8 @@ import streamlit as st
 import pandas as pd
 from pathlib import Path
 from PIL import Image, ImageDraw,ImageFont
-from utils.load_player_data import fetch_fpl_bootstrap
 from utils.load_manager_data import fetch_manager_data
-from utils.load_fpl_features import load_player_data, load_fpl_points_prediction
+from utils.load_fpl_features import load_fpl_points_prediction
 from config.position_config import POSITION_COORDINATES
 from config.text import TEXT_FONT
 from ui.fpl_search import fpl_search_inputs

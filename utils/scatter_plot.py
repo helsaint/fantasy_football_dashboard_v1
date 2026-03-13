@@ -103,7 +103,11 @@ def fig_create_trendline(x_str, y_str, fig: go.Figure, df: pd.DataFrame):
     ss_tot = df_1['variance_sq'].sum()
 
     # 6. The Final R^2 Score
-    r_squared = np.round(100*(1 - (ss_res / ss_tot)),3)
+    r_squared = 0
+    try:
+        r_squared = np.round(100*(1 - (ss_res / ss_tot)),3)
+    except:
+        r_squared = 0
     
     return fig, r_squared
 

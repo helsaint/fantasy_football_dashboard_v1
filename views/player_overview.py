@@ -1,14 +1,13 @@
 import streamlit as st
-import pandas as pd
-import numpy as np
-from datetime import datetime
 import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 from utils.load_fpl_features import load_fpl_points_prediction
 from utils.scatter_plot import scatter_plot
 from utils.scaling import percentile_scaling
+from utils.commentary.commentary_market_sentiment import commentary_market_sentiment
+from ui.chart_colors import CHART_COLORS
 
 def show(df):
-    
     st.header("Player Performance Overview")
 
     if 'fetched_fpl_data_overview' not in st.session_state:
@@ -29,6 +28,9 @@ def show(df):
         st.session_state.fetched_fpl_points_prediction = df_fpl_points_prediction.copy()
 
 
+    # --------------------------------------------------------------------
+    # Drop down menu/search bar
+    # --------------------------------------------------------------------
     st.subheader("FPL Target Database")
     # 1. Create a dictionary to map ID -> Display Label
     # This makes lookups instant and clean
@@ -49,8 +51,8 @@ def show(df):
     if selected_id:
         # Pull the specific row for the unique ID
         player_data = st.session_state.fetched_fpl_data_overview[
-            st.session_state.fetched_fpl_data_overview['player_id'] == selected_id].reset_index(
-                drop=True)
+            st.session_state.fetched_fpl_data_overview['player_id'] == selected_id]
+        player_data = player_data.drop_duplicates(subset=['gw'],keep='last').reset_index()
         predicted_data = st.session_state.fetched_fpl_points_prediction[
             st.session_state.fetched_fpl_points_prediction[
                 'player_id'] == selected_id].reset_index(
@@ -86,8 +88,12 @@ def show(df):
         with col4:
             st.metric("Games over 60 mins", 
                       f"{st.session_state.filtered_player_data['played_60'].sum():,}")
+            
         
         st.markdown("---")
+        # --------------------------------------------------------------------
+        # Residual Performance Analysis
+        # --------------------------------------------------------------------
         st.subheader("Residual Performance Analysis")
         player_data['goals_assists'] = player_data['goals_scored'] + player_data['assists']
         
@@ -127,7 +133,7 @@ def show(df):
         " they are consistent and we can count on their points.")
 
         st.markdown("---")
-        st.subheader("Noise vs Signal")
+        st.subheader("Momentum")
 
         fig_nsv = go.Figure()
         fig_nsv.add_trace(
@@ -149,20 +155,20 @@ def show(df):
         fig_nsv.add_trace(
             go.Scatter(
                 x=player_data['gw'],
-                y=player_data['pts_roll_5'],
+                y=player_data['pts_roll_3'],
                 mode='markers+lines',
-                name='Rolling 5',
+                name='Rolling 3',
             )
         )
 
         st.plotly_chart(fig_nsv, width='stretch', key="nsv_chart")
-        st.write(" We use Total Points to see the ceiling, the Rolling 5 to capture the" \
+        st.write(" We use Total Points to see the ceiling, the Rolling 3 to capture the" \
         " current player's current form, and the EWMA to provide a weighted baseline that" \
         " filters out the chaos of a single gameweek.")
-        st.write("- The Breakout: the Rolling 5 crosses above the Weighted Moving Average" \
+        st.write("- The Breakout: the Rolling 3 crosses above the Weighted Moving Average" \
         " The player is in a hot streak. Their current form is better than their season" \
         " average.")
-        st.write("- The Slump: the Rolling 5 crosses below the Weighted Moving Average." \
+        st.write("- The Slump: the Rolling 3 crosses below the Weighted Moving Average." \
         " The player's form has dropped below their baseline. They may be a good candidate" \
         " to bench.")
         st.write("- The Trap: the weighted moving average is steady but we see actual points" \
@@ -170,6 +176,140 @@ def show(df):
         " increasing.")
 
         st.markdown("---")
+        # --------------------------------------------------------------------
+        # ICT Decomposition
+        # --------------------------------------------------------------------
+        st.subheader("ICT Decomposition")
+        fig_ict = go.Figure()
+        customdata = player_data[['creativity', 'opponent_team_name',
+                                  'goals_scored', 'assists']].values.tolist()
+        fig_ict.add_trace(go.Bar(
+            x=player_data['gw'], 
+            y=player_data['influence'],
+            name='Influence',
+            marker_color=CHART_COLORS['base']
+            ))
+
+        fig_ict.add_trace(go.Bar(
+            x=player_data['gw'], 
+            y=player_data['threat'],
+            name='Threat',
+            marker_color=CHART_COLORS['middle'],
+            ))
+
+        fig_ict.add_trace(go.Bar(
+            x=player_data['gw'], 
+            y=player_data['creativity'],
+            name='Creativity',
+            marker_color=CHART_COLORS['top'],
+            customdata=customdata,
+            hovertemplate='<b>%{customdata[0]}<b><br>'+
+            '<b>Opponent: %{customdata[1]}<b><br>' +
+            '<b>Goals: %{customdata[2]}<b><br>'+
+            '<b>Assists: %{customdata[3]}<b><br>'
+            ))
+
+        fig_ict.update_layout(
+            barmode='stack',
+            title='Stacked Performance Metrics',
+            xaxis_title='Gameweek',
+            yaxis_title='ICT Value',
+            template='plotly_dark',
+            hovermode='x unified',
+            )
+        st.plotly_chart(fig_ict,width='stretch', key='ict_chart')
+
+        st.markdown("---")
+        # --------------------------------------------------------------------
+        # Attacking Contribution
+        # --------------------------------------------------------------------
+        st.subheader("Attacking Contribution")
+        team_goals_df = st.session_state.fetched_fpl_data_overview[
+            st.session_state.fetched_fpl_data_overview[
+                'team'] == player_data['team'].unique()[0]
+        ].groupby('gw')['goals_scored'].sum().reset_index()
+        
+        fig_att_cont = go.Figure()
+        fig_att_cont.add_trace(go.Bar(
+            x=player_data['gw'], 
+            y=player_data['goals_scored'],
+            name='goals',
+            marker_color=CHART_COLORS['base']
+        ))
+        fig_att_cont.add_trace(go.Bar(
+            x=player_data['gw'], 
+            y=player_data['assists'],
+            name='assists',
+            marker_color=CHART_COLORS['middle']
+        ))
+        fig_att_cont.add_trace(go.Scatter(
+            x=player_data['gw'],
+            y=team_goals_df['goals_scored'],
+            mode='markers+lines',
+            name='Team goals',
+        ))
+
+        fig_att_cont.update_layout(
+            barmode='stack',
+            title='Goals and Assists',
+            xaxis_title='Gameweek',
+            yaxis_title='ICT Value',
+            template='plotly_dark',
+            hovermode='x unified',
+            )
+        st.plotly_chart(fig_att_cont,width='stretch', key='att_cont_chart')
+        st.write("When looking for players with high contributions look for those" \
+        "that have bars where their team scores goals.")
+
+        st.markdown("---")
+        # --------------------------------------------------------------------
+        # Performance and Market Sentiment
+        # --------------------------------------------------------------------
+        st.subheader("Performance and Market Sentiment")
+        fig_perf_ms = make_subplots(specs=[[{"secondary_y": True}]])
+        fig_perf_ms.add_trace(
+            go.Bar(
+                x=player_data['gw'], 
+                y=player_data['total_points'],
+                name='GW Points',
+                marker_color=CHART_COLORS['base']
+            ),
+            secondary_y=False,
+        )
+
+        fig_perf_ms.add_trace(
+            go.Scatter(
+                x=player_data['gw'],
+                y=player_data['transfers_in'] - player_data['transfers_out'],
+                name="Net Transfers",
+                line=dict(color=CHART_COLORS['middle'], width=3),
+            ),
+            secondary_y=True,
+        )
+        fig_perf_ms.update_layout(
+            title='GW Points vs Market Sentiment',
+            xaxis_title='Gameweek',
+            yaxis_title='GW Points',
+            template='plotly_dark',
+            hovermode='x unified',
+            )
+        
+        fig_perf_ms.update_yaxes(
+            title_text="<b>Gw Points</b>", 
+            secondary_y=False)
+        fig_perf_ms.update_yaxes(
+            title_text="<b>Net Transfers</b>",
+            showgrid=False,
+            zeroline=False, 
+            secondary_y=True)
+        st.plotly_chart(fig_perf_ms,width='stretch', key='perf_ms_chart')
+        commentary_market_sentiment(player_data)
+        for line in commentary_market_sentiment(player_data):
+            st.write(f"- {line}")
+        st.markdown("---")
+        # --------------------------------------------------------------------
+        # Contextual Value
+        # --------------------------------------------------------------------
         st.subheader("Contextual Value")
 
         fig_context = go.Figure()
@@ -294,6 +434,8 @@ def show(df):
         )
 
         st.plotly_chart(fig_der, width='stretch', key='fig_der')
+        st.write("If the grey spider web is within the blue it means that the player's " \
+        "current form is above his season average.")
 
         st.markdown("---")
         st.subheader("Player Expected Points Next GW")

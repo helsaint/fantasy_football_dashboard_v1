@@ -5,6 +5,7 @@ from utils.load_fpl_features import load_fpl_points_prediction
 from utils.scatter_plot import scatter_plot
 from utils.scaling import percentile_scaling
 from utils.commentary.commentary_market_sentiment import commentary_market_sentiment
+from utils.commentary.commentary_attacking_contribution import commentary_attacking_contribution
 from ui.chart_colors import CHART_COLORS
 
 def show(df):
@@ -258,9 +259,15 @@ def show(df):
             hovermode='x unified',
             )
         st.plotly_chart(fig_att_cont,width='stretch', key='att_cont_chart')
+        temp_df = player_data[['gw', 'player_name', 
+                               'goals_scored','assists',
+                               'total_points']].copy()
+        temp_df['goals_scored_team'] = team_goals_df['goals_scored']
+
         st.write("When looking for players with high contributions look for those" \
         "that have bars where their team scores goals.")
-
+        for line in commentary_attacking_contribution(temp_df):
+            st.write(f"- {line}")
         st.markdown("---")
         # --------------------------------------------------------------------
         # Performance and Market Sentiment
@@ -303,7 +310,7 @@ def show(df):
             zeroline=False, 
             secondary_y=True)
         st.plotly_chart(fig_perf_ms,width='stretch', key='perf_ms_chart')
-        commentary_market_sentiment(player_data)
+        
         for line in commentary_market_sentiment(player_data):
             st.write(f"- {line}")
         st.markdown("---")

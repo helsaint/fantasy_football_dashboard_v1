@@ -31,7 +31,7 @@ def commentary_market_sentiment(df):
     # 3. Lag analysis: Did points spike cause transfers next week?
     # Shift net_transfers by -1 to see next week's transfers
     df['next_net'] = df['net_transfers'].shift(-1)
-    # Find weeks where points > some threshold (e.g., 10) and next_net > 0
+    # Find weeks where points > threshold and next_net > 0
     haul_threshold = 10
     hauls = df[df['total_points'] >= haul_threshold]
     for _, row in hauls.iterrows():

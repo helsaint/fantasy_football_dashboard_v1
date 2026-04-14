@@ -1,16 +1,16 @@
 player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
-1,Raya,5.0,Everton,3
+1,Raya,4.0,Everton,3
 2,Arrizabalaga,0.0,Everton,3
 3,Hein,0.0,Everton,3
 4,Setford,0.0,Everton,3
-5,Gabriel,5.0,Everton,3
+5,Gabriel,4.0,Everton,3
 6,Saliba,3.0,Everton,3
 7,Calafiori,1.0,Everton,3
-8,J.Timber,4.0,Everton,3
+8,J.Timber,3.0,Everton,3
 9,Kiwior,0.0,Everton,3
 10,Lewis-Skelly,0.0,Everton,3
 11,White,0.0,Everton,3
-12,Zinchenko,0.0,Fulham,2
+12,Zinchenko,0.0,Fulham,3
 13,Clarke,0.0,Everton,3
 14,Kacurri,0.0,Everton,3
 15,Nichols,0.0,Everton,3
@@ -19,7 +19,7 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 18,Madueke,1.0,Everton,3
 19,Martinelli,2.0,Everton,3
 20,Trossard,2.0,Everton,3
-21,Rice,4.0,Everton,3
+21,Rice,3.0,Everton,3
 22,Merino,0.0,Everton,3
 23,Fábio Vieira,0.0,Everton,3
 24,Nørgaard,1.0,Everton,3
@@ -45,7 +45,7 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 44,Bogarde,1.0,Man Utd,3
 45,Sousa,0.0,Man Utd,3
 46,Yasin,0.0,Man Utd,3
-47,Rogers,3.0,Man Utd,3
+47,Rogers,2.0,Man Utd,3
 48,Tielemans,0.0,Man Utd,3
 49,Bailey,2.0,Man Utd,3
 50,Buendía,2.0,Man Utd,3
@@ -57,12 +57,12 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 56,Barrenechea,0.0,Man Utd,3
 57,Dobbin,0.0,Man Utd,3
 58,Kamara,0.0,Man Utd,3
-59,Onana,3.0,Man Utd,3
+59,Onana,2.0,Man Utd,3
 60,Broggio,0.0,Man Utd,3
 61,Dendoncker,0.0,Man Utd,3
 62,Jimoh-Aloba,0.0,Man Utd,3
 63,Young,0.0,Man Utd,3
-64,Watkins,3.0,Man Utd,3
+64,Watkins,2.0,Man Utd,3
 65,Redmond,0.0,Man Utd,3
 66,Neto,0.0,Burnley,1
 67,Petrović,3.0,Burnley,1
@@ -72,10 +72,10 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 71,Zabarnyi,0.0,Burnley,1
 72,Senesi,4.0,Burnley,1
 73,Smith,0.0,Burnley,1
-74,Truffert,3.0,Burnley,1
+74,Truffert,4.0,Burnley,1
 75,Akinmboni,0.0,Burnley,1
 76,Bevan,0.0,Burnley,1
-77,Hill,4.0,Burnley,1
+77,Hill,5.0,Burnley,1
 78,J.Araujo,0.0,Burnley,1
 79,Mepham,0.0,Burnley,1
 80,Soler,0.0,Burnley,1
@@ -83,23 +83,23 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 82,Semenyo,6.0,West Ham,2
 83,O.Dango,3.0,Wolves,2
 84,Tavernier,3.0,Burnley,1
-85,Adams,3.0,Burnley,1
+85,Adams,2.0,Burnley,1
 86,Brooks,2.0,Burnley,1
 87,Christie,2.0,Burnley,1
 88,Cook,0.0,Burnley,1
 89,Philip,0.0,Burnley,1
-90,Scott,5.0,Burnley,1
+90,Scott,4.0,Burnley,1
 91,Sinisterra,0.0,Burnley,1
 92,Faivre,0.0,Burnley,1
 93,H.Traorè,0.0,Burnley,1
 94,Sadi,0.0,Burnley,1
 95,Silcott-Duberry,0.0,Burnley,1
 96,Winterburn,0.0,Burnley,1
-97,Evanilson,3.0,Burnley,1
-98,Enes Ünal,2.0,Burnley,1
+97,Evanilson,2.0,Burnley,1
+98,Enes Ünal,1.0,Burnley,1
 99,Adu-Adjei,0.0,Burnley,1
 100,Kroupi.Jr,3.0,Burnley,1
-101,Kelleher,3.0,Wolves,2
+101,Kelleher,2.0,Wolves,2
 102,Balcombe,0.0,Wolves,2
 103,Cox,0.0,Wolves,2
 104,Eyestone,0.0,Wolves,2
@@ -108,7 +108,7 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 107,Lewis-Potter,1.0,Wolves,2
 108,Ajer,3.0,Wolves,2
 109,Henry,3.0,Wolves,2
-110,Kayode,3.0,Wolves,2
+110,Kayode,2.0,Wolves,2
 111,Pinnock,0.0,Wolves,2
 112,Roerslev,0.0,Wolves,2
 113,Van den Berg,4.0,Wolves,2
@@ -117,7 +117,7 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 116,Hickey,1.0,Wolves,2
 117,Ji-soo,0.0,Wolves,2
 118,Meghoma,0.0,Wolves,2
-119,Mbeumo,3.0,Aston Villa,3
+119,Mbeumo,2.0,Aston Villa,3
 120,Schade,3.0,Wolves,2
 121,Damsgaard,3.0,Wolves,2
 122,Milambo,0.0,Wolves,2
@@ -134,7 +134,7 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 133,Peart-Harris,0.0,Wolves,2
 134,Trevitt,0.0,Wolves,2
 135,Wissa,1.0,Chelsea,3
-136,Thiago,3.0,Wolves,2
+136,Thiago,4.0,Wolves,2
 137,Morgan,0.0,Wolves,2
 138,Steele,0.0,Sunderland,3
 139,Verbruggen,3.0,Sunderland,3
@@ -146,7 +146,7 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 145,De Cuyper,1.0,Sunderland,3
 146,Dunk,2.0,Sunderland,3
 147,Estupiñan,0.0,Sunderland,3
-148,F.Kadıoğlu,4.0,Sunderland,3
+148,F.Kadıoğlu,3.0,Sunderland,3
 149,Igor,0.0,Sunderland,3
 150,Lamptey,0.0,Sunderland,3
 151,Van Hecke,3.0,Sunderland,3
@@ -156,7 +156,7 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 155,Slater,0.0,Sunderland,3
 156,Tasker,0.0,Sunderland,3
 157,Mitoma,3.0,Sunderland,3
-158,Georginio,2.0,Sunderland,3
+158,Georginio,1.0,Sunderland,3
 159,March,1.0,Sunderland,3
 160,Minteh,1.0,Sunderland,3
 161,Enciso,0.0,Sunderland,3
@@ -165,7 +165,7 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 164,O'Riley,0.0,Sunderland,3
 165,Sima,0.0,Sunderland,3
 166,Ayari,1.0,Sunderland,3
-167,Baleba,2.0,Sunderland,3
+167,Baleba,1.0,Sunderland,3
 168,Buonanotte,0.0,Crystal Palace,3
 169,Gomez,3.0,Sunderland,3
 170,Milner,2.0,Sunderland,3
@@ -189,7 +189,7 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 188,Delcroix,0.0,Bournemouth,2
 189,Dodgson,0.0,Bournemouth,2
 190,Ekdal,0.0,Bournemouth,2
-191,Estève,2.0,Bournemouth,2
+191,Estève,3.0,Bournemouth,2
 192,Hartman,0.0,Bournemouth,2
 193,Humphreys,2.0,Bournemouth,2
 194,Jordan,0.0,Bournemouth,2
@@ -213,33 +213,33 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 212,Adewumi,0.0,Bournemouth,2
 213,Banel,0.0,Bournemouth,2
 214,Trésor,0.0,Bournemouth,2
-215,Flemming,2.0,Bournemouth,2
+215,Flemming,3.0,Bournemouth,2
 216,Amdouni,0.0,Bournemouth,2
 217,Foster,2.0,Bournemouth,2
 218,Barnes,1.0,Bournemouth,2
 219,Obafemi,0.0,Bournemouth,2
-220,Sánchez,2.0,Newcastle,3
-221,Jörgensen,1.0,Newcastle,3
+220,Sánchez,3.0,Newcastle,3
+221,Jörgensen,2.0,Newcastle,3
 222,Penders,0.0,Newcastle,3
 223,Slonina,0.0,Newcastle,3
 224,Cucurella,1.0,Newcastle,3
-225,James,4.0,Newcastle,3
-226,Chalobah,5.0,Newcastle,3
+225,James,5.0,Newcastle,3
+226,Chalobah,4.0,Newcastle,3
 227,Colwill,0.0,Newcastle,3
 228,Gusto,3.0,Newcastle,3
 229,B.Badiashile,0.0,Newcastle,3
 230,Fofana,2.0,Newcastle,3
-231,M.Sarr,1.0,Newcastle,3
+231,M.Sarr,2.0,Newcastle,3
 232,Tosin,1.0,Newcastle,3
 233,Acheampong,1.0,Newcastle,3
 234,Anselmino,0.0,Newcastle,3
 235,Palmer,5.0,Newcastle,3
-236,Neto,2.0,Newcastle,3
+236,Neto,3.0,Newcastle,3
 237,Enzo,4.0,Newcastle,3
 238,Estêvão,0.0,Newcastle,3
 239,Gittens,0.0,Newcastle,3
 240,Nkunku,0.0,Newcastle,3
-241,Caicedo,5.0,Newcastle,3
+241,Caicedo,4.0,Newcastle,3
 242,Dewsbury-Hall,3.0,Arsenal,5
 243,George,1.0,Arsenal,5
 244,Lavia,1.0,Newcastle,3
@@ -251,14 +251,14 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 250,Delap,1.0,Newcastle,3
 251,N.Jackson,0.0,Newcastle,3
 252,Marc Guiu,0.0,Newcastle,3
-253,Henderson,4.0,Leeds,2
+253,Henderson,3.0,Leeds,2
 254,Benitez,0.0,Leeds,2
 255,Matthews,0.0,Leeds,2
 256,Muñoz,2.0,Leeds,2
 257,Lacroix,2.0,Leeds,2
 258,Mitchell,3.0,Leeds,2
 259,Sosa,0.0,Leeds,2
-260,Guéhi,4.0,West Ham,2
+260,Guéhi,5.0,West Ham,2
 261,Richards,3.0,Leeds,2
 262,Chadi Riad,2.0,Leeds,2
 263,Clyne,1.0,Leeds,2
@@ -269,9 +269,9 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 268,Doucouré,0.0,Leeds,2
 269,Esse,0.0,Leeds,2
 270,Hughes,2.0,Leeds,2
-271,Kamada,3.0,Leeds,2
+271,Kamada,2.0,Leeds,2
 272,Lerma,0.0,Leeds,2
-273,Wharton,4.0,Leeds,2
+273,Wharton,3.0,Leeds,2
 274,Agbinone,0.0,Leeds,2
 275,Ahamada,0.0,Leeds,2
 276,Devenny,0.0,Leeds,2
@@ -289,7 +289,7 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 288,Travers,0.0,Arsenal,5
 289,Tyrer,0.0,Arsenal,5
 290,Branthwaite,3.0,Arsenal,5
-291,Tarkowski,4.0,Arsenal,5
+291,Tarkowski,3.0,Arsenal,5
 292,Mykolenko,2.0,Arsenal,5
 293,O'Brien,2.0,Arsenal,5
 294,Coleman,0.0,Arsenal,5
@@ -297,7 +297,7 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 296,Patterson,0.0,Arsenal,5
 297,Dixon,0.0,Arsenal,5
 298,Welch,0.0,Arsenal,5
-299,Ndiaye,4.0,Arsenal,5
+299,Ndiaye,3.0,Arsenal,5
 300,McNeil,2.0,Arsenal,5
 301,Alcaraz,0.0,Arsenal,5
 302,Gana,3.0,Arsenal,5
@@ -314,9 +314,9 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 313,Sherif,0.0,Arsenal,5
 314,Leno,4.0,Nott'm Forest,3
 315,Benda,0.0,Nott'm Forest,3
-316,Robinson,2.0,Nott'm Forest,3
-317,Andersen,1.0,Nott'm Forest,3
-318,Bassey,4.0,Nott'm Forest,3
+316,Robinson,1.0,Nott'm Forest,3
+317,Andersen,2.0,Nott'm Forest,3
+318,Bassey,3.0,Nott'm Forest,3
 319,Castagne,1.0,Nott'm Forest,3
 320,Diop,2.0,Nott'm Forest,3
 321,J.Cuenca,1.0,Nott'm Forest,3
@@ -326,9 +326,9 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 325,Smith Rowe,3.0,Nott'm Forest,3
 326,Adama,1.0,Man City,4
 327,Andreas,0.0,Nott'm Forest,3
-328,Sessegnon,3.0,Nott'm Forest,3
+328,Sessegnon,2.0,Nott'm Forest,3
 329,Wilson,2.0,Nott'm Forest,3
-330,Berge,4.0,Nott'm Forest,3
+330,Berge,3.0,Nott'm Forest,3
 331,Cairney,2.0,Nott'm Forest,3
 332,Lukić,0.0,Nott'm Forest,3
 333,Godo,0.0,Nott'm Forest,3
@@ -342,7 +342,7 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 341,Darlow,3.0,Crystal Palace,3
 342,Bogle,3.0,Crystal Palace,3
 343,Struijk,3.0,Crystal Palace,3
-344,Bijol,2.0,Crystal Palace,3
+344,Bijol,1.0,Crystal Palace,3
 345,Bornauw,0.0,Crystal Palace,3
 346,Byram,0.0,Crystal Palace,3
 347,Gudmundsson,2.0,Crystal Palace,3
@@ -364,41 +364,41 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 363,Bamford,0.0,Crystal Palace,3
 364,Mateo Joseph,0.0,Crystal Palace,3
 365,Nmecha,2.0,Crystal Palace,3
-366,A.Becker,4.0,Spurs,3
-367,Mamardashvili,0.0,Spurs,3
-368,Pécsi,0.0,Spurs,3
-369,Woodman,0.0,Spurs,3
-370,Frimpong,2.0,Spurs,3
-371,Kerkez,4.0,Spurs,3
-372,Robertson,1.0,Spurs,3
-373,Virgil,5.0,Spurs,3
-374,Konaté,4.0,Spurs,3
-375,Bradley,0.0,Spurs,3
-376,Gomez,3.0,Spurs,3
-377,Tsimikas,0.0,Spurs,3
-378,Nallo,0.0,Spurs,3
-379,R.Williams,0.0,Spurs,3
-380,Ramsay,0.0,Spurs,3
-381,M.Salah,4.0,Spurs,3
-382,Wirtz,0.0,Spurs,3
-383,Luis Díaz,0.0,Spurs,3
-384,Gakpo,4.0,Spurs,3
-385,Chiesa,1.0,Spurs,3
-386,Mac Allister,6.0,Spurs,3
-387,Szoboszlai,4.0,Spurs,3
-388,C.Jones,2.0,Spurs,3
+366,A.Becker,4.0,Spurs,2
+367,Mamardashvili,0.0,Spurs,2
+368,Pécsi,0.0,Spurs,2
+369,Woodman,0.0,Spurs,2
+370,Frimpong,2.0,Spurs,2
+371,Kerkez,4.0,Spurs,2
+372,Robertson,1.0,Spurs,2
+373,Virgil,5.0,Spurs,2
+374,Konaté,4.0,Spurs,2
+375,Bradley,0.0,Spurs,2
+376,Gomez,2.0,Spurs,2
+377,Tsimikas,0.0,Spurs,2
+378,Nallo,0.0,Spurs,2
+379,R.Williams,0.0,Spurs,2
+380,Ramsay,0.0,Spurs,2
+381,M.Salah,5.0,Spurs,2
+382,Wirtz,0.0,Spurs,2
+383,Luis Díaz,0.0,Spurs,2
+384,Gakpo,5.0,Spurs,2
+385,Chiesa,1.0,Spurs,2
+386,Mac Allister,6.0,Spurs,2
+387,Szoboszlai,4.0,Spurs,2
+388,C.Jones,2.0,Spurs,2
 389,Elliott,0.0,Man Utd,3
-390,Gravenberch,3.0,Spurs,3
+390,Gravenberch,4.0,Spurs,2
 391,Gannon-Doak,0.0,Burnley,1
-392,Endo,0.0,Spurs,3
-393,Bajcetic,0.0,Spurs,3
-394,McConnell,0.0,Spurs,3
-395,Morton,0.0,Spurs,3
-396,Nyoni,0.0,Spurs,3
-397,Darwin,0.0,Spurs,3
-398,Danns,0.0,Spurs,3
+392,Endo,0.0,Spurs,2
+393,Bajcetic,0.0,Spurs,2
+394,McConnell,0.0,Spurs,2
+395,Morton,0.0,Spurs,2
+396,Nyoni,1.0,Spurs,2
+397,Darwin,0.0,Spurs,2
+398,Danns,0.0,Spurs,2
 399,Ederson M.,0.0,West Ham,2
-400,Ortega Moreno,1.0,Fulham,2
+400,Ortega Moreno,1.0,Fulham,3
 401,Bettinelli,0.0,West Ham,2
 402,Aït-Nouri,5.0,West Ham,2
 403,Gvardiol,0.0,West Ham,2
@@ -424,7 +424,7 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 423,N.Gonzalez,0.0,West Ham,2
 424,Bobb,2.0,Nott'm Forest,3
 425,Echeverri,0.0,West Ham,2
-426,McAtee,0.0,Fulham,2
+426,McAtee,0.0,Fulham,3
 427,Reijnders,1.0,West Ham,2
 428,Nypan,0.0,West Ham,2
 429,Phillips,0.0,West Ham,2
@@ -445,9 +445,9 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 444,Yoro,3.0,Aston Villa,3
 445,Amass,0.0,Aston Villa,3
 446,Fredricson,0.0,Aston Villa,3
-447,Heaven,0.0,Aston Villa,3
+447,Heaven,1.0,Aston Villa,3
 448,Malacia,1.0,Aston Villa,3
-449,B.Fernandes,2.0,Aston Villa,3
+449,B.Fernandes,3.0,Aston Villa,3
 450,Cunha,3.0,Aston Villa,3
 451,Rashford,0.0,Aston Villa,3
 452,Amad,2.0,Aston Villa,3
@@ -468,12 +468,12 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 467,Obi,0.0,Aston Villa,3
 468,Wheatley,0.0,Aston Villa,3
 469,Pope,2.0,Chelsea,3
-470,Dúbravka,2.0,Bournemouth,2
+470,Dúbravka,3.0,Bournemouth,2
 471,Gillespie,0.0,Chelsea,3
 472,Odysseas,0.0,Chelsea,3
-473,Hall,3.0,Chelsea,3
+473,Hall,2.0,Chelsea,3
 474,Schär,0.0,Chelsea,3
-475,Botman,1.0,Chelsea,3
+475,Botman,0.0,Chelsea,3
 476,Burn,2.0,Chelsea,3
 477,Livramento,0.0,Chelsea,3
 478,Trippier,2.0,Chelsea,3
@@ -497,39 +497,39 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 496,Kuol,0.0,Chelsea,3
 497,L.Miley,0.0,Chelsea,3
 498,White,0.0,Chelsea,3
-499,Isak,0.0,Spurs,3
+499,Isak,0.0,Spurs,2
 500,Osula,1.0,Chelsea,3
 501,Neave,0.0,Chelsea,3
-502,Sels,2.0,Fulham,2
-503,C.Miguel,0.0,Fulham,2
-504,Turner,0.0,Fulham,2
-505,Milenković,3.0,Fulham,2
-506,Murillo,3.0,Fulham,2
-507,Aina,3.0,Fulham,2
-508,N.Williams,2.0,Fulham,2
-509,David Carmo,0.0,Fulham,2
-510,Jair Cunha,2.0,Fulham,2
-511,Morato,1.0,Fulham,2
-512,O.Richards,0.0,Fulham,2
-513,Abbott,0.0,Fulham,2
-514,Boly,0.0,Fulham,2
-515,Gibbs-White,4.0,Fulham,2
-516,Hudson-Odoi,2.0,Fulham,2
-517,Anderson,3.0,Fulham,2
-518,Jota,0.0,Fulham,2
-519,Dominguez,1.0,Fulham,2
-520,O'Brien,0.0,Fulham,2
-521,Sangaré,3.0,Fulham,2
-522,Yates,1.0,Fulham,2
-523,Da Silva Moreira,0.0,Fulham,2
-524,Stamenic,0.0,Fulham,2
-525,Wood,0.0,Fulham,2
-526,Igor Jesus,3.0,Fulham,2
-527,Awoniyi,1.0,Fulham,2
+502,Sels,2.0,Fulham,3
+503,C.Miguel,0.0,Fulham,3
+504,Turner,0.0,Fulham,3
+505,Milenković,3.0,Fulham,3
+506,Murillo,3.0,Fulham,3
+507,Aina,3.0,Fulham,3
+508,N.Williams,3.0,Fulham,3
+509,David Carmo,0.0,Fulham,3
+510,Jair Cunha,2.0,Fulham,3
+511,Morato,1.0,Fulham,3
+512,O.Richards,0.0,Fulham,3
+513,Abbott,0.0,Fulham,3
+514,Boly,0.0,Fulham,3
+515,Gibbs-White,3.0,Fulham,3
+516,Hudson-Odoi,2.0,Fulham,3
+517,Anderson,3.0,Fulham,3
+518,Jota,0.0,Fulham,3
+519,Dominguez,1.0,Fulham,3
+520,O'Brien,0.0,Fulham,3
+521,Sangaré,3.0,Fulham,3
+522,Yates,1.0,Fulham,3
+523,Da Silva Moreira,0.0,Fulham,3
+524,Stamenic,0.0,Fulham,3
+525,Wood,0.0,Fulham,3
+526,Igor Jesus,3.0,Fulham,3
+527,Awoniyi,1.0,Fulham,3
 528,Patterson,0.0,Brighton,3
 529,Moore,0.0,Brighton,3
 530,Nna Noukeu,0.0,Brighton,3
-531,Ballard,3.0,Brighton,3
+531,Ballard,2.0,Brighton,3
 532,Hume,3.0,Brighton,3
 533,Alese,0.0,Brighton,3
 534,Anderson,0.0,Brighton,3
@@ -545,8 +545,8 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 544,Diarra,3.0,Brighton,3
 545,Roberts,0.0,Brighton,3
 546,Aleksić,0.0,Brighton,3
-547,E.Le Fée,4.0,Brighton,3
-548,Mundle,2.0,Brighton,3
+547,E.Le Fée,3.0,Brighton,3
+548,Mundle,1.0,Brighton,3
 549,Neil,0.0,Brighton,3
 550,Poveda,0.0,Brighton,3
 551,Rigg,0.0,Brighton,3
@@ -558,7 +558,7 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 557,H.Jones,0.0,Brighton,3
 558,Matete,0.0,Brighton,3
 559,Triantis,0.0,Brighton,3
-560,Isidor,2.0,Brighton,3
+560,Isidor,1.0,Brighton,3
 561,Mayenda,3.0,Brighton,3
 562,Abdullahi,0.0,Brighton,3
 563,Luís Hemir,0.0,Brighton,3
@@ -568,7 +568,7 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 567,Kinsky,0.0,Liverpool,3
 568,Pedro Porro,2.0,Liverpool,3
 569,Romero,0.0,Liverpool,3
-570,Danso,1.0,Liverpool,3
+570,Danso,2.0,Liverpool,3
 571,Davies,0.0,Liverpool,3
 572,Dragusin,2.0,Liverpool,3
 573,Spence,1.0,Liverpool,3
@@ -591,11 +591,11 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 590,Bryan,0.0,Liverpool,3
 591,Gray,3.0,Liverpool,3
 592,Moore,0.0,Liverpool,3
-593,P.M.Sarr,3.0,Liverpool,3
+593,P.M.Sarr,2.0,Liverpool,3
 594,Min-hyeok,0.0,Liverpool,3
 595,Olusesi,0.0,Liverpool,3
 596,Solanke,2.0,Liverpool,3
-597,Richarlison,1.0,Liverpool,3
+597,Richarlison,2.0,Liverpool,3
 598,Lankshear,0.0,Liverpool,3
 599,Scarlett,0.0,Liverpool,3
 600,Areola,0.0,Man City,4
@@ -607,13 +607,13 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 606,Mavropanos,2.0,Man City,4
 607,N.Aguerd,0.0,Man City,4
 608,Scarles,0.0,Man City,4
-609,Todibo,1.0,Man City,4
+609,Todibo,2.0,Man City,4
 610,Wan-Bissaka,4.0,Man City,4
 611,Casey,0.0,Man City,4
 612,L.Paquetá,0.0,Man City,4
 613,Souček,3.0,Man City,4
 614,Ward-Prowse,2.0,Bournemouth,2
-615,Summerville,5.0,Man City,4
+615,Summerville,4.0,Man City,4
 616,Álvarez,0.0,Man City,4
 617,Cornet,0.0,Man City,4
 618,G.Rodriguez,0.0,Man City,4
@@ -632,19 +632,19 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 631,Agbadou,0.0,Brentford,3
 632,Doherty,1.0,Brentford,3
 633,H.Bueno,3.0,Brentford,3
-634,Mosquera,2.0,Brentford,3
+634,Mosquera,3.0,Brentford,3
 635,R.Gomes,2.0,Brentford,3
-636,S.Bueno,2.0,Brentford,3
+636,S.Bueno,3.0,Brentford,3
 637,Toti,2.0,Brentford,3
 638,Hoever,0.0,Brentford,3
 639,Meupiyou,0.0,Brentford,3
 640,Pedro Lima,0.0,Brentford,3
 641,Pond,0.0,Brentford,3
 642,Hee Chan,0.0,Brentford,3
-643,André,3.0,Brentford,3
+643,André,4.0,Brentford,3
 644,Bellegarde,3.0,Brentford,3
 645,Fer López,0.0,Brentford,3
-646,J.Gomes,3.0,Brentford,3
+646,J.Gomes,2.0,Brentford,3
 647,Guedes,0.0,Brentford,3
 648,Munetsi,0.0,Brentford,3
 649,B.Traore,0.0,Brentford,3
@@ -658,8 +658,8 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 657,Chiwome,0.0,Brentford,3
 658,Fraser,0.0,Brentford,3
 659,Walker-Peters,0.0,Man City,4
-660,Stach,4.0,Crystal Palace,3
-661,Ekitiké,6.0,Spurs,3
+660,Stach,3.0,Crystal Palace,3
+661,Ekitiké,5.0,Spurs,2
 662,Mosquera,2.0,Everton,3
 663,J.Arias,0.0,Brentford,3
 664,Lecomte,0.0,Nott'm Forest,3
@@ -667,13 +667,13 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 666,Gyökeres,3.0,Everton,3
 667,Aznou,0.0,Arsenal,5
 668,Xhaka,2.0,Brighton,3
-669,Ndoye,1.0,Fulham,2
+669,Ndoye,1.0,Fulham,3
 670,Roefs,2.0,Brighton,3
 671,Wilson,2.0,Man City,4
-672,Hato,2.0,Newcastle,3
-673,J.Palhinha,3.0,Liverpool,3
-674,Ramsdale,1.0,Chelsea,3
-675,Gunn,0.0,Fulham,2
+672,Hato,3.0,Newcastle,3
+673,J.Palhinha,2.0,Liverpool,3
+674,Ramsdale,2.0,Chelsea,3
+675,Gunn,0.0,Fulham,3
 676,Ugochukwu,2.0,Bournemouth,2
 677,Guessand,2.0,Leeds,2
 678,Masuaku,0.0,Brighton,3
@@ -684,17 +684,17 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 683,Alderete,3.0,Brighton,3
 684,Thiaw,3.0,Chelsea,3
 685,Diakité,0.0,Burnley,1
-686,Ngumoha,1.0,Spurs,3
+686,Ngumoha,1.0,Spurs,2
 687,Rees-Dottin,0.0,Burnley,1
 688,Wright,0.0,Man Utd,3
 689,Seung soo,0.0,Chelsea,3
 690,Cardines,0.0,Leeds,2
-691,Calvert-Lewin,4.0,Crystal Palace,3
-692,Leoni,0.0,Spurs,3
-693,Hutchinson,2.0,Fulham,2
+691,Calvert-Lewin,3.0,Crystal Palace,3
+692,Leoni,0.0,Spurs,2
+693,Hutchinson,2.0,Fulham,3
 694,Mukiele,1.0,Brighton,3
-695,Tchatchoua,2.0,Brentford,3
-696,Kalimuendo,0.0,Fulham,2
+695,Tchatchoua,3.0,Brentford,3
+696,Kalimuendo,0.0,Fulham,3
 697,Adli,2.0,Burnley,1
 698,Okafor,0.0,Crystal Palace,3
 699,Douglas Luiz,2.0,Man Utd,3
@@ -704,35 +704,35 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 703,Proctor,0.0,Man Utd,3
 704,Onyango,0.0,Arsenal,5
 705,Campbell,0.0,Arsenal,5
-706,Justin,2.0,Crystal Palace,3
+706,Justin,3.0,Crystal Palace,3
 707,Dibling,0.0,Arsenal,5
 708,M.Fernandes,4.0,Man City,4
 709,Krejčí,2.0,Brentford,3
 710,Patterson,0.0,Man Utd,3
 711,Harriman-Annous,0.0,Everton,3
 712,Yeremy,2.0,Leeds,2
-713,A.Jimenez,3.0,Burnley,1
+713,A.Jimenez,4.0,Burnley,1
 714,Woltemade,2.0,Chelsea,3
-715,John,0.0,Fulham,2
-716,Savona,0.0,Fulham,2
+715,John,0.0,Fulham,3
+716,Savona,0.0,Fulham,3
 717,Xavi,2.0,Liverpool,3
 718,S.Magassa,2.0,Man City,4
 719,Lindelöf,0.0,Man Utd,3
-720,Tolu,2.0,Brentford,3
+720,Tolu,3.0,Brentford,3
 721,Milosavljević,0.0,Burnley,1
 722,Florentino,1.0,Bournemouth,2
 723,Canvot,3.0,Leeds,2
 724,Geertruida,2.0,Brighton,3
-725,Hincapie,5.0,Everton,3
+725,Hincapie,4.0,Everton,3
 726,Kolo Muani,2.0,Liverpool,3
 727,Chukwueze,2.0,Nott'm Forest,3
 728,Röhl,0.0,Arsenal,5
-729,Cuiabano,0.0,Fulham,2
+729,Cuiabano,0.0,Fulham,3
 730,Brobbey,1.0,Brighton,3
 731,Kevin,1.0,Nott'm Forest,3
 732,Uche,1.0,Leeds,2
 733,Lammens,3.0,Aston Villa,3
-734,Bakwa,1.0,Fulham,2
+734,Bakwa,1.0,Fulham,3
 735,Traoré,1.0,Brighton,3
 736,Donnarumma,4.0,West Ham,2
 737,Kusi-Asare,0.0,Nott'm Forest,3
@@ -744,7 +744,7 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 743,Emenalo,0.0,Newcastle,3
 744,Oriola,0.0,Sunderland,3
 745,Byfield,0.0,Liverpool,3
-746,Morrison,0.0,Spurs,3
+746,Morrison,0.0,Spurs,2
 747,Mayers,0.0,Man City,4
 748,Dasilva,0.0,Wolves,2
 749,Mané,3.0,Brentford,3
@@ -758,7 +758,7 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 757,Hollingshead,0.0,Man Utd,3
 758,Mohamadou Kanté,1.0,Man City,4
 759,Salmon,0.0,Everton,3
-760,Lucky,0.0,Spurs,3
+760,Lucky,0.0,Spurs,2
 761,Simmonds,0.0,Sunderland,3
 762,Drakes-Thomas,0.0,Leeds,2
 763,Gray,0.0,West Ham,2
@@ -803,19 +803,19 @@ player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
 802,Lamadrid,0.0,Man City,4
 803,Sharman-Lowe,0.0,Newcastle,3
 804,Souza,1.0,Liverpool,3
-805,Lucca,1.0,Fulham,2
+805,Lucca,1.0,Fulham,3
 806,Mandas,0.0,Burnley,1
 807,Rayan,3.0,Burnley,1
-808,Abraham,1.0,Man Utd,3
+808,Abraham,2.0,Man Utd,3
 809,Abbey,0.0,Brentford,3
 810,Bentt,0.0,Wolves,2
 811,Kyerematen,0.0,Liverpool,3
 812,Ellborg,2.0,Brighton,3
 813,Angulo,2.0,Brighton,3
-814,Netz,1.0,Fulham,2
+814,Netz,1.0,Fulham,3
 815,Disasi,4.0,Man City,4
 816,Angel,1.0,Brentford,3
-817,Armstrong,3.0,Brentford,3
+817,Armstrong,2.0,Brentford,3
 818,Wilson,0.0,Liverpool,3
 819,Shield,1.0,Wolves,2
 820,McMahon-Brown,1.0,Bournemouth,2

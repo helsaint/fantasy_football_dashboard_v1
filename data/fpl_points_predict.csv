@@ -1,823 +1,827 @@
 player_id,player_name,predicted_points,opponent_team_name,opp_dificulty_rating
-1,Raya,4.0,Everton,3
-2,Arrizabalaga,0.0,Everton,3
-3,Hein,0.0,Everton,3
-4,Setford,0.0,Everton,3
-5,Gabriel,4.0,Everton,3
-6,Saliba,3.0,Everton,3
-7,Calafiori,1.0,Everton,3
-8,J.Timber,3.0,Everton,3
-9,Kiwior,0.0,Everton,3
-10,Lewis-Skelly,0.0,Everton,3
-11,White,0.0,Everton,3
-12,Zinchenko,0.0,Fulham,3
-13,Clarke,0.0,Everton,3
-14,Kacurri,0.0,Everton,3
-15,Nichols,0.0,Everton,3
-16,Saka,5.0,Everton,3
-17,Ødegaard,1.0,Everton,3
-18,Madueke,1.0,Everton,3
-19,Martinelli,2.0,Everton,3
-20,Trossard,2.0,Everton,3
-21,Rice,3.0,Everton,3
-22,Merino,0.0,Everton,3
-23,Fábio Vieira,0.0,Everton,3
-24,Nørgaard,1.0,Everton,3
-25,Nwaneri,0.0,Everton,3
-26,Zubimendi,3.0,Everton,3
-27,Nelson,0.0,Wolves,2
-28,Kabia,0.0,Everton,3
-29,Sambi,0.0,Everton,3
-30,Havertz,1.0,Everton,3
-31,G.Jesus,0.0,Everton,3
-32,Martinez,2.0,Man Utd,3
-33,M.Bizot,0.0,Man Utd,3
-34,Gauci,0.0,Man Utd,3
-35,Marschall,0.0,Man Utd,3
-36,Cash,2.0,Man Utd,3
-37,Digne,1.0,Man Utd,3
-38,Konsa,2.0,Man Utd,3
-39,Maatsen,2.0,Man Utd,3
-40,Mings,2.0,Man Utd,3
-41,Pau,1.0,Man Utd,3
-42,A.García,0.0,Man Utd,3
-43,Alex Moreno,0.0,Man Utd,3
-44,Bogarde,1.0,Man Utd,3
-45,Sousa,0.0,Man Utd,3
-46,Yasin,0.0,Man Utd,3
-47,Rogers,2.0,Man Utd,3
-48,Tielemans,0.0,Man Utd,3
-49,Bailey,2.0,Man Utd,3
-50,Buendía,2.0,Man Utd,3
-51,Iling Jr,0.0,Man Utd,3
-52,J.Ramsey,2.0,Chelsea,3
-53,Malen,0.0,Man Utd,3
-54,McGinn,0.0,Man Utd,3
-55,Barkley,2.0,Man Utd,3
-56,Barrenechea,0.0,Man Utd,3
-57,Dobbin,0.0,Man Utd,3
-58,Kamara,0.0,Man Utd,3
-59,Onana,2.0,Man Utd,3
-60,Broggio,0.0,Man Utd,3
-61,Dendoncker,0.0,Man Utd,3
-62,Jimoh-Aloba,0.0,Man Utd,3
-63,Young,0.0,Man Utd,3
-64,Watkins,2.0,Man Utd,3
-65,Redmond,0.0,Man Utd,3
-66,Neto,0.0,Burnley,1
-67,Petrović,3.0,Burnley,1
-68,Dennis,0.0,Burnley,1
-69,McKenna,0.0,Burnley,1
-70,Paulsen,0.0,Burnley,1
-71,Zabarnyi,0.0,Burnley,1
-72,Senesi,4.0,Burnley,1
-73,Smith,0.0,Burnley,1
-74,Truffert,4.0,Burnley,1
-75,Akinmboni,0.0,Burnley,1
-76,Bevan,0.0,Burnley,1
-77,Hill,5.0,Burnley,1
-78,J.Araujo,0.0,Burnley,1
-79,Mepham,0.0,Burnley,1
-80,Soler,0.0,Burnley,1
-81,Kluivert,0.0,Burnley,1
-82,Semenyo,6.0,West Ham,2
-83,O.Dango,3.0,Wolves,2
-84,Tavernier,3.0,Burnley,1
-85,Adams,2.0,Burnley,1
-86,Brooks,2.0,Burnley,1
-87,Christie,2.0,Burnley,1
-88,Cook,0.0,Burnley,1
-89,Philip,0.0,Burnley,1
-90,Scott,4.0,Burnley,1
-91,Sinisterra,0.0,Burnley,1
-92,Faivre,0.0,Burnley,1
-93,H.Traorè,0.0,Burnley,1
-94,Sadi,0.0,Burnley,1
-95,Silcott-Duberry,0.0,Burnley,1
-96,Winterburn,0.0,Burnley,1
-97,Evanilson,2.0,Burnley,1
-98,Enes Ünal,1.0,Burnley,1
-99,Adu-Adjei,0.0,Burnley,1
-100,Kroupi.Jr,3.0,Burnley,1
-101,Kelleher,2.0,Wolves,2
-102,Balcombe,0.0,Wolves,2
-103,Cox,0.0,Wolves,2
-104,Eyestone,0.0,Wolves,2
-105,Valdimarsson,2.0,Wolves,2
-106,Collins,2.0,Wolves,2
-107,Lewis-Potter,1.0,Wolves,2
-108,Ajer,3.0,Wolves,2
-109,Henry,3.0,Wolves,2
-110,Kayode,2.0,Wolves,2
-111,Pinnock,0.0,Wolves,2
-112,Roerslev,0.0,Wolves,2
-113,Van den Berg,4.0,Wolves,2
-114,Arthur,0.0,Wolves,2
-115,Fredrick,0.0,Wolves,2
-116,Hickey,1.0,Wolves,2
-117,Ji-soo,0.0,Wolves,2
-118,Meghoma,0.0,Wolves,2
-119,Mbeumo,2.0,Aston Villa,3
-120,Schade,3.0,Wolves,2
-121,Damsgaard,3.0,Wolves,2
-122,Milambo,0.0,Wolves,2
-123,Carvalho,0.0,Wolves,2
-124,Henderson,2.0,Wolves,2
-125,Janelt,1.0,Wolves,2
-126,Jensen,4.0,Wolves,2
-127,Nunes,0.0,Wolves,2
-128,Onyeka,0.0,Wolves,2
-129,Yarmoliuk,2.0,Wolves,2
-130,Donovan,1.0,Wolves,2
-131,Konak,0.0,Wolves,2
-132,Maghoma,0.0,Wolves,2
-133,Peart-Harris,0.0,Wolves,2
-134,Trevitt,0.0,Wolves,2
-135,Wissa,1.0,Chelsea,3
-136,Thiago,4.0,Wolves,2
-137,Morgan,0.0,Wolves,2
-138,Steele,0.0,Sunderland,3
-139,Verbruggen,3.0,Sunderland,3
-140,McGill,0.0,Sunderland,3
-141,Rushworth,0.0,Sunderland,3
-142,Scherpen,0.0,Sunderland,3
-143,Boscagli,1.0,Sunderland,3
-144,Coppola,0.0,Sunderland,3
-145,De Cuyper,1.0,Sunderland,3
-146,Dunk,2.0,Sunderland,3
-147,Estupiñan,0.0,Sunderland,3
-148,F.Kadıoğlu,3.0,Sunderland,3
-149,Igor,0.0,Sunderland,3
-150,Lamptey,0.0,Sunderland,3
-151,Van Hecke,3.0,Sunderland,3
-152,Veltman,1.0,Sunderland,3
-153,Webster,0.0,Sunderland,3
-154,Cashin,0.0,Sunderland,3
-155,Slater,0.0,Sunderland,3
-156,Tasker,0.0,Sunderland,3
-157,Mitoma,3.0,Sunderland,3
-158,Georginio,1.0,Sunderland,3
-159,March,1.0,Sunderland,3
-160,Minteh,1.0,Sunderland,3
-161,Enciso,0.0,Sunderland,3
-162,Gruda,0.0,Sunderland,3
-163,Hinshelwood,3.0,Sunderland,3
-164,O'Riley,0.0,Sunderland,3
-165,Sima,0.0,Sunderland,3
-166,Ayari,1.0,Sunderland,3
-167,Baleba,1.0,Sunderland,3
-168,Buonanotte,0.0,Crystal Palace,3
-169,Gomez,3.0,Sunderland,3
-170,Milner,2.0,Sunderland,3
-171,Sarmiento,0.0,Sunderland,3
-172,Watson,0.0,Sunderland,3
-173,Wieffer,2.0,Sunderland,3
-174,Yalcouye,0.0,Sunderland,3
-175,Knight,0.0,Sunderland,3
-176,Mazilu,0.0,Sunderland,3
-177,Moran,0.0,Sunderland,3
-178,Welbeck,3.0,Sunderland,3
-179,Ferguson,0.0,Sunderland,3
-180,Tzimas,0.0,Sunderland,3
-181,Kostoulas,0.0,Sunderland,3
-182,Trafford,0.0,West Ham,2
-183,Weiss,0.0,Bournemouth,2
-184,Green,0.0,Bournemouth,2
-185,Hladký,0.0,Bournemouth,2
-186,Roberts,0.0,Bournemouth,2
-187,Walker,2.0,Bournemouth,2
-188,Delcroix,0.0,Bournemouth,2
-189,Dodgson,0.0,Bournemouth,2
-190,Ekdal,0.0,Bournemouth,2
-191,Estève,3.0,Bournemouth,2
-192,Hartman,0.0,Bournemouth,2
-193,Humphreys,2.0,Bournemouth,2
-194,Jordan,0.0,Bournemouth,2
-195,Lucas Pires,2.0,Bournemouth,2
-196,Sambo,0.0,Bournemouth,2
-197,Sonne,0.0,Bournemouth,2
-198,Tuanzebe,0.0,Bournemouth,2
-199,Worrall,3.0,Bournemouth,2
-200,Anthony,3.0,Bournemouth,2
-201,Benson,0.0,Bournemouth,2
-202,Bruun Larsen,1.0,Bournemouth,2
-203,Boateng,0.0,Bournemouth,2
-204,Churlinov,0.0,Bournemouth,2
-205,Cullen,0.0,Bournemouth,2
-206,Edwards,1.0,Bournemouth,2
-207,Hannibal,4.0,Bournemouth,2
-208,Koleosho,0.0,Bournemouth,2
-209,Laurent,2.0,Bournemouth,2
-210,Tchaouna,1.0,Bournemouth,2
-211,A.Ramsey,0.0,Bournemouth,2
-212,Adewumi,0.0,Bournemouth,2
-213,Banel,0.0,Bournemouth,2
-214,Trésor,0.0,Bournemouth,2
-215,Flemming,3.0,Bournemouth,2
-216,Amdouni,0.0,Bournemouth,2
-217,Foster,2.0,Bournemouth,2
-218,Barnes,1.0,Bournemouth,2
-219,Obafemi,0.0,Bournemouth,2
-220,Sánchez,3.0,Newcastle,3
-221,Jörgensen,2.0,Newcastle,3
-222,Penders,0.0,Newcastle,3
-223,Slonina,0.0,Newcastle,3
-224,Cucurella,1.0,Newcastle,3
-225,James,5.0,Newcastle,3
-226,Chalobah,4.0,Newcastle,3
-227,Colwill,0.0,Newcastle,3
-228,Gusto,3.0,Newcastle,3
-229,B.Badiashile,0.0,Newcastle,3
-230,Fofana,2.0,Newcastle,3
-231,M.Sarr,2.0,Newcastle,3
-232,Tosin,1.0,Newcastle,3
-233,Acheampong,1.0,Newcastle,3
-234,Anselmino,0.0,Newcastle,3
-235,Palmer,5.0,Newcastle,3
-236,Neto,3.0,Newcastle,3
-237,Enzo,4.0,Newcastle,3
-238,Estêvão,0.0,Newcastle,3
-239,Gittens,0.0,Newcastle,3
-240,Nkunku,0.0,Newcastle,3
-241,Caicedo,4.0,Newcastle,3
-242,Dewsbury-Hall,3.0,Arsenal,5
-243,George,1.0,Arsenal,5
-244,Lavia,1.0,Newcastle,3
-245,Mudryk,0.0,Newcastle,3
-246,Andrey Santos,2.0,Newcastle,3
-247,D.Essugo,0.0,Newcastle,3
-248,Paez,0.0,Newcastle,3
-249,João Pedro,6.0,Newcastle,3
-250,Delap,1.0,Newcastle,3
-251,N.Jackson,0.0,Newcastle,3
-252,Marc Guiu,0.0,Newcastle,3
-253,Henderson,3.0,Leeds,2
-254,Benitez,0.0,Leeds,2
-255,Matthews,0.0,Leeds,2
-256,Muñoz,2.0,Leeds,2
-257,Lacroix,2.0,Leeds,2
-258,Mitchell,3.0,Leeds,2
-259,Sosa,0.0,Leeds,2
-260,Guéhi,5.0,West Ham,2
-261,Richards,3.0,Leeds,2
-262,Chadi Riad,2.0,Leeds,2
-263,Clyne,1.0,Leeds,2
-264,Holding,0.0,Leeds,2
-265,Kporha,0.0,Leeds,2
-266,Eze,3.0,Everton,3
-267,Sarr,4.0,Leeds,2
-268,Doucouré,0.0,Leeds,2
-269,Esse,0.0,Leeds,2
-270,Hughes,2.0,Leeds,2
-271,Kamada,2.0,Leeds,2
-272,Lerma,0.0,Leeds,2
-273,Wharton,3.0,Leeds,2
-274,Agbinone,0.0,Leeds,2
-275,Ahamada,0.0,Leeds,2
-276,Devenny,0.0,Leeds,2
-277,Ebiowei,0.0,Leeds,2
-278,J.Rak-Sakyi,0.0,Leeds,2
-279,M.França,0.0,Leeds,2
-280,Ozoh,0.0,Leeds,2
-281,Rodney,0.0,Leeds,2
-282,Umeh,0.0,Leeds,2
-283,Mateta,0.0,Leeds,2
-284,Nketiah,0.0,Leeds,2
-285,Édouard,0.0,Leeds,2
-286,Marsh,0.0,Leeds,2
-287,Pickford,4.0,Arsenal,5
-288,Travers,0.0,Arsenal,5
-289,Tyrer,0.0,Arsenal,5
-290,Branthwaite,3.0,Arsenal,5
-291,Tarkowski,3.0,Arsenal,5
-292,Mykolenko,2.0,Arsenal,5
-293,O'Brien,2.0,Arsenal,5
-294,Coleman,0.0,Arsenal,5
-295,Keane,2.0,Arsenal,5
-296,Patterson,0.0,Arsenal,5
-297,Dixon,0.0,Arsenal,5
-298,Welch,0.0,Arsenal,5
-299,Ndiaye,3.0,Arsenal,5
-300,McNeil,2.0,Arsenal,5
-301,Alcaraz,0.0,Arsenal,5
-302,Gana,3.0,Arsenal,5
-303,Garner,4.0,Arsenal,5
-304,Iroegbunam,1.0,Arsenal,5
-305,Armstrong,1.0,Arsenal,5
-306,Bates,0.0,Arsenal,5
-307,Ebere,0.0,Arsenal,5
-308,Heath,0.0,Arsenal,5
-309,Metcalfe,0.0,Arsenal,5
-310,Barry,2.0,Arsenal,5
-311,Beto,2.0,Arsenal,5
-312,Y.Chermiti,0.0,Arsenal,5
-313,Sherif,0.0,Arsenal,5
-314,Leno,4.0,Nott'm Forest,3
-315,Benda,0.0,Nott'm Forest,3
-316,Robinson,1.0,Nott'm Forest,3
-317,Andersen,2.0,Nott'm Forest,3
-318,Bassey,3.0,Nott'm Forest,3
-319,Castagne,1.0,Nott'm Forest,3
-320,Diop,2.0,Nott'm Forest,3
-321,J.Cuenca,1.0,Nott'm Forest,3
-322,Tete,3.0,Nott'm Forest,3
-323,Amissah,0.0,Nott'm Forest,3
-324,Iwobi,4.0,Nott'm Forest,3
-325,Smith Rowe,3.0,Nott'm Forest,3
-326,Adama,1.0,Man City,4
-327,Andreas,0.0,Nott'm Forest,3
-328,Sessegnon,2.0,Nott'm Forest,3
-329,Wilson,2.0,Nott'm Forest,3
-330,Berge,3.0,Nott'm Forest,3
-331,Cairney,2.0,Nott'm Forest,3
-332,Lukić,0.0,Nott'm Forest,3
-333,Godo,0.0,Nott'm Forest,3
-334,Harris,0.0,Nott'm Forest,3
-335,King,1.0,Nott'm Forest,3
-336,Reed,0.0,Nott'm Forest,3
-337,Raúl,3.0,Nott'm Forest,3
-338,Muniz,1.0,Nott'm Forest,3
-339,Meslier,0.0,Crystal Palace,3
-340,Cairns,0.0,Crystal Palace,3
-341,Darlow,3.0,Crystal Palace,3
-342,Bogle,3.0,Crystal Palace,3
-343,Struijk,3.0,Crystal Palace,3
-344,Bijol,1.0,Crystal Palace,3
-345,Bornauw,0.0,Crystal Palace,3
-346,Byram,0.0,Crystal Palace,3
-347,Gudmundsson,2.0,Crystal Palace,3
-348,Rodon,3.0,Crystal Palace,3
-349,Schmidt,0.0,Crystal Palace,3
-350,Aaronson,2.0,Crystal Palace,3
-351,Gnonto,1.0,Crystal Palace,3
-352,Harrison,0.0,Crystal Palace,3
-353,James,1.0,Crystal Palace,3
-354,Ampadu,3.0,Crystal Palace,3
-355,Greenwood,0.0,Crystal Palace,3
-356,Gruev,2.0,Crystal Palace,3
-357,Ramazani,0.0,Crystal Palace,3
-358,Tanaka,0.0,Crystal Palace,3
-359,Crew,0.0,Crystal Palace,3
-360,Gelhardt,0.0,Crystal Palace,3
-361,Gyabi,0.0,Crystal Palace,3
-362,Piroe,1.0,Crystal Palace,3
-363,Bamford,0.0,Crystal Palace,3
-364,Mateo Joseph,0.0,Crystal Palace,3
-365,Nmecha,2.0,Crystal Palace,3
-366,A.Becker,4.0,Spurs,2
-367,Mamardashvili,0.0,Spurs,2
-368,Pécsi,0.0,Spurs,2
-369,Woodman,0.0,Spurs,2
-370,Frimpong,2.0,Spurs,2
-371,Kerkez,4.0,Spurs,2
-372,Robertson,1.0,Spurs,2
-373,Virgil,5.0,Spurs,2
-374,Konaté,4.0,Spurs,2
-375,Bradley,0.0,Spurs,2
-376,Gomez,2.0,Spurs,2
-377,Tsimikas,0.0,Spurs,2
-378,Nallo,0.0,Spurs,2
-379,R.Williams,0.0,Spurs,2
-380,Ramsay,0.0,Spurs,2
-381,M.Salah,5.0,Spurs,2
-382,Wirtz,0.0,Spurs,2
-383,Luis Díaz,0.0,Spurs,2
-384,Gakpo,5.0,Spurs,2
-385,Chiesa,1.0,Spurs,2
-386,Mac Allister,6.0,Spurs,2
-387,Szoboszlai,4.0,Spurs,2
-388,C.Jones,2.0,Spurs,2
-389,Elliott,0.0,Man Utd,3
-390,Gravenberch,4.0,Spurs,2
-391,Gannon-Doak,0.0,Burnley,1
-392,Endo,0.0,Spurs,2
-393,Bajcetic,0.0,Spurs,2
-394,McConnell,0.0,Spurs,2
-395,Morton,0.0,Spurs,2
-396,Nyoni,1.0,Spurs,2
-397,Darwin,0.0,Spurs,2
-398,Danns,0.0,Spurs,2
-399,Ederson M.,0.0,West Ham,2
-400,Ortega Moreno,1.0,Fulham,3
-401,Bettinelli,0.0,West Ham,2
-402,Aït-Nouri,5.0,West Ham,2
-403,Gvardiol,0.0,West Ham,2
-404,Akanji,0.0,West Ham,2
-405,Aké,0.0,West Ham,2
-406,Khusanov,1.0,West Ham,2
-407,Matheus N.,4.0,West Ham,2
-408,Rúben,3.0,West Ham,2
-409,Stones,0.0,West Ham,2
-410,Lewis,0.0,West Ham,2
-411,O'Reilly,4.0,West Ham,2
-412,Vitor Reis,0.0,West Ham,2
-413,Marmoush,3.0,West Ham,2
-414,Foden,2.0,West Ham,2
-415,Savinho,1.0,West Ham,2
-416,Bernardo,5.0,West Ham,2
-417,Cherki,4.0,West Ham,2
-418,Doku,1.0,West Ham,2
-419,Grealish,0.0,Arsenal,5
-420,Gündoğan,0.0,West Ham,2
-421,Rodrigo,4.0,West Ham,2
-422,Kovačić,0.0,West Ham,2
-423,N.Gonzalez,0.0,West Ham,2
-424,Bobb,2.0,Nott'm Forest,3
-425,Echeverri,0.0,West Ham,2
-426,McAtee,0.0,Fulham,3
-427,Reijnders,1.0,West Ham,2
-428,Nypan,0.0,West Ham,2
-429,Phillips,0.0,West Ham,2
-430,Haaland,3.0,West Ham,2
-431,Bayindir,0.0,Aston Villa,3
-432,Onana,0.0,Aston Villa,3
-433,Harrison,0.0,Aston Villa,3
-434,Heaton,0.0,Aston Villa,3
-435,Mee,0.0,Aston Villa,3
-436,De Ligt,0.0,Aston Villa,3
-437,Martinez,0.0,Aston Villa,3
-438,Mazraoui,2.0,Aston Villa,3
-439,D.Leon,0.0,Aston Villa,3
-440,Dalot,3.0,Aston Villa,3
-441,Dorgu,0.0,Aston Villa,3
-442,Maguire,3.0,Aston Villa,3
-443,Shaw,2.0,Aston Villa,3
-444,Yoro,3.0,Aston Villa,3
-445,Amass,0.0,Aston Villa,3
-446,Fredricson,0.0,Aston Villa,3
-447,Heaven,1.0,Aston Villa,3
-448,Malacia,1.0,Aston Villa,3
-449,B.Fernandes,3.0,Aston Villa,3
-450,Cunha,3.0,Aston Villa,3
-451,Rashford,0.0,Aston Villa,3
-452,Amad,2.0,Aston Villa,3
-453,Garnacho,3.0,Newcastle,3
-454,Antony,0.0,Aston Villa,3
-455,Mount,0.0,Aston Villa,3
-456,Sancho,2.0,Man Utd,3
-457,Casemiro,3.0,Aston Villa,3
-458,Mainoo,3.0,Aston Villa,3
-459,Ugarte,1.0,Aston Villa,3
-460,Collyer,0.0,Aston Villa,3
-461,Fitzgerald,0.0,Aston Villa,3
-462,J.Fletcher,0.0,Aston Villa,3
-463,Kone,0.0,Aston Villa,3
-464,Moorhouse,0.0,Aston Villa,3
-465,Højlund,0.0,Aston Villa,3
-466,Zirkzee,2.0,Aston Villa,3
-467,Obi,0.0,Aston Villa,3
-468,Wheatley,0.0,Aston Villa,3
-469,Pope,2.0,Chelsea,3
-470,Dúbravka,3.0,Bournemouth,2
-471,Gillespie,0.0,Chelsea,3
-472,Odysseas,0.0,Chelsea,3
-473,Hall,2.0,Chelsea,3
-474,Schär,0.0,Chelsea,3
-475,Botman,0.0,Chelsea,3
-476,Burn,2.0,Chelsea,3
-477,Livramento,0.0,Chelsea,3
-478,Trippier,2.0,Chelsea,3
-479,Krafth,0.0,Chelsea,3
-480,Lascelles,0.0,Chelsea,3
-481,A.Murphy,0.0,Chelsea,3
-482,Ashby,0.0,Chelsea,3
-483,Pivas,0.0,Chelsea,3
-484,Targett,0.0,Chelsea,3
-485,Gordon,3.0,Chelsea,3
-486,Elanga,2.0,Chelsea,3
-487,Barnes,2.0,Chelsea,3
-488,Bruno G.,0.0,Chelsea,3
-489,J.Murphy,1.0,Chelsea,3
-490,Joelinton,2.0,Chelsea,3
-491,Tonali,2.0,Chelsea,3
-492,Antoñito C.,0.0,Chelsea,3
-493,Longstaff,1.0,Crystal Palace,3
-494,Willock,2.0,Chelsea,3
-495,Hayden,0.0,Chelsea,3
-496,Kuol,0.0,Chelsea,3
-497,L.Miley,0.0,Chelsea,3
-498,White,0.0,Chelsea,3
-499,Isak,0.0,Spurs,2
-500,Osula,1.0,Chelsea,3
-501,Neave,0.0,Chelsea,3
-502,Sels,2.0,Fulham,3
-503,C.Miguel,0.0,Fulham,3
-504,Turner,0.0,Fulham,3
-505,Milenković,3.0,Fulham,3
-506,Murillo,3.0,Fulham,3
-507,Aina,3.0,Fulham,3
-508,N.Williams,3.0,Fulham,3
-509,David Carmo,0.0,Fulham,3
-510,Jair Cunha,2.0,Fulham,3
-511,Morato,1.0,Fulham,3
-512,O.Richards,0.0,Fulham,3
-513,Abbott,0.0,Fulham,3
-514,Boly,0.0,Fulham,3
-515,Gibbs-White,3.0,Fulham,3
-516,Hudson-Odoi,2.0,Fulham,3
-517,Anderson,3.0,Fulham,3
-518,Jota,0.0,Fulham,3
-519,Dominguez,1.0,Fulham,3
-520,O'Brien,0.0,Fulham,3
-521,Sangaré,3.0,Fulham,3
-522,Yates,1.0,Fulham,3
-523,Da Silva Moreira,0.0,Fulham,3
-524,Stamenic,0.0,Fulham,3
-525,Wood,0.0,Fulham,3
-526,Igor Jesus,3.0,Fulham,3
-527,Awoniyi,1.0,Fulham,3
-528,Patterson,0.0,Brighton,3
-529,Moore,0.0,Brighton,3
-530,Nna Noukeu,0.0,Brighton,3
-531,Ballard,2.0,Brighton,3
-532,Hume,3.0,Brighton,3
-533,Alese,0.0,Brighton,3
-534,Anderson,0.0,Brighton,3
-535,Cirkin,0.0,Brighton,3
-536,Hjelde,0.0,Brighton,3
-537,Huggins,0.0,Brighton,3
-538,Johnson,0.0,Brighton,3
-539,O'Nien,2.0,Brighton,3
-540,Pembele,0.0,Brighton,3
-541,Reinildo,0.0,Brighton,3
-542,Seelt,0.0,Brighton,3
-543,Adingra,0.0,Brighton,3
-544,Diarra,3.0,Brighton,3
-545,Roberts,0.0,Brighton,3
-546,Aleksić,0.0,Brighton,3
-547,E.Le Fée,3.0,Brighton,3
-548,Mundle,1.0,Brighton,3
-549,Neil,0.0,Brighton,3
-550,Poveda,0.0,Brighton,3
-551,Rigg,0.0,Brighton,3
-552,Sadiki,3.0,Brighton,3
-553,Talbi,1.0,Brighton,3
-554,Ba,0.0,Brighton,3
-555,Browne,0.0,Brighton,3
-556,Ekwah,0.0,Brighton,3
-557,H.Jones,0.0,Brighton,3
-558,Matete,0.0,Brighton,3
-559,Triantis,0.0,Brighton,3
-560,Isidor,1.0,Brighton,3
-561,Mayenda,3.0,Brighton,3
-562,Abdullahi,0.0,Brighton,3
-563,Luís Hemir,0.0,Brighton,3
-564,Rusyn,0.0,Brighton,3
-565,Vicario,2.0,Liverpool,3
-566,Austin,0.0,Liverpool,3
-567,Kinsky,0.0,Liverpool,3
-568,Pedro Porro,2.0,Liverpool,3
-569,Romero,0.0,Liverpool,3
-570,Danso,2.0,Liverpool,3
-571,Davies,0.0,Liverpool,3
-572,Dragusin,2.0,Liverpool,3
-573,Spence,1.0,Liverpool,3
-574,Udogie,0.0,Liverpool,3
-575,Van de Ven,2.0,Liverpool,3
-576,Phillips,0.0,Liverpool,3
-577,Takai,0.0,Liverpool,3
-578,Vuskovic,0.0,Liverpool,3
-579,Son,0.0,Liverpool,3
-580,Johnson,2.0,Leeds,2
-581,Maddison,0.0,Liverpool,3
-582,Kudus,0.0,Liverpool,3
-583,Kulusevski,0.0,Liverpool,3
-584,Tel,2.0,Liverpool,3
-585,Bentancur,0.0,Liverpool,3
-586,Bergvall,0.0,Liverpool,3
-587,Bissouma,2.0,Liverpool,3
-588,Odobert,0.0,Liverpool,3
-589,Solomon,0.0,Liverpool,3
-590,Bryan,0.0,Liverpool,3
-591,Gray,3.0,Liverpool,3
-592,Moore,0.0,Liverpool,3
-593,P.M.Sarr,2.0,Liverpool,3
-594,Min-hyeok,0.0,Liverpool,3
-595,Olusesi,0.0,Liverpool,3
-596,Solanke,2.0,Liverpool,3
-597,Richarlison,2.0,Liverpool,3
-598,Lankshear,0.0,Liverpool,3
-599,Scarlett,0.0,Liverpool,3
-600,Areola,0.0,Man City,4
-601,Foderingham,0.0,Man City,4
-602,Hegyi,0.0,Man City,4
-603,Diouf,4.0,Man City,4
-604,Emerson,0.0,Man City,4
-605,Kilman,0.0,Man City,4
-606,Mavropanos,2.0,Man City,4
-607,N.Aguerd,0.0,Man City,4
-608,Scarles,0.0,Man City,4
-609,Todibo,2.0,Man City,4
-610,Wan-Bissaka,4.0,Man City,4
-611,Casey,0.0,Man City,4
-612,L.Paquetá,0.0,Man City,4
-613,Souček,3.0,Man City,4
-614,Ward-Prowse,2.0,Bournemouth,2
-615,Summerville,4.0,Man City,4
-616,Álvarez,0.0,Man City,4
-617,Cornet,0.0,Man City,4
-618,G.Rodriguez,0.0,Man City,4
-619,L.Guilherme,0.0,Man City,4
-620,Earthy,0.0,Man City,4
-621,Irving,0.0,Man City,4
-622,Orford,0.0,Man City,4
-623,Potts,0.0,Man City,4
-624,Bowen,4.0,Man City,4
-625,Füllkrug,0.0,Man City,4
-626,Marshall,0.0,Man City,4
-627,Johnstone,0.0,Brentford,3
-628,José Sá,3.0,Brentford,3
-629,Bentley,0.0,Brentford,3
-630,King,0.0,Arsenal,5
-631,Agbadou,0.0,Brentford,3
-632,Doherty,1.0,Brentford,3
-633,H.Bueno,3.0,Brentford,3
-634,Mosquera,3.0,Brentford,3
-635,R.Gomes,2.0,Brentford,3
-636,S.Bueno,3.0,Brentford,3
-637,Toti,2.0,Brentford,3
-638,Hoever,0.0,Brentford,3
-639,Meupiyou,0.0,Brentford,3
-640,Pedro Lima,0.0,Brentford,3
-641,Pond,0.0,Brentford,3
-642,Hee Chan,0.0,Brentford,3
-643,André,4.0,Brentford,3
-644,Bellegarde,3.0,Brentford,3
-645,Fer López,0.0,Brentford,3
-646,J.Gomes,2.0,Brentford,3
-647,Guedes,0.0,Brentford,3
-648,Munetsi,0.0,Brentford,3
-649,B.Traore,0.0,Brentford,3
-650,Chirewa,0.0,Brentford,3
-651,Edozie,0.0,Brentford,3
-652,Gonzalez,0.0,Brentford,3
-653,Hodge,0.0,Brentford,3
-654,Strand Larsen,3.0,Leeds,2
-655,Fábio Silva,0.0,Brentford,3
-656,Kalajdžić,0.0,Brentford,3
-657,Chiwome,0.0,Brentford,3
-658,Fraser,0.0,Brentford,3
-659,Walker-Peters,0.0,Man City,4
-660,Stach,3.0,Crystal Palace,3
-661,Ekitiké,5.0,Spurs,2
-662,Mosquera,2.0,Everton,3
-663,J.Arias,0.0,Brentford,3
-664,Lecomte,0.0,Nott'm Forest,3
-665,Perri,0.0,Crystal Palace,3
-666,Gyökeres,3.0,Everton,3
-667,Aznou,0.0,Arsenal,5
-668,Xhaka,2.0,Brighton,3
-669,Ndoye,1.0,Fulham,3
-670,Roefs,2.0,Brighton,3
-671,Wilson,2.0,Man City,4
-672,Hato,3.0,Newcastle,3
-673,J.Palhinha,2.0,Liverpool,3
-674,Ramsdale,2.0,Chelsea,3
-675,Gunn,0.0,Fulham,3
-676,Ugochukwu,2.0,Bournemouth,2
-677,Guessand,2.0,Leeds,2
-678,Masuaku,0.0,Brighton,3
-679,Hermansen,4.0,Man City,4
-680,Broja,0.0,Bournemouth,2
-681,Šeško,3.0,Aston Villa,3
-682,Møller Wolfe,2.0,Brentford,3
-683,Alderete,3.0,Brighton,3
-684,Thiaw,3.0,Chelsea,3
-685,Diakité,0.0,Burnley,1
-686,Ngumoha,1.0,Spurs,2
-687,Rees-Dottin,0.0,Burnley,1
-688,Wright,0.0,Man Utd,3
-689,Seung soo,0.0,Chelsea,3
-690,Cardines,0.0,Leeds,2
-691,Calvert-Lewin,3.0,Crystal Palace,3
-692,Leoni,0.0,Spurs,2
-693,Hutchinson,2.0,Fulham,3
-694,Mukiele,1.0,Brighton,3
-695,Tchatchoua,3.0,Brentford,3
-696,Kalimuendo,0.0,Fulham,3
-697,Adli,2.0,Burnley,1
-698,Okafor,0.0,Crystal Palace,3
-699,Douglas Luiz,2.0,Man Utd,3
-700,Dowman,0.0,Everton,3
-701,Rowe,0.0,Man Utd,3
-702,Burrowes,0.0,Man Utd,3
-703,Proctor,0.0,Man Utd,3
-704,Onyango,0.0,Arsenal,5
-705,Campbell,0.0,Arsenal,5
-706,Justin,3.0,Crystal Palace,3
-707,Dibling,0.0,Arsenal,5
-708,M.Fernandes,4.0,Man City,4
-709,Krejčí,2.0,Brentford,3
-710,Patterson,0.0,Man Utd,3
-711,Harriman-Annous,0.0,Everton,3
-712,Yeremy,2.0,Leeds,2
-713,A.Jimenez,4.0,Burnley,1
-714,Woltemade,2.0,Chelsea,3
-715,John,0.0,Fulham,3
-716,Savona,0.0,Fulham,3
-717,Xavi,2.0,Liverpool,3
-718,S.Magassa,2.0,Man City,4
-719,Lindelöf,0.0,Man Utd,3
-720,Tolu,3.0,Brentford,3
-721,Milosavljević,0.0,Burnley,1
-722,Florentino,1.0,Bournemouth,2
-723,Canvot,3.0,Leeds,2
-724,Geertruida,2.0,Brighton,3
-725,Hincapie,4.0,Everton,3
-726,Kolo Muani,2.0,Liverpool,3
-727,Chukwueze,2.0,Nott'm Forest,3
-728,Röhl,0.0,Arsenal,5
-729,Cuiabano,0.0,Fulham,3
-730,Brobbey,1.0,Brighton,3
-731,Kevin,1.0,Nott'm Forest,3
-732,Uche,1.0,Leeds,2
-733,Lammens,3.0,Aston Villa,3
-734,Bakwa,1.0,Fulham,3
-735,Traoré,1.0,Brighton,3
-736,Donnarumma,4.0,West Ham,2
-737,Kusi-Asare,0.0,Nott'm Forest,3
-738,Fabianski,0.0,Man City,4
-739,Mukasa,0.0,West Ham,2
-740,Mfuni,0.0,West Ham,2
-741,Gray,0.0,Crystal Palace,3
-742,McAidoo,0.0,West Ham,2
-743,Emenalo,0.0,Newcastle,3
-744,Oriola,0.0,Sunderland,3
-745,Byfield,0.0,Liverpool,3
-746,Morrison,0.0,Spurs,2
-747,Mayers,0.0,Man City,4
-748,Dasilva,0.0,Wolves,2
-749,Mané,3.0,Brentford,3
-750,Rowswell,0.0,Liverpool,3
-751,Akhamrich,0.0,Liverpool,3
-752,Golambeckis,0.0,Man City,4
-753,Ruddy,0.0,Chelsea,3
-754,George Hemmings,0.0,Man Utd,3
-755,Lacey,0.0,Aston Villa,3
-756,DaCosta,0.0,Burnley,1
-757,Hollingshead,0.0,Man Utd,3
-758,Mohamadou Kanté,1.0,Man City,4
-759,Salmon,0.0,Everton,3
-760,Lucky,0.0,Spurs,2
-761,Simmonds,0.0,Sunderland,3
-762,Drakes-Thomas,0.0,Leeds,2
-763,Gray,0.0,West Ham,2
-764,Heskey,0.0,West Ham,2
-765,Shahar,0.0,Chelsea,3
-766,Olagunju,0.0,Brentford,3
-767,Rawlings,0.0,Brentford,3
-768,Leon Routh,0.0,Man Utd,3
-769,Bendito Mantato,0.0,Aston Villa,3
-770,Ridgeon,0.0,Nott'm Forest,3
-771,Fletcher,0.0,Aston Villa,3
-772,Alabi,0.0,Chelsea,3
-773,Benamar,0.0,Leeds,2
-774,Jenson Jones,0.0,Brighton,3
-775,Tutierov,0.0,Brighton,3
-776,Pimlott,0.0,Bournemouth,2
-777,Ojinnaka,0.0,Brentford,3
-778,Sutherland,0.0,Brentford,3
-779,Graham,0.0,Arsenal,5
-780,Casey,0.0,Leeds,2
-781,Carroll,0.0,Man Utd,3
-782,Forster,0.0,Burnley,1
-783,Groß,4.0,Sunderland,3
-784,Brierley,0.0,Bournemouth,2
-785,Pablo,0.0,Man City,4
-786,McNally,0.0,Nott'm Forest,3
-787,Chambers,0.0,Crystal Palace,3
-788,Kukonki,0.0,Aston Villa,3
-789,Merrick,0.0,Newcastle,3
-790,Williams-Barnett,0.0,Liverpool,3
-791,Taty,3.0,Man City,4
-792,Alysson,1.0,Man Utd,3
-793,King,0.0,Leeds,2
-794,Alleyne,0.0,West Ham,2
-795,Howell,1.0,Sunderland,3
-796,Gallagher,2.0,Liverpool,3
-797,Furo,0.0,Wolves,2
-798,Imray,0.0,Leeds,2
-799,Stevens,0.0,Burnley,1
-800,Jocelin.T,1.0,Brighton,3
-801,Tóth.A,1.0,Burnley,1
-802,Lamadrid,0.0,Man City,4
-803,Sharman-Lowe,0.0,Newcastle,3
-804,Souza,1.0,Liverpool,3
-805,Lucca,1.0,Fulham,3
-806,Mandas,0.0,Burnley,1
-807,Rayan,3.0,Burnley,1
-808,Abraham,2.0,Man Utd,3
-809,Abbey,0.0,Brentford,3
-810,Bentt,0.0,Wolves,2
-811,Kyerematen,0.0,Liverpool,3
-812,Ellborg,2.0,Brighton,3
-813,Angulo,2.0,Brighton,3
-814,Netz,1.0,Fulham,3
-815,Disasi,4.0,Man City,4
-816,Angel,1.0,Brentford,3
-817,Armstrong,2.0,Brentford,3
-818,Wilson,0.0,Liverpool,3
-819,Shield,1.0,Wolves,2
-820,McMahon-Brown,1.0,Bournemouth,2
-821,Whittaker,1.0,Brighton,3
-822,Jones,1.0,Brighton,3
+1,Raya,3.0,Man City,4
+2,Arrizabalaga,0.0,Man City,4
+3,Hein,0.0,Man City,4
+4,Setford,0.0,Man City,4
+5,Gabriel,2.0,Man City,4
+6,Saliba,2.0,Man City,4
+7,Calafiori,2.0,Man City,4
+8,J.Timber,2.0,Man City,4
+9,Kiwior,0.0,Man City,4
+10,Lewis-Skelly,1.0,Man City,4
+11,White,1.0,Man City,4
+12,Zinchenko,0.0,Burnley,1
+13,Clarke,0.0,Man City,4
+14,Kacurri,0.0,Man City,4
+15,Nichols,0.0,Man City,4
+16,Saka,2.0,Man City,4
+17,Ødegaard,0.0,Man City,4
+18,Madueke,2.0,Man City,4
+19,Martinelli,2.0,Man City,4
+20,Trossard,1.0,Man City,4
+21,Rice,3.0,Man City,4
+22,Merino,0.0,Man City,4
+23,Fábio Vieira,0.0,Man City,4
+24,Nørgaard,1.0,Man City,4
+25,Nwaneri,0.0,Man City,4
+26,Zubimendi,2.0,Man City,4
+27,Nelson,1.0,Fulham,3
+28,Kabia,0.0,Man City,4
+29,Sambi,0.0,Man City,4
+30,Havertz,2.0,Man City,4
+31,G.Jesus,1.0,Man City,4
+32,Martinez,2.0,Sunderland,3
+33,M.Bizot,2.0,Sunderland,3
+34,Gauci,0.0,Sunderland,3
+35,Marschall,0.0,Sunderland,3
+36,Cash,2.0,Sunderland,3
+37,Digne,3.0,Sunderland,3
+38,Konsa,2.0,Sunderland,3
+39,Maatsen,1.0,Sunderland,3
+40,Mings,2.0,Sunderland,3
+41,Pau,2.0,Sunderland,3
+42,A.García,1.0,Sunderland,3
+43,Alex Moreno,0.0,Sunderland,3
+44,Bogarde,1.0,Sunderland,3
+45,Sousa,0.0,Sunderland,3
+46,Yasin,0.0,Sunderland,3
+47,Rogers,3.0,Sunderland,3
+48,Tielemans,2.0,Sunderland,3
+49,Bailey,1.0,Sunderland,3
+50,Buendía,2.0,Sunderland,3
+51,Iling Jr,0.0,Sunderland,3
+52,J.Ramsey,3.0,Bournemouth,2
+53,Malen,0.0,Sunderland,3
+54,McGinn,3.0,Sunderland,3
+55,Barkley,3.0,Sunderland,3
+56,Barrenechea,0.0,Sunderland,3
+57,Dobbin,0.0,Sunderland,3
+58,Kamara,0.0,Sunderland,3
+59,Onana,4.0,Sunderland,3
+60,Broggio,0.0,Sunderland,3
+61,Dendoncker,0.0,Sunderland,3
+62,Jimoh-Aloba,0.0,Sunderland,3
+63,Young,0.0,Sunderland,3
+64,Watkins,3.0,Sunderland,3
+65,Redmond,0.0,Sunderland,3
+66,Neto,0.0,Newcastle,3
+67,Petrović,4.0,Newcastle,3
+68,Dennis,0.0,Newcastle,3
+69,McKenna,0.0,Newcastle,3
+70,Paulsen,0.0,Newcastle,3
+71,Zabarnyi,0.0,Newcastle,3
+72,Senesi,4.0,Newcastle,3
+73,Smith,1.0,Newcastle,3
+74,Truffert,4.0,Newcastle,3
+75,Akinmboni,0.0,Newcastle,3
+76,Bevan,0.0,Newcastle,3
+77,Hill,4.0,Newcastle,3
+78,J.Araujo,0.0,Newcastle,3
+79,Mepham,0.0,Newcastle,3
+80,Soler,0.0,Newcastle,3
+81,Kluivert,0.0,Newcastle,3
+82,Semenyo,2.0,Arsenal,5
+83,O.Dango,2.0,Fulham,3
+84,Tavernier,4.0,Newcastle,3
+85,Adams,1.0,Newcastle,3
+86,Brooks,1.0,Newcastle,3
+87,Christie,3.0,Newcastle,3
+88,Cook,0.0,Newcastle,3
+89,Philip,0.0,Newcastle,3
+90,Scott,4.0,Newcastle,3
+91,Sinisterra,0.0,Newcastle,3
+92,Faivre,0.0,Newcastle,3
+93,H.Traorè,0.0,Newcastle,3
+94,Sadi,0.0,Newcastle,3
+95,Silcott-Duberry,0.0,Newcastle,3
+96,Winterburn,0.0,Newcastle,3
+97,Evanilson,3.0,Newcastle,3
+98,Enes Ünal,1.0,Newcastle,3
+99,Adu-Adjei,0.0,Newcastle,3
+100,Kroupi.Jr,3.0,Newcastle,3
+101,Kelleher,4.0,Fulham,3
+102,Balcombe,0.0,Fulham,3
+103,Cox,0.0,Fulham,3
+104,Eyestone,0.0,Fulham,3
+105,Valdimarsson,0.0,Fulham,3
+106,Collins,4.0,Fulham,3
+107,Lewis-Potter,4.0,Fulham,3
+108,Ajer,1.0,Fulham,3
+109,Henry,0.0,Fulham,3
+110,Kayode,5.0,Fulham,3
+111,Pinnock,2.0,Fulham,3
+112,Roerslev,0.0,Fulham,3
+113,Van den Berg,4.0,Fulham,3
+114,Arthur,0.0,Fulham,3
+115,Fredrick,0.0,Fulham,3
+116,Hickey,0.0,Fulham,3
+117,Ji-soo,0.0,Fulham,3
+118,Meghoma,0.0,Fulham,3
+119,Mbeumo,2.0,Chelsea,3
+120,Schade,4.0,Fulham,3
+121,Damsgaard,2.0,Fulham,3
+122,Milambo,0.0,Fulham,3
+123,Carvalho,0.0,Fulham,3
+124,Henderson,2.0,Fulham,3
+125,Janelt,0.0,Fulham,3
+126,Jensen,5.0,Fulham,3
+127,Nunes,0.0,Fulham,3
+128,Onyeka,0.0,Fulham,3
+129,Yarmoliuk,3.0,Fulham,3
+130,Donovan,0.0,Fulham,3
+131,Konak,0.0,Fulham,3
+132,Maghoma,0.0,Fulham,3
+133,Peart-Harris,0.0,Fulham,3
+134,Trevitt,0.0,Fulham,3
+135,Wissa,1.0,Bournemouth,2
+136,Thiago,5.0,Fulham,3
+137,Morgan,0.0,Fulham,3
+138,Steele,0.0,Spurs,2
+139,Verbruggen,4.0,Spurs,2
+140,McGill,0.0,Spurs,2
+141,Rushworth,0.0,Spurs,2
+142,Scherpen,0.0,Spurs,2
+143,Boscagli,2.0,Spurs,2
+144,Coppola,0.0,Spurs,2
+145,De Cuyper,1.0,Spurs,2
+146,Dunk,3.0,Spurs,2
+147,Estupiñan,0.0,Spurs,2
+148,F.Kadıoğlu,5.0,Spurs,2
+149,Igor,0.0,Spurs,2
+150,Lamptey,0.0,Spurs,2
+151,Van Hecke,4.0,Spurs,2
+152,Veltman,1.0,Spurs,2
+153,Webster,0.0,Spurs,2
+154,Cashin,0.0,Spurs,2
+155,Slater,0.0,Spurs,2
+156,Tasker,0.0,Spurs,2
+157,Mitoma,1.0,Spurs,2
+158,Georginio,1.0,Spurs,2
+159,March,0.0,Spurs,2
+160,Minteh,3.0,Spurs,2
+161,Enciso,0.0,Spurs,2
+162,Gruda,0.0,Spurs,2
+163,Hinshelwood,4.0,Spurs,2
+164,O'Riley,0.0,Spurs,2
+165,Sima,0.0,Spurs,2
+166,Ayari,2.0,Spurs,2
+167,Baleba,1.0,Spurs,2
+168,Buonanotte,0.0,Wolves,2
+169,Gomez,4.0,Spurs,2
+170,Milner,2.0,Spurs,2
+171,Sarmiento,0.0,Spurs,2
+172,Watson,0.0,Spurs,2
+173,Wieffer,5.0,Spurs,2
+174,Yalcouye,0.0,Spurs,2
+175,Knight,0.0,Spurs,2
+176,Mazilu,0.0,Spurs,2
+177,Moran,0.0,Spurs,2
+178,Welbeck,3.0,Spurs,2
+179,Ferguson,0.0,Spurs,2
+180,Tzimas,0.0,Spurs,2
+181,Kostoulas,0.0,Spurs,2
+182,Trafford,0.0,Arsenal,5
+183,Weiss,0.0,Nott'm Forest,3
+184,Green,0.0,Nott'm Forest,3
+185,Hladký,0.0,Nott'm Forest,3
+186,Roberts,0.0,Nott'm Forest,3
+187,Walker,2.0,Nott'm Forest,3
+188,Delcroix,0.0,Nott'm Forest,3
+189,Dodgson,0.0,Nott'm Forest,3
+190,Ekdal,2.0,Nott'm Forest,3
+191,Estève,3.0,Nott'm Forest,3
+192,Hartman,3.0,Nott'm Forest,3
+193,Humphreys,3.0,Nott'm Forest,3
+194,Jordan,0.0,Nott'm Forest,3
+195,Lucas Pires,1.0,Nott'm Forest,3
+196,Sambo,0.0,Nott'm Forest,3
+197,Sonne,0.0,Nott'm Forest,3
+198,Tuanzebe,0.0,Nott'm Forest,3
+199,Worrall,1.0,Nott'm Forest,3
+200,Anthony,3.0,Nott'm Forest,3
+201,Benson,0.0,Nott'm Forest,3
+202,Bruun Larsen,1.0,Nott'm Forest,3
+203,Boateng,0.0,Nott'm Forest,3
+204,Churlinov,0.0,Nott'm Forest,3
+205,Cullen,0.0,Nott'm Forest,3
+206,Edwards,2.0,Nott'm Forest,3
+207,Hannibal,2.0,Nott'm Forest,3
+208,Koleosho,0.0,Nott'm Forest,3
+209,Laurent,2.0,Nott'm Forest,3
+210,Tchaouna,1.0,Nott'm Forest,3
+211,A.Ramsey,0.0,Nott'm Forest,3
+212,Adewumi,0.0,Nott'm Forest,3
+213,Banel,0.0,Nott'm Forest,3
+214,Trésor,1.0,Nott'm Forest,3
+215,Flemming,3.0,Nott'm Forest,3
+216,Amdouni,0.0,Nott'm Forest,3
+217,Foster,2.0,Nott'm Forest,3
+218,Barnes,1.0,Nott'm Forest,3
+219,Obafemi,0.0,Nott'm Forest,3
+220,Sánchez,3.0,Man Utd,3
+221,Jörgensen,0.0,Man Utd,3
+222,Penders,0.0,Man Utd,3
+223,Slonina,0.0,Man Utd,3
+224,Cucurella,3.0,Man Utd,3
+225,James,1.0,Man Utd,3
+226,Chalobah,1.0,Man Utd,3
+227,Colwill,0.0,Man Utd,3
+228,Gusto,2.0,Man Utd,3
+229,B.Badiashile,0.0,Man Utd,3
+230,Fofana,3.0,Man Utd,3
+231,M.Sarr,0.0,Man Utd,3
+232,Tosin,1.0,Man Utd,3
+233,Acheampong,0.0,Man Utd,3
+234,Anselmino,0.0,Man Utd,3
+235,Palmer,3.0,Man Utd,3
+236,Neto,2.0,Man Utd,3
+237,Enzo,2.0,Man Utd,3
+238,Estêvão,1.0,Man Utd,3
+239,Gittens,0.0,Man Utd,3
+240,Nkunku,0.0,Man Utd,3
+241,Caicedo,2.0,Man Utd,3
+242,Dewsbury-Hall,3.0,Liverpool,3
+243,George,1.0,Liverpool,3
+244,Lavia,2.0,Man Utd,3
+245,Mudryk,0.0,Man Utd,3
+246,Andrey Santos,2.0,Man Utd,3
+247,D.Essugo,1.0,Man Utd,3
+248,Paez,0.0,Man Utd,3
+249,João Pedro,4.0,Man Utd,3
+250,Delap,1.0,Man Utd,3
+251,N.Jackson,0.0,Man Utd,3
+252,Marc Guiu,0.0,Man Utd,3
+253,Henderson,2.0,West Ham,2
+254,Benitez,2.0,West Ham,2
+255,Matthews,0.0,West Ham,2
+256,Muñoz,2.0,West Ham,2
+257,Lacroix,2.0,West Ham,2
+258,Mitchell,4.0,West Ham,2
+259,Sosa,0.0,West Ham,2
+260,Guéhi,3.0,Arsenal,5
+261,Richards,4.0,West Ham,2
+262,Chadi Riad,2.0,West Ham,2
+263,Clyne,1.0,West Ham,2
+264,Holding,0.0,West Ham,2
+265,Kporha,0.0,West Ham,2
+266,Eze,3.0,Man City,4
+267,Sarr,3.0,West Ham,2
+268,Doucouré,0.0,West Ham,2
+269,Esse,0.0,West Ham,2
+270,Hughes,2.0,West Ham,2
+271,Kamada,2.0,West Ham,2
+272,Lerma,2.0,West Ham,2
+273,Wharton,3.0,West Ham,2
+274,Agbinone,0.0,West Ham,2
+275,Ahamada,0.0,West Ham,2
+276,Devenny,0.0,West Ham,2
+277,Ebiowei,0.0,West Ham,2
+278,J.Rak-Sakyi,0.0,West Ham,2
+279,M.França,0.0,West Ham,2
+280,Ozoh,0.0,West Ham,2
+281,Rodney,0.0,West Ham,2
+282,Umeh,0.0,West Ham,2
+283,Mateta,2.0,West Ham,2
+284,Nketiah,0.0,West Ham,2
+285,Édouard,0.0,West Ham,2
+286,Marsh,0.0,West Ham,2
+287,Pickford,3.0,Liverpool,3
+288,Travers,0.0,Liverpool,3
+289,Tyrer,0.0,Liverpool,3
+290,Branthwaite,2.0,Liverpool,3
+291,Tarkowski,2.0,Liverpool,3
+292,Mykolenko,2.0,Liverpool,3
+293,O'Brien,3.0,Liverpool,3
+294,Coleman,0.0,Liverpool,3
+295,Keane,2.0,Liverpool,3
+296,Patterson,0.0,Liverpool,3
+297,Dixon,0.0,Liverpool,3
+298,Welch,0.0,Liverpool,3
+299,Ndiaye,3.0,Liverpool,3
+300,McNeil,3.0,Liverpool,3
+301,Alcaraz,0.0,Liverpool,3
+302,Gana,3.0,Liverpool,3
+303,Garner,3.0,Liverpool,3
+304,Iroegbunam,2.0,Liverpool,3
+305,Armstrong,1.0,Liverpool,3
+306,Bates,0.0,Liverpool,3
+307,Ebere,0.0,Liverpool,3
+308,Heath,0.0,Liverpool,3
+309,Metcalfe,0.0,Liverpool,3
+310,Barry,1.0,Liverpool,3
+311,Beto,3.0,Liverpool,3
+312,Y.Chermiti,0.0,Liverpool,3
+313,Sherif,0.0,Liverpool,3
+314,Leno,4.0,Brentford,3
+315,Benda,0.0,Brentford,3
+316,Robinson,3.0,Brentford,3
+317,Andersen,4.0,Brentford,3
+318,Bassey,4.0,Brentford,3
+319,Castagne,2.0,Brentford,3
+320,Diop,0.0,Brentford,3
+321,J.Cuenca,0.0,Brentford,3
+322,Tete,2.0,Brentford,3
+323,Amissah,0.0,Brentford,3
+324,Iwobi,4.0,Brentford,3
+325,Smith Rowe,1.0,Brentford,3
+326,Adama,2.0,Crystal Palace,3
+327,Andreas,0.0,Brentford,3
+328,Sessegnon,1.0,Brentford,3
+329,Wilson,3.0,Brentford,3
+330,Berge,3.0,Brentford,3
+331,Cairney,1.0,Brentford,3
+332,Lukić,1.0,Brentford,3
+333,Godo,0.0,Brentford,3
+334,Harris,0.0,Brentford,3
+335,King,3.0,Brentford,3
+336,Reed,1.0,Brentford,3
+337,Raúl,2.0,Brentford,3
+338,Muniz,3.0,Brentford,3
+339,Meslier,0.0,Wolves,2
+340,Cairns,0.0,Wolves,2
+341,Darlow,4.0,Wolves,2
+342,Bogle,3.0,Wolves,2
+343,Struijk,3.0,Wolves,2
+344,Bijol,4.0,Wolves,2
+345,Bornauw,0.0,Wolves,2
+346,Byram,0.0,Wolves,2
+347,Gudmundsson,2.0,Wolves,2
+348,Rodon,3.0,Wolves,2
+349,Schmidt,0.0,Wolves,2
+350,Aaronson,2.0,Wolves,2
+351,Gnonto,1.0,Wolves,2
+352,Harrison,0.0,Wolves,2
+353,James,1.0,Wolves,2
+354,Ampadu,5.0,Wolves,2
+355,Greenwood,0.0,Wolves,2
+356,Gruev,2.0,Wolves,2
+357,Ramazani,0.0,Wolves,2
+358,Tanaka,2.0,Wolves,2
+359,Crew,0.0,Wolves,2
+360,Gelhardt,0.0,Wolves,2
+361,Gyabi,0.0,Wolves,2
+362,Piroe,0.0,Wolves,2
+363,Bamford,0.0,Wolves,2
+364,Mateo Joseph,0.0,Wolves,2
+365,Nmecha,2.0,Wolves,2
+366,A.Becker,1.0,Everton,3
+367,Mamardashvili,2.0,Everton,3
+368,Pécsi,0.0,Everton,3
+369,Woodman,0.0,Everton,3
+370,Frimpong,2.0,Everton,3
+371,Kerkez,1.0,Everton,3
+372,Robertson,2.0,Everton,3
+373,Virgil,4.0,Everton,3
+374,Konaté,2.0,Everton,3
+375,Bradley,0.0,Everton,3
+376,Gomez,2.0,Everton,3
+377,Tsimikas,0.0,Everton,3
+378,Nallo,0.0,Everton,3
+379,R.Williams,0.0,Everton,3
+380,Ramsay,0.0,Everton,3
+381,M.Salah,2.0,Everton,3
+382,Wirtz,2.0,Everton,3
+383,Luis Díaz,0.0,Everton,3
+384,Gakpo,3.0,Everton,3
+385,Chiesa,1.0,Everton,3
+386,Mac Allister,2.0,Everton,3
+387,Szoboszlai,4.0,Everton,3
+388,C.Jones,2.0,Everton,3
+389,Elliott,0.0,Sunderland,3
+390,Gravenberch,2.0,Everton,3
+391,Gannon-Doak,0.0,Newcastle,3
+392,Endo,0.0,Everton,3
+393,Bajcetic,0.0,Everton,3
+394,McConnell,0.0,Everton,3
+395,Morton,0.0,Everton,3
+396,Nyoni,1.0,Everton,3
+397,Darwin,0.0,Everton,3
+398,Danns,0.0,Everton,3
+399,Ederson M.,0.0,Arsenal,5
+400,Ortega Moreno,0.0,Burnley,1
+401,Bettinelli,0.0,Arsenal,5
+402,Aït-Nouri,2.0,Arsenal,5
+403,Gvardiol,0.0,Arsenal,5
+404,Akanji,0.0,Arsenal,5
+405,Aké,0.0,Arsenal,5
+406,Khusanov,2.0,Arsenal,5
+407,Matheus N.,3.0,Arsenal,5
+408,Rúben,1.0,Arsenal,5
+409,Stones,0.0,Arsenal,5
+410,Lewis,0.0,Arsenal,5
+411,O'Reilly,2.0,Arsenal,5
+412,Vitor Reis,0.0,Arsenal,5
+413,Marmoush,1.0,Arsenal,5
+414,Foden,2.0,Arsenal,5
+415,Savinho,1.0,Arsenal,5
+416,Bernardo,2.0,Arsenal,5
+417,Cherki,3.0,Arsenal,5
+418,Doku,2.0,Arsenal,5
+419,Grealish,0.0,Liverpool,3
+420,Gündoğan,0.0,Arsenal,5
+421,Rodrigo,3.0,Arsenal,5
+422,Kovačić,1.0,Arsenal,5
+423,N.Gonzalez,0.0,Arsenal,5
+424,Bobb,2.0,Brentford,3
+425,Echeverri,0.0,Arsenal,5
+426,McAtee,1.0,Burnley,1
+427,Reijnders,1.0,Arsenal,5
+428,Nypan,0.0,Arsenal,5
+429,Phillips,0.0,Arsenal,5
+430,Haaland,3.0,Arsenal,5
+431,Bayindir,0.0,Chelsea,3
+432,Onana,0.0,Chelsea,3
+433,Harrison,0.0,Chelsea,3
+434,Heaton,0.0,Chelsea,3
+435,Mee,0.0,Chelsea,3
+436,De Ligt,0.0,Chelsea,3
+437,Martinez,1.0,Chelsea,3
+438,Mazraoui,1.0,Chelsea,3
+439,D.Leon,0.0,Chelsea,3
+440,Dalot,2.0,Chelsea,3
+441,Dorgu,0.0,Chelsea,3
+442,Maguire,2.0,Chelsea,3
+443,Shaw,4.0,Chelsea,3
+444,Yoro,4.0,Chelsea,3
+445,Amass,0.0,Chelsea,3
+446,Fredricson,0.0,Chelsea,3
+447,Heaven,1.0,Chelsea,3
+448,Malacia,0.0,Chelsea,3
+449,B.Fernandes,3.0,Chelsea,3
+450,Cunha,3.0,Chelsea,3
+451,Rashford,0.0,Chelsea,3
+452,Amad,3.0,Chelsea,3
+453,Garnacho,2.0,Man Utd,3
+454,Antony,0.0,Chelsea,3
+455,Mount,0.0,Chelsea,3
+456,Sancho,2.0,Sunderland,3
+457,Casemiro,4.0,Chelsea,3
+458,Mainoo,2.0,Chelsea,3
+459,Ugarte,2.0,Chelsea,3
+460,Collyer,0.0,Chelsea,3
+461,Fitzgerald,0.0,Chelsea,3
+462,J.Fletcher,0.0,Chelsea,3
+463,Kone,0.0,Chelsea,3
+464,Moorhouse,0.0,Chelsea,3
+465,Højlund,0.0,Chelsea,3
+466,Zirkzee,0.0,Chelsea,3
+467,Obi,0.0,Chelsea,3
+468,Wheatley,0.0,Chelsea,3
+469,Pope,0.0,Bournemouth,2
+470,Dúbravka,3.0,Nott'm Forest,3
+471,Gillespie,0.0,Bournemouth,2
+472,Odysseas,0.0,Bournemouth,2
+473,Hall,4.0,Bournemouth,2
+474,Schär,0.0,Bournemouth,2
+475,Botman,3.0,Bournemouth,2
+476,Burn,2.0,Bournemouth,2
+477,Livramento,2.0,Bournemouth,2
+478,Trippier,1.0,Bournemouth,2
+479,Krafth,0.0,Bournemouth,2
+480,Lascelles,0.0,Bournemouth,2
+481,A.Murphy,0.0,Bournemouth,2
+482,Ashby,0.0,Bournemouth,2
+483,Pivas,0.0,Bournemouth,2
+484,Targett,0.0,Bournemouth,2
+485,Gordon,4.0,Bournemouth,2
+486,Elanga,2.0,Bournemouth,2
+487,Barnes,2.0,Bournemouth,2
+488,Bruno G.,0.0,Bournemouth,2
+489,J.Murphy,2.0,Bournemouth,2
+490,Joelinton,2.0,Bournemouth,2
+491,Tonali,1.0,Bournemouth,2
+492,Antoñito C.,0.0,Bournemouth,2
+493,Longstaff,0.0,Wolves,2
+494,Willock,2.0,Bournemouth,2
+495,Hayden,0.0,Bournemouth,2
+496,Kuol,0.0,Bournemouth,2
+497,L.Miley,2.0,Bournemouth,2
+498,White,0.0,Bournemouth,2
+499,Isak,1.0,Everton,3
+500,Osula,2.0,Bournemouth,2
+501,Neave,0.0,Bournemouth,2
+502,Sels,4.0,Burnley,1
+503,C.Miguel,0.0,Burnley,1
+504,Turner,0.0,Burnley,1
+505,Milenković,4.0,Burnley,1
+506,Murillo,4.0,Burnley,1
+507,Aina,4.0,Burnley,1
+508,N.Williams,4.0,Burnley,1
+509,David Carmo,0.0,Burnley,1
+510,Jair Cunha,0.0,Burnley,1
+511,Morato,0.0,Burnley,1
+512,O.Richards,0.0,Burnley,1
+513,Abbott,0.0,Burnley,1
+514,Boly,0.0,Burnley,1
+515,Gibbs-White,3.0,Burnley,1
+516,Hudson-Odoi,3.0,Burnley,1
+517,Anderson,4.0,Burnley,1
+518,Jota,0.0,Burnley,1
+519,Dominguez,2.0,Burnley,1
+520,O'Brien,0.0,Burnley,1
+521,Sangaré,4.0,Burnley,1
+522,Yates,2.0,Burnley,1
+523,Da Silva Moreira,0.0,Burnley,1
+524,Stamenic,0.0,Burnley,1
+525,Wood,1.0,Burnley,1
+526,Igor Jesus,3.0,Burnley,1
+527,Awoniyi,2.0,Burnley,1
+528,Patterson,0.0,Aston Villa,3
+529,Moore,0.0,Aston Villa,3
+530,Nna Noukeu,0.0,Aston Villa,3
+531,Ballard,1.0,Aston Villa,3
+532,Hume,2.0,Aston Villa,3
+533,Alese,0.0,Aston Villa,3
+534,Anderson,0.0,Aston Villa,3
+535,Cirkin,1.0,Aston Villa,3
+536,Hjelde,0.0,Aston Villa,3
+537,Huggins,0.0,Aston Villa,3
+538,Johnson,0.0,Aston Villa,3
+539,O'Nien,3.0,Aston Villa,3
+540,Pembele,0.0,Aston Villa,3
+541,Reinildo,2.0,Aston Villa,3
+542,Seelt,0.0,Aston Villa,3
+543,Adingra,0.0,Aston Villa,3
+544,Diarra,3.0,Aston Villa,3
+545,Roberts,0.0,Aston Villa,3
+546,Aleksić,0.0,Aston Villa,3
+547,E.Le Fée,2.0,Aston Villa,3
+548,Mundle,0.0,Aston Villa,3
+549,Neil,0.0,Aston Villa,3
+550,Poveda,0.0,Aston Villa,3
+551,Rigg,3.0,Aston Villa,3
+552,Sadiki,4.0,Aston Villa,3
+553,Talbi,2.0,Aston Villa,3
+554,Ba,0.0,Aston Villa,3
+555,Browne,0.0,Aston Villa,3
+556,Ekwah,0.0,Aston Villa,3
+557,H.Jones,0.0,Aston Villa,3
+558,Matete,0.0,Aston Villa,3
+559,Triantis,0.0,Aston Villa,3
+560,Isidor,0.0,Aston Villa,3
+561,Mayenda,1.0,Aston Villa,3
+562,Abdullahi,0.0,Aston Villa,3
+563,Luís Hemir,0.0,Aston Villa,3
+564,Rusyn,0.0,Aston Villa,3
+565,Vicario,2.0,Brighton,3
+566,Austin,0.0,Brighton,3
+567,Kinsky,1.0,Brighton,3
+568,Pedro Porro,3.0,Brighton,3
+569,Romero,2.0,Brighton,3
+570,Danso,2.0,Brighton,3
+571,Davies,0.0,Brighton,3
+572,Dragusin,1.0,Brighton,3
+573,Spence,2.0,Brighton,3
+574,Udogie,2.0,Brighton,3
+575,Van de Ven,2.0,Brighton,3
+576,Phillips,0.0,Brighton,3
+577,Takai,0.0,Brighton,3
+578,Vuskovic,0.0,Brighton,3
+579,Son,0.0,Brighton,3
+580,Johnson,2.0,West Ham,2
+581,Maddison,0.0,Brighton,3
+582,Kudus,0.0,Brighton,3
+583,Kulusevski,0.0,Brighton,3
+584,Tel,2.0,Brighton,3
+585,Bentancur,0.0,Brighton,3
+586,Bergvall,2.0,Brighton,3
+587,Bissouma,0.0,Brighton,3
+588,Odobert,0.0,Brighton,3
+589,Solomon,0.0,Brighton,3
+590,Bryan,0.0,Brighton,3
+591,Gray,3.0,Brighton,3
+592,Moore,0.0,Brighton,3
+593,P.M.Sarr,2.0,Brighton,3
+594,Min-hyeok,0.0,Brighton,3
+595,Olusesi,1.0,Brighton,3
+596,Solanke,3.0,Brighton,3
+597,Richarlison,3.0,Brighton,3
+598,Lankshear,0.0,Brighton,3
+599,Scarlett,0.0,Brighton,3
+600,Areola,0.0,Crystal Palace,3
+601,Foderingham,0.0,Crystal Palace,3
+602,Hegyi,0.0,Crystal Palace,3
+603,Diouf,4.0,Crystal Palace,3
+604,Emerson,0.0,Crystal Palace,3
+605,Kilman,0.0,Crystal Palace,3
+606,Mavropanos,4.0,Crystal Palace,3
+607,N.Aguerd,0.0,Crystal Palace,3
+608,Scarles,0.0,Crystal Palace,3
+609,Todibo,1.0,Crystal Palace,3
+610,Wan-Bissaka,2.0,Crystal Palace,3
+611,Casey,0.0,Crystal Palace,3
+612,L.Paquetá,0.0,Crystal Palace,3
+613,Souček,4.0,Crystal Palace,3
+614,Ward-Prowse,3.0,Nott'm Forest,3
+615,Summerville,2.0,Crystal Palace,3
+616,Álvarez,0.0,Crystal Palace,3
+617,Cornet,0.0,Crystal Palace,3
+618,G.Rodriguez,0.0,Crystal Palace,3
+619,L.Guilherme,0.0,Crystal Palace,3
+620,Earthy,0.0,Crystal Palace,3
+621,Irving,0.0,Crystal Palace,3
+622,Orford,0.0,Crystal Palace,3
+623,Potts,1.0,Crystal Palace,3
+624,Bowen,4.0,Crystal Palace,3
+625,Füllkrug,0.0,Crystal Palace,3
+626,Marshall,0.0,Crystal Palace,3
+627,Johnstone,0.0,Leeds,2
+628,José Sá,3.0,Leeds,2
+629,Bentley,0.0,Leeds,2
+630,King,0.0,Liverpool,3
+631,Agbadou,0.0,Leeds,2
+632,Doherty,1.0,Leeds,2
+633,H.Bueno,2.0,Leeds,2
+634,Mosquera,2.0,Leeds,2
+635,R.Gomes,2.0,Leeds,2
+636,S.Bueno,3.0,Leeds,2
+637,Toti,0.0,Leeds,2
+638,Hoever,0.0,Leeds,2
+639,Meupiyou,0.0,Leeds,2
+640,Pedro Lima,0.0,Leeds,2
+641,Pond,0.0,Leeds,2
+642,Hee Chan,1.0,Leeds,2
+643,André,4.0,Leeds,2
+644,Bellegarde,2.0,Leeds,2
+645,Fer López,0.0,Leeds,2
+646,J.Gomes,3.0,Leeds,2
+647,Guedes,0.0,Leeds,2
+648,Munetsi,0.0,Leeds,2
+649,B.Traore,0.0,Leeds,2
+650,Chirewa,0.0,Leeds,2
+651,Edozie,1.0,Leeds,2
+652,Gonzalez,0.0,Leeds,2
+653,Hodge,0.0,Leeds,2
+654,Strand Larsen,2.0,West Ham,2
+655,Fábio Silva,0.0,Leeds,2
+656,Kalajdžić,0.0,Leeds,2
+657,Chiwome,0.0,Leeds,2
+658,Fraser,0.0,Leeds,2
+659,Walker-Peters,2.0,Crystal Palace,3
+660,Stach,2.0,Wolves,2
+661,Ekitiké,1.0,Everton,3
+662,Mosquera,2.0,Man City,4
+663,J.Arias,0.0,Leeds,2
+664,Lecomte,0.0,Brentford,3
+665,Perri,0.0,Wolves,2
+666,Gyökeres,2.0,Man City,4
+667,Aznou,0.0,Liverpool,3
+668,Xhaka,4.0,Aston Villa,3
+669,Ndoye,1.0,Burnley,1
+670,Roefs,2.0,Aston Villa,3
+671,Wilson,1.0,Crystal Palace,3
+672,Hato,2.0,Man Utd,3
+673,J.Palhinha,1.0,Brighton,3
+674,Ramsdale,3.0,Bournemouth,2
+675,Gunn,0.0,Burnley,1
+676,Ugochukwu,2.0,Nott'm Forest,3
+677,Guessand,2.0,West Ham,2
+678,Masuaku,0.0,Aston Villa,3
+679,Hermansen,4.0,Crystal Palace,3
+680,Broja,1.0,Nott'm Forest,3
+681,Šeško,3.0,Chelsea,3
+682,Møller Wolfe,2.0,Leeds,2
+683,Alderete,4.0,Aston Villa,3
+684,Thiaw,3.0,Bournemouth,2
+685,Diakité,0.0,Newcastle,3
+686,Ngumoha,2.0,Everton,3
+687,Rees-Dottin,0.0,Newcastle,3
+688,Wright,0.0,Sunderland,3
+689,Seung soo,0.0,Bournemouth,2
+690,Cardines,0.0,West Ham,2
+691,Calvert-Lewin,5.0,Wolves,2
+692,Leoni,0.0,Everton,3
+693,Hutchinson,2.0,Burnley,1
+694,Mukiele,2.0,Aston Villa,3
+695,Tchatchoua,3.0,Leeds,2
+696,Kalimuendo,0.0,Burnley,1
+697,Adli,2.0,Newcastle,3
+698,Okafor,2.0,Wolves,2
+699,Douglas Luiz,1.0,Sunderland,3
+700,Dowman,2.0,Man City,4
+701,Rowe,0.0,Sunderland,3
+702,Burrowes,0.0,Sunderland,3
+703,Proctor,0.0,Sunderland,3
+704,Onyango,0.0,Liverpool,3
+705,Campbell,0.0,Liverpool,3
+706,Justin,4.0,Wolves,2
+707,Dibling,0.0,Liverpool,3
+708,M.Fernandes,3.0,Crystal Palace,3
+709,Krejčí,3.0,Leeds,2
+710,Patterson,0.0,Sunderland,3
+711,Harriman-Annous,0.0,Man City,4
+712,Yeremy,2.0,West Ham,2
+713,A.Jimenez,2.0,Newcastle,3
+714,Woltemade,2.0,Bournemouth,2
+715,John,0.0,Burnley,1
+716,Savona,0.0,Burnley,1
+717,Xavi,1.0,Brighton,3
+718,S.Magassa,1.0,Crystal Palace,3
+719,Lindelöf,1.0,Sunderland,3
+720,Tolu,2.0,Leeds,2
+721,Milosavljević,0.0,Newcastle,3
+722,Florentino,1.0,Nott'm Forest,3
+723,Canvot,3.0,West Ham,2
+724,Geertruida,2.0,Aston Villa,3
+725,Hincapie,2.0,Man City,4
+726,Kolo Muani,2.0,Brighton,3
+727,Chukwueze,1.0,Brentford,3
+728,Röhl,1.0,Liverpool,3
+729,Cuiabano,0.0,Burnley,1
+730,Brobbey,3.0,Aston Villa,3
+731,Kevin,0.0,Brentford,3
+732,Uche,1.0,West Ham,2
+733,Lammens,4.0,Chelsea,3
+734,Bakwa,0.0,Burnley,1
+735,Traoré,0.0,Aston Villa,3
+736,Donnarumma,3.0,Arsenal,5
+737,Kusi-Asare,0.0,Brentford,3
+738,Fabianski,0.0,Crystal Palace,3
+739,Mukasa,0.0,Arsenal,5
+740,Mfuni,0.0,Arsenal,5
+741,Gray,0.0,Wolves,2
+742,McAidoo,0.0,Arsenal,5
+743,Emenalo,0.0,Man Utd,3
+744,Oriola,0.0,Spurs,2
+745,Byfield,0.0,Brighton,3
+746,Morrison,0.0,Everton,3
+747,Mayers,0.0,Crystal Palace,3
+748,Dasilva,0.0,Fulham,3
+749,Mané,2.0,Leeds,2
+750,Rowswell,0.0,Brighton,3
+751,Akhamrich,0.0,Brighton,3
+752,Golambeckis,0.0,Crystal Palace,3
+753,Ruddy,0.0,Bournemouth,2
+754,George Hemmings,0.0,Sunderland,3
+755,Lacey,0.0,Chelsea,3
+756,DaCosta,0.0,Newcastle,3
+757,Hollingshead,0.0,Sunderland,3
+758,Mohamadou Kanté,1.0,Crystal Palace,3
+759,Salmon,0.0,Man City,4
+760,Lucky,0.0,Everton,3
+761,Simmonds,0.0,Spurs,2
+762,Drakes-Thomas,0.0,West Ham,2
+763,Gray,0.0,Arsenal,5
+764,Heskey,0.0,Arsenal,5
+765,Shahar,0.0,Bournemouth,2
+766,Olagunju,0.0,Leeds,2
+767,Rawlings,0.0,Leeds,2
+768,Leon Routh,0.0,Sunderland,3
+769,Bendito Mantato,0.0,Chelsea,3
+770,Ridgeon,0.0,Brentford,3
+771,Fletcher,0.0,Chelsea,3
+772,Alabi,0.0,Bournemouth,2
+773,Benamar,0.0,West Ham,2
+774,Jenson Jones,0.0,Aston Villa,3
+775,Tutierov,0.0,Aston Villa,3
+776,Pimlott,0.0,Nott'm Forest,3
+777,Ojinnaka,0.0,Leeds,2
+778,Sutherland,0.0,Leeds,2
+779,Graham,0.0,Liverpool,3
+780,Casey,0.0,West Ham,2
+781,Carroll,0.0,Sunderland,3
+782,Forster,0.0,Newcastle,3
+783,Groß,4.0,Spurs,2
+784,Brierley,0.0,Nott'm Forest,3
+785,Pablo,3.0,Crystal Palace,3
+786,McNally,0.0,Brentford,3
+787,Chambers,0.0,Wolves,2
+788,Kukonki,0.0,Chelsea,3
+789,Merrick,0.0,Man Utd,3
+790,Williams-Barnett,0.0,Brighton,3
+791,Taty,3.0,Crystal Palace,3
+792,Alysson,0.0,Sunderland,3
+793,King,0.0,West Ham,2
+794,Alleyne,0.0,Arsenal,5
+795,Howell,0.0,Spurs,2
+796,Gallagher,1.0,Brighton,3
+797,Furo,0.0,Fulham,3
+798,Imray,0.0,West Ham,2
+799,Stevens,0.0,Newcastle,3
+800,Jocelin.T,0.0,Aston Villa,3
+801,Tóth.A,1.0,Newcastle,3
+802,Lamadrid,0.0,Crystal Palace,3
+803,Sharman-Lowe,0.0,Man Utd,3
+804,Souza,1.0,Brighton,3
+805,Lucca,0.0,Burnley,1
+806,Mandas,0.0,Newcastle,3
+807,Rayan,3.0,Newcastle,3
+808,Abraham,1.0,Sunderland,3
+809,Abbey,0.0,Leeds,2
+810,Bentt,0.0,Fulham,3
+811,Kyerematen,0.0,Brighton,3
+812,Ellborg,2.0,Aston Villa,3
+813,Angulo,0.0,Aston Villa,3
+814,Netz,0.0,Burnley,1
+815,Disasi,4.0,Crystal Palace,3
+816,Angel,2.0,Leeds,2
+817,Armstrong,2.0,Leeds,2
+818,Wilson,0.0,Brighton,3
+819,Shield,0.0,Fulham,3
+820,McMahon-Brown,0.0,Nott'm Forest,3
+821,Whittaker,0.0,Aston Villa,3
+822,Jones,0.0,Aston Villa,3
+823,Stephenson,1.0,Fulham,3
+824,McManus,1.0,Fulham,3
+825,Herrick,1.0,Crystal Palace,3
+826,Owen,1.0,Fulham,3

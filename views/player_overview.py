@@ -318,19 +318,18 @@ def show(df):
         # Contextual Value
         # --------------------------------------------------------------------
         st.subheader("Contextual Value")
-
         fig_context = go.Figure()
         fig_context.add_trace(
             go.Scatter(
                 x=5*(
-                    player_data['opp_strength_defence']/player_data['opp_strength_defence'].max()
+                    player_data['opp_difficulty_rating']/player_data['opp_difficulty_rating'].max()
                 ),
                 y=player_data['expected_goal_involvements'],
                 mode='markers',
                 name='Contextual Value'
             )
         )
-
+        
         fig_context_1, r2 = scatter_plot(
             main_df=player_data,
             hover_template_dict={
@@ -342,12 +341,12 @@ def show(df):
                     ),
                 'gw': ("GW: ", None),
             },
-            x_column = 'opp_strength_defence',
+            x_column = 'opp_difficulty_rating',
             y_column = 'expected_goal_involvements',
             marker_column="total_points",
             category_column='player_name',
             trendline_bool=True,
-            x_title="Opponent Defensive Strength",
+            x_title="Opponent Overall Strength",
             y_title="Expected Goal Involvements"
         )
         st.caption(f"**$R^2$** = **{r2}%**")
